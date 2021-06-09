@@ -1,0 +1,1 @@
+scalac -deprecation -feature -bootclasspath /Users/brianbauman/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.3.jar -unchecked -classpath /Users/brianbauman/Documents/DePaul/CSC 447/hw/target/scala-2.12/classes /Users/brianbauman/Documents/DePaul/CSC 447/hw/src/main/scala/argpass.scala

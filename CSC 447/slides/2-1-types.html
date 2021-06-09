@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>CSC447 - Concepts of Programming Languages - Types</title>
+
+    <meta name="description" content="CSC447 - Concepts of Programming Languages - Types">
+    <meta name="author" content="James Riely">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <!-- <link rel="stylesheet" href="lib/css/zenburn.css"> -->
+    <!-- <link rel="stylesheet" href="lib/css/default.css"> -->
+    <!-- <link rel="stylesheet" href="lib/css/mono-blue.css"> -->
+    <!-- <link rel="stylesheet" href="lib/css/tomorrow.css"> -->
+    <!-- <link rel="stylesheet" href="lib/css/color-brewer.css"> -->
+    <!-- <link rel="stylesheet" href="lib/css/solarized-light.css"> -->
+    <link rel="stylesheet" href="lib/css/github.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>CSC447</h1>
+          <h3>Concepts of Programming Languages</h3>
+          <h3>Types</h3>
+          <p>
+            <small>Instructor: <a href="http://fpl.cs.depaul.edu/jriely/">James Riely</a></small>
+          </p>
+        </section>
+
+        <!-- content starts here -->
+
+        <section>
+          <h2>Overview</h2>
+          <ul>
+            <li>
+              Type checking
+              <ul>
+                <li>
+                  <i>static</i> (compile-time) vs <i>dynamic</i> (runtime)
+                </li>
+                <li>
+                  <i>strong</i> vs <i>weak</i>
+                </li>
+              </ul>
+            </li>
+            <li>
+              Examples in: Java, C, Scheme
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Types</h2>
+          <ul>
+            <li>
+              Is an operation allowed on data?
+              <ul>
+                <li>
+                  Can + be applied to two values?
+                </li>
+                <li>
+                  Can - be applied to two values?
+                </li>
+              </ul>
+            </li>
+            <li class="fragment">
+              <i>Types</i> used to describe when operations allowed
+              <ul>
+                <li>
+                  Java: + allowed on strings and numeric types
+                  <br />Conversion to strings using<code>toString</code>
+                </li>
+                <li>
+                  Java: - allowed on numeric types
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Dynamic Type Checking</h2>
+          <ul>
+            <li>
+              Tracks and stores type of data at runtime
+            </li>
+            <li>
+              Checks types before applying an operation
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Example: Scheme / Dynamic</h2>
+          <ul>
+            <li>
+              Dynamic type checking detects a failure
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              How do we know this is dynamic?
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              Type checker invoked before execution starts?
+            </li>
+          </ul>
+          <pre><code class="nohighlight" data-trim="">
+#;> (- 5 "hello")
+Error in -: expected type number, got '"hello"'.
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Example: Scheme / Dynamic</h2>
+          <ul>
+            <li>
+              Defer computation to function body
+            </li>
+            <li class="nofragment">
+              Failure is when <code>f</code> runs
+            </li>
+            <li class="nofragment">
+              Conclusion: no type checking before execution
+            </li>
+          </ul>
+          <pre><code class="nohighlight" data-trim="">
+#;> (define (f) (- 5 "hello"))
+#;> (f)
+Error in -: expected type number, got '"hello"'.
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Static Type Checking</h2>
+          <ul>
+            <li>
+              Compiler analyzes code for type errors
+            </li>
+            <li class="nofragment">
+              Reports (rejects) programs with incorrect usage
+            </li>
+            <li class="nofragment">
+              Found in C, Java, Scala, Haskell, Rust, Coq, etc.
+            </li>
+            <li class="fragment">
+              Programmer's annotations or type inference
+            </li>
+            <li class="fragment">
+              Standalone:
+              Facebook's <a href="http://flowtype.org/">Flow</a> for JavaScript
+            </li>
+            <li class="fragment">
+              Often conservative; well-behaved programs rejected?
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Example: Java / Static</h2>
+          <ul>
+            <li>
+              <code>javac</code> rejects code with <code>(5 - "hello")</code>
+            </li>
+          </ul>
+          <pre class="fragment"><code class="nohighlight" data-trim="">
+$ javac Typing01.java
+Typing01.java:5: error: bad operand types for binary operator '-'
+    System.out.println ("Result = " + (a - b));
+                                         ^
+  first type:  int
+  second type: String
+          </code></pre>
+          <pre><code class="java" data-trim="">
+class Typing01 {
+  void f () {
+    int a = 5;
+    String b = "hello";
+    System.out.println ("Result = " + (a - b));
+  }
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Example: C / Static</h2>
+          <ul>
+            <li>
+              Conversion from <code>char</code> to <code>int</code> OK
+            </li>
+            <li class="fragment">
+              <code>(char *)</code> not coerced to <code>(int *)</code>
+            </li>
+          </ul>
+          <pre><code class="C" data-trim="">
+int main () {
+  char a[] = { 0x85, 0x86, 0x87, 0x88 };
+  int b = a[0];
+  char *p = &a[0];
+  int *q = p;       /* type checker complains */
+  int c = *q;
+  printf ("b = %08x, p = %p, q = %p, c = %08x\n", b, p, q, c);
+  return 0;
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Example: C / Static</h2>
+          <ul>
+            <li>
+              Casting gets this to compile -- What does it print?
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              <code>a[0]</code> is seen with the wrong value
+            </li>
+          </ul>
+          <pre class="fragment" data-fragment-index="2"><code class="nohighlight" data-trim="">
+clang -m32 typing-02.c && ./a.out
+b=ffffff85, c=88878685, p=0x7ffee09a01e8, q=0x7ffee09a01e8
+b=-123, c=-2004384123
+          </code></pre>
+          <pre><code class="C" data-trim="">
+int main () {
+  char a[] = { 0x85, 0x86, 0x87, 0x88 };
+  int b = a[0];
+  char *p = &a[0];
+  int *q = (int *) p;  /* type checker accepts explict cast */
+  int c = *q;
+  printf ("b=%08x, c=%08x, p=%p, q=%p\n", b, c, p, q);
+  printf ("b=%d, c=%d\n", b, c);
+  return 0;
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Shape errors</h2>
+          <ul>
+            <li>
+              Memory location contains data written at a given type (such as character array)
+            </li>
+            <li>
+              The same memory location is read and interpreted at an incompatible type (such as int)
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              This is known as an <i>unchecked runtime type error</i>
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              For brevity, I will call this a <i>shape error</i>
+            </li>
+            <li class="fragment" data-fragment-index="3">
+              Shape errors are <i>silent</i> and <i>allow access</i>
+            </li>
+            <li class="fragment" data-fragment-index="3">
+              Scheme prevents shape errors by <i>throwing an exception</i> and <i>denying access</i>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Another C Example</h2>
+          <ul>
+            <li>
+              Pointer and array access unsafe -- What does this print?
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              <code>f</code> and <code>i</code> are misused (shape error)!
+            </li>
+          </ul>
+          <pre class="fragment" data-fragment-index="2"><code class="nohighlight" data-trim="">
+clang -m32 typing-03.c && ./a.out
+f=10.000000 a[0]=10 i=10
+f=10.000000 a[0]=10 i=47
+f=-316912650057057350374175801344.000000 a[0]=10 i=47
+          </code></pre>
+          <pre><code class="C" data-trim="">
+void update (int* p) {
+    *(p+1) = 0xf0800000;
+}
+int main () {
+    float f = 10;    
+    int a[]  = { 10 };
+    int i = 10;
+                printf ("f=%f, a[0]=%d i=%d\n", f, a[0], i);
+    a[-1] = 47; printf ("f=%f, a[0]=%d i=%d\n", f, a[0], i);
+    update (a); printf ("f=%f, a[0]=%d i=%d\n", f, a[0], i);
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Another C Example</h2>
+          <ul>
+            <li>
+              Function pointers are particularly exciting -- What does this print?
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              If you guess correctly, you can call anything!
+            </li>
+          </ul>          
+          <pre class="fragment" data-fragment-index="2"><code class="nohighlight" data-trim="">
+clang -m32 typing-04.c && ./a.out
+-48
+hurray!
+ouch!
+          </code></pre>
+          <pre><code class="C" data-trim="">
+void unsafeCommand () { printf ("ouch!\n"); }
+void safeCommand ()   { printf ("hurray!\n"); }
+int guess () { return &unsafeCommand - &safeCommand; }
+int main () {
+    printf ("%d\n", guess ());
+    void (*c) () = &safeCommand;
+
+    c();
+    c += -48;
+    c();
+}
+          </code></pre>
+       </section>
+        <section>
+          <h2>Another C Example</h2>
+          <ul>
+            <li>
+              Function pointers are particularly exciting -- What does this print?
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              C types are <a href="http://unixwiz.net/techtips/reading-cdecl.html">difficult to read</a>, there are <a href="https://cdecl.org">tools</a> to help
+            </li>
+            <!-- <li class="fragment" data-fragment-index="2">
+                 <code>j</code> is misused!
+                 </li> -->
+          </ul>
+          <pre class="fragment" data-fragment-index="2"><code class="nohighlight" data-trim="">
+clang -m32 typing-05.c && ./a.out
+-64
+i=-260046848
+f=-316912650057057350374175801344.000000
+          </code></pre>
+          <pre><code class="C" data-trim="">
+void floatCommand (float f) { printf ("f=%f\n", f); }
+void intCommand (int i)     { printf ("i=%d\n", i); }
+int guess () { return &floatCommand - (void (*)(float)) &intCommand; }
+int main () {
+    printf ("%d\n", guess ());
+    void (*c) (int) = &intCommand;
+    int j = 0xf0800000;
+    c(j);
+    c -= 64;
+    c(j);
+}          </code></pre>
+        </section>
+        <section>
+          <h2>Strong vs Weak</h2>
+          <ul>
+            <li>
+              <i>Strong</i> typing guarantees no shape errors
+              <ul class="fragment" >
+                <li>
+                  oft used but poorly defined
+                </li>
+                <li>
+                  <i>type safety</i> is more precise
+                </li>
+              </ul>
+            </li>
+            <li class="fragment">
+              <i>Weak</i> typing may permit shape errors
+            </li>
+            <li class="fragment">
+              <i>Shape error</i> = data used contrary to type
+              <ul>
+                <li>
+                  E.g., a floating point number used as an integer
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Strong vs Weak</h2>
+          <ul>
+            <li>
+              Strong, static: Java, C#, Scala, Rust, etc.
+              <ul>
+                <li>
+                  early warning, strong guarantees
+                </li>
+              </ul>
+            </li>
+            <li class="fragment">
+              Weak, static: C
+              <ul>
+                <li>
+                  early warning, weak guarantees
+                </li>
+              </ul>
+            </li>
+            <li class="fragment">
+              Strong, dynamic: Scheme, Python, Ruby, etc. 
+              <ul>
+                <li>
+                  problem detected at runtime
+                </li>
+                <li class="fragment">
+                  but before a shape error occurs!
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Is Java Strong?</h2>
+          <ul>
+            <li>
+              Java also has casting -- What does this do
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              Java has class cast exceptions at runtime
+            </li>
+          </ul>
+          <pre class="fragment" data-fragment-index="2"><code class="java" data-trim="">
+javac Typing02.java && java Typing02
+Exception in thread "main" java.lang.ClassCastException: B cannot be cast to C
+          </code></pre>
+          <pre><code class="java" data-trim="">
+class A { int x; }
+class B extends A { float y; }
+class C extends A { char c; }
+
+class Typing02 {
+  public static void main (String[] args) {
+    B b = new B ();
+    A a = b;
+    C c = (C) a;
+  }
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Is Java Strong?</h2>
+          <ul>
+            <li>
+              Yes, error is detected before memory is accessed
+            </li>
+            <li>
+              Like Scheme, etc.
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Is Java Dynamic?</h2>
+          <ul>
+            <li>
+              Java's type checking is <i>mostly</i> static
+            </li>
+            <li>
+              Runtime system knows class of each object
+            </li>
+            <li>
+              Runtime tests for only in certain cases
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Dynamic checks in Java 1</h2>
+          <ul>
+            <li>
+              Arrays <span class="fragment" data-fragment-index="2">(more about this later)</span>
+              <ul class="fragment" data-fragment-index="2">
+                <li>
+                  Reading always safe, Writing potentially dangerous
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <pre class="fragment" data-fragment-index="2"><code class="java" data-trim="">
+javac Typing03.java && java Typing03
+Exception in thread "main" java.lang.ArrayStoreException: C
+          </code></pre>
+          <pre><code class="java" data-trim="">
+class A { int x; }
+class B extends A { float y; }
+class C extends A { char c; }
+
+class Typing03 {
+  public static void main (String[] args) {
+      B[] bs = new B[1];
+      A[] as = bs;
+      as[0] = new C();
+      B b = bs[0];
+  }
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Dynamic checks in Java 2</h2>
+          <ul>
+            <li>
+              Arrays
+              <ul class="fragment" data-fragment-index="2">
+                <li>
+                  Bounds checking prevents C-like indexing errors
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <pre class="fragment" data-fragment-index="2"><code class="java" data-trim="">
+javac Typing04.java && java Typing04
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -1
+          </code></pre>
+          <pre><code class="java" data-trim="">
+class A { int x; }
+class B extends A { float y; }
+class C extends A { char c; }
+
+class Typing04 {
+  public static void main (String[] args) {
+    B[] bs = new B[4];
+    C c = new C();
+    B b = bs[-1];
+  }  
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Dynamic checks in Java 3</h2>
+          <ul>
+            <li>
+              Casting
+              <ul class="fragment" data-fragment-index="2">
+                <li>
+                  Upcasting always safe,
+                  Downcasting potentially dangerous
+                </li>
+              </ul>              
+            </li>
+          </ul>
+          <pre class="fragment" data-fragment-index="2"><code class="java" data-trim="">
+javac Typing05.java && java Typing05
+Exception in thread "main" java.lang.ClassCastException: C cannot be cast to B
+          </code></pre>
+          <pre><code class="java" data-trim="">              
+class A { int x; }
+class B extends A { float y; }
+class C extends A { char c; }
+
+class Typing05 {
+  static void f (B b) {
+    A a = b;       // upcast
+  }
+  static void g (A a) {
+    B b = (B) a;   // downcast
+  }
+  public static void main (String[] args) {
+      f (new B());
+      g (new C());
+  }  
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Dynamic checks in Java 4</h2>
+          <ul>
+            <li>
+              Garbage collection and restricted use of pointers
+              <ul>
+                <li>
+                  Not a dynamic check, but related to type safety --- how?
+                </li>
+                <li class="fragment" data-fragment-index="2">
+                  To prevent C-like pointer errors
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Tradeoffs</h2>
+          <ul>
+            <li>
+              Dynamic: 
+              <ul>
+                <li>
+                  more flexible
+                </li>
+                <li>
+                  usually conceptually simpler
+                </li>
+                <li>
+                  faster compilation
+                </li>
+                <li>
+                  easier runtime code generation/modification
+                </li>
+              </ul>
+            </li>
+            <li>
+              Static: 
+              <ul>
+                <li>
+                  compile-time detection of errors
+                </li>
+                <li>
+                  no unit tests for type checking
+                </li>
+                <li>
+                  automatic documentation
+                </li>
+                <li>
+                  faster runtime (dynamic checks, optimization)
+                </li>
+                <li>
+                  less memory consumption at runtime
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <!-- content ends here -->
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="../assets/js/slides.js"></script>
+  </body>
+</html>

@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>CSC447 - Concepts of Programming Languages - Functional Programming</title>
+
+    <meta name="description" content="CSC447 - Concepts of Programming Languages - Functional Programming">
+    <meta name="author" content="James Riely">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <!--
+         <link rel="stylesheet" href="lib/css/zenburn.css">
+         <link rel="stylesheet" href="lib/css/default.css">
+         <link rel="stylesheet" href="lib/css/mono-blue.css">
+         <link rel="stylesheet" href="lib/css/tomorrow.css">
+         <link rel="stylesheet" href="lib/css/color-brewer.css">
+         <link rel="stylesheet" href="lib/css/solarized-light.css">
+    -->
+    <link rel="stylesheet" href="lib/css/github.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+     var link = document.createElement( 'link' );
+     link.rel = 'stylesheet';
+     link.type = 'text/css';
+     link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+     document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+      <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>CSC447</h1>
+          <h3>Concepts of Programming Languages</h3>
+          <h3>Functional Programming</h3>
+          <p>
+            <small>Instructor: <a href="http://fpl.cs.depaul.edu/jriely/">James Riely</a></small>
+          </p>
+        </section>
+
+        <!-- content starts here -->
+        <section>
+          <h2>Functions and methods in Scala</h2>
+          <pre><code class="scala" data-trim="">
+def a (x:Int) = x + 1;
+val b = (x:Int) => x + 1;
+val c : (Int => Int) = (x) => x + 1;
+val d = new Function[Int,Int] { def apply(x:Int) = x + 1 }
+object e extends Function1[Int, Int] { def apply(x:Int) = x + 1; }
+val f : PartialFunction[Any, Int]  = { case i: Int ⇒ i + 1 }
+a(4)
+b(4)
+c(4)
+d(4)
+e(4)
+f(4)
+          </code></pre>
+          <ul>
+            <li>
+              What's going on here?
+            </li>
+            <li>
+              <a href="http://jim-mcbeath.blogspot.com/2009/05/scala-functions-vs-methods.html">Functions vs Methods</a>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Functions and methods in Scala</h2>
+          <pre><code class="scala" data-trim="">
+def a (x:Int) = x + 1;
+val b = (x:Int) => x + 1;
+val c : (Int => Int) = (x) => x + 1;
+val d = new Function[Int,Int] { def apply(x:Int) = x + 1 }
+object e extends Function1[Int, Int] { def apply(x:Int) = x + 1; }
+val f : PartialFunction[Any, Int]  = { case i: Int ⇒ i + 1 }
+
+println (s"a=${a(4)}, b=${b(4)} c=${c(4)} d=${d(4)} e=${e(4)} f=${f(4)}")
+for (x <- List(a _,b,c,d,e,f)) { println (x(4)) }
+f.isDefinedAt(4)
+          </code></pre>
+          <ul>
+            <li>
+              <code>def</code> defines a <i>method</i>: parameters must have types
+            </li>
+            <li>
+              <code>=></code> defines an anonymous function (aka, lambda expression): parameter types must be inferable
+            </li>
+            <li>
+              Functions are implemented as objects with method <code>apply</code>
+            </li>
+            <li>
+              When <i>exp</i> has function type, <i>exp (args)</i> is shorthand for <i>exp.apply (args)</i>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Print Every Element</h2>
+          <ul>
+            <li>
+              How to print every element of a list?
+            </li>
+          </ul>
+          <pre class="fragment"><code class="scala" data-trim="">
+def printList [X] (xs:List[X]) : Unit = {
+  xs match {
+    case Nil   => ()
+    case y::ys => { 
+      println (y)
+      printList (ys)
+    }
+  }
+}
+val xs = List(1,2,3)
+printList (xs)
+          </code></pre>
+        </section>
+        <section>
+          <h2>??? Every Element</h2>
+          <ul>
+            <li>
+              Abstract the idea of processing every element
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+def foreach [X] (xs:List[X], f:X=>Unit) : Unit = {
+  xs match {
+    case Nil   => ()
+    case y::ys => { 
+      f (y)
+      foreach (ys, f)
+    }
+  }
+}
+val xs = List(1,2,3)
+foreach (xs, println)
+          </code></pre>
+          <!-- <pre class="fragment"><code class="scala" data-trim="">
+               def printElt [X] (x:X) : Unit = println (x)
+
+               def printList [X] (xs:List[X]) : Unit = foreach (xs, printElt)
+               </code></pre>
+               <pre class="fragment"><code class="nohighlight" data-trim="">
+               scala> printList (List (1,2,3))
+               1
+               2
+               3
+               </code></pre> -->
+        </section>
+        <section>
+          <h2>New Control Structures</h2>
+          <ul>
+            <li>
+              <code>foreach</code> is a new control structure for lists
+            </li>
+            <li class="fragment">
+              <code>f</code> is a <i>function parameter</i>
+            </li>
+            <li class="fragment">
+              Type <code>(X=>Unit)</code> means a function that
+              <ul>
+                <li class="fragment">
+                  takes an argument of type <code>X</code>
+                </li>
+                <li class="fragment">
+                  returns a result of type <code>Unit</code>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+def foreach [X] (xs:List[X], f:X=>Unit) : Unit = {
+  xs match {
+    case Nil   => ()
+    case y::ys => { 
+      f (y)
+      foreach (ys, f)
+    }
+  }
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Using your own Functions</h2>
+          <div style="margin:1ex;">
+            <div>
+              Pass a named function to <code>foreach</code>
+            </div>
+            <pre><code class="scala" data-trim="">
+def printElt [X] (x:X) : Unit = println ("%02d".format(x))
+foreach (xs, printElt)
+
+def printList [X] (xs:List[X]) = foreach (xs, printElt)
+            </code></pre>
+          </div>
+          <div class="fragment">
+            <div>
+              Pass an <i>anonymous function</i> to <code>foreach</code>
+            </div>
+            <pre><code class="scala" data-trim="">
+foreach (xs, (x:Int) => println ("%02d".format(x)))
+
+def printList [X] (xs:List[X]) = foreach (xs, (x:X) => println ("%02d".format(x)))
+            </code></pre>
+            Anonymous functions AKA <i>lambda expressions</i>
+          </div>
+        </section>
+        <section>
+          <h2>Builtin <code>foreach</code></h2>
+          <ul>
+            <li>
+              Scala <code>List</code> class has <code>foreach</code> method
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+def printList [X] (xs:List[X]) = xs.foreach ((x:X) => println (x))
+          </code></pre>
+          <div class="fragment">
+            <div>
+              vs our own <code>foreach</code> function
+            </div>
+            <pre><code class="scala" data-trim="">
+def printList [X] (xs:List[X]) = foreach (xs, (x:X) => println (x))
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          <h2>Sum A List</h2>
+          <div>
+            Using <code>foreach</code> and a variable in scope
+          </div>
+          <pre><code class="scala" data-trim="">
+def sum (xs:List[Int]) : Int = {
+  var result = 0
+  xs.foreach ((x:Int) => result = result + x)
+  result
+}
+          </code></pre>
+          <div class="fragment">
+            <div>
+              or
+            </div>
+            <pre><code class="scala" data-trim="">
+def sum (xs:List[Int]) : Int = {
+  var result = 0
+  xs.foreach ((x:Int) => {
+    result = result + x
+  })
+  result
+}
+            </code></pre>
+          </div>
+          <div class="fragment">
+            <div>
+              (but folds are better!  stay tuned...)
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Transform Elements</h2>
+          <ul>
+            <li>
+              Create a new list from an old list
+            </li>
+            <li class="fragment">
+              Recall that <code>List</code> is immutable in Scala
+              <ul>
+                <li class="fragment">
+                  so a new list is returned; old list unchanged
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+def transform (xs:List[Int]) : List[String] = {
+  xs match {
+    case Nil   => Nil
+    case y::ys => ("%02d".format (y)) :: transform (ys)
+  }
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Map on Lists</h2>
+          <ul>
+            <li>
+              Abstract building a new list
+            </li>
+            <li class="fragment">
+              <code>f</code> function parameter
+              <ul class="fragment">
+                <li>
+                  from each element <code>y</code> of old list...
+                </li>
+                <li class="fragment">
+                  ...builds an element <code>f(y)</code> of new list
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+def map [X,Y] (xs:List[X], f:X=>Y) : List[Y] = {
+  xs match {
+    case Nil   => Nil
+    case y::ys => f (y) :: map (ys, f)
+  }
+}
+
+def transform (xs:List[Int]) : List[String] = 
+  map (xs, (y:Int) => "%02d".format (y))
+          </code></pre>
+        </section>
+        <section>
+          <h2>Map Builtin</h2>
+          <ul>
+            <li>
+              Scala <code>List</code> class has a builtin <code>map</code> method
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+import java.io.File
+
+def getFileSizes () : List[(String,Long)] = {
+  val files : List[File] = new File (".").listFiles.toList
+  files.map ((f:File) => (f.getName, f.length))
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Identity Function on Lists</h2>
+          <ul>
+            <li>
+              Identity function: returns the same data
+            </li>
+            <li class="fragment">
+              Actually builds a copy of the list
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+def identity [X] (xs:List[X]) : List[X] = {
+  xs match {
+    case Nil   => Nil
+    case y::ys => y :: identity (ys)
+  }
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Identity and Map Properties</h2>
+          <ul>
+            <li>
+              one cons cell in input => 
+              one cons cell in output
+            </li>
+            <li class="fragment">
+              &there4; input list length = output list length
+            </li>
+          </ul>
+          <pre class="fragment"><code class="nohighlight" data-trim="">
+identity (1::(2::(3::Nil)))
+--> 1::(identity (2::(3::Nil)))
+--> 1::(2::(identity (3::Nil)))
+--> 1::(2::(3::(identity (Nil))))
+--> 1::(2::(3::(Nil)))
+          </code></pre>
+          <pre class="fragment"><code class="nohighlight" data-trim="">
+map (1::(2::(3::Nil)), f)
+--> f(1)::(map (2::(3::Nil), f))
+--> f(1)::(f(2)::(map (3::Nil, f)))
+--> f(1)::(f(2)::(f(3)::(map (Nil, f))))
+--> f(1)::(f(2)::(f(3)::(Nil)))
+          </code></pre>
+        </section>
+        <section>
+          <h2>Foreach vs Map</h2>
+          <ul>
+            <li>
+              Compare cons cases
+            </li>
+            <li class="fragment">
+              <code>foreach</code> discards <code>f(y)</code>;
+              <span class="fragment">
+                <code>map</code> conses <code>f(y)</code>
+              </span>
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+def foreach [X] (xs:List[X], f:X=>Unit) : Unit = {
+  xs match {
+    case Nil   => ()
+    case y::ys => { f (y); foreach (ys, f) }
+  }
+}
+          </code></pre>
+          <pre><code class="scala" data-trim="">
+def map [X,Y] (xs:List[X], f:X=>Y) : List[Y] = {
+  xs match {
+    case Nil   => Nil
+    case y::ys => f (y) :: map (ys, f)
+  }
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Filter</h2>
+          <ul>
+            <li>
+              Only copy elements satisfying predicate <code>f</code>
+            </li>
+          </ul>
+          <pre class="fragment"><code class="scala" data-trim="">
+def filter [X] (xs:List[X], f:X=>Boolean) : List[X] = {
+  xs match {
+    case Nil            => Nil
+    case y::ys if f (y) => y :: filter (ys, f)
+    case _::ys          => filter (ys, f)
+  }
+}
+          </code></pre>
+          <pre class="fragment"><code class="scala" data-trim="">
+scala> filter ((0 to 15).toList, (x:Int) => (x % 3 != 0))
+res1: List[Int] = List(1, 2, 4, 5, 7, 8, 10, 11, 13, 14)
+          </code></pre>
+        </section>
+        <!-- <section>
+             <h2>Caution: "Copy"</h2>
+             <ul>
+             <li>
+             In Scala, "copy elements" can mean
+             <ul>
+             <li class="fragment">
+             Copy a value of primitive type, e.g., <code>int</code>
+             </li>
+             <li class="fragment">
+             Copy a reference to an object
+             </li>
+             </ul>
+             </li>
+             </ul>
+             </section> -->
+        <section>
+          <h2>Sum to foldLeft</h2>
+          <div>
+            Using tail recursion (computing forward)
+          </div>
+          <pre><code class="scala" data-trim="">
+def sum (xs:List[Int], z:Int = 0) : Int =  xs match {
+  case Nil   => z
+  case y::ys => sum (ys, z + y)
+}
+val xs = List(11,21,31)
+sum (xs)
+          </code></pre>
+          <div class="fragment">
+            <div>
+              abstract away the + operation
+            </div>
+            <pre><code class="scala" data-trim="">
+def foldLeft (xs:List[Int], z:Int, f:((Int,Int)=>Int)) : Int =  xs match {
+  case Nil   => z
+  case y::ys => foldLeft (ys, f(z,y), f)
+}
+foldLeft (xs, 0, (z:Int,x:Int)=>z+x)
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          <h2>Sum to foldLeft</h2>
+          <div>
+            <div>
+              more generally
+            </div>
+            <pre><code class="scala" data-trim="">
+def foldLeft [Z,X] (xs:List[X], z:Z, f:((Z,X)=>Z)) : Z =  xs match {
+  case Nil   => z
+  case y::ys => foldLeft (ys, f(z,y), f)
+}
+val xss = List(List(1,2,3),List(4,5,6,7),List(8,9),List(10))
+foldLeft (xss, 0, (z:Int,xs:List[Int])=>z + xs.length)
+            </code></pre>
+          </div>
+          <pre><code class="scala" data-trim="">
+val xs = List(x1, x2, x3, ..., xn)
+foldLeft(xs, z, f) = f( ... f( f( f(z, x1), x2), x3) ..., xn)
+          </code></pre>
+          <p>
+            Here are
+            <a href="https://oldfashionedsoftware.com/2009/07/30/lots-and-lots-of-foldleft-examples/">
+              lots and lots of foldleft examples</a>
+          </p>
+        </section>
+        <section>
+          <h2>Sum to foldRight</h2>
+          <div>
+            Using non-tail recursion (computing backward)
+          </div>
+          <pre><code class="scala" data-trim="">
+def sum (xs:List[Int], z:Int = 0) : Int =  xs match {
+  case Nil   => z
+  case y::ys => y + sum (ys, z)
+}
+val xs = List(11,21,31)
+sum (xs)
+          </code></pre>
+          <div class="fragment">
+            <div>
+              abstract away the + operation
+            </div>
+            <pre><code class="scala" data-trim="">
+def foldRight (xs:List[Int], z:Int, f:((Int,Int)=>Int)) : Int =  xs match {
+  case Nil   => z
+  case y::ys => f (y, foldRight (ys, z, f))
+}
+foldRight (xs, 0, (x:Int,z:Int)=>z+x)
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          <h2>Sum to foldRight</h2>
+          <div>
+            more generally
+          </div>
+          <pre><code class="scala" data-trim="">
+def foldRight [X,Z] (xs:List[X], z:Z, f:((X,Z)=>Z)) : Z =  xs match {
+  case Nil   => z
+  case y::ys => f (y, foldRight (ys, z, f))
+}
+val xss = List(List(1,2,3),List(4,5,6,7),List(8,9),List(10))
+foldRight (xss, 0, (xs:List[Int],z:Int)=>xs.length + z)
+          </code></pre>
+          <div class="fragment">
+            <div>
+              versus
+            </div>
+            <pre><code class="scala" data-trim="">
+def foldLeft [Z,X] (xs:List[X], z:Z, f:((Z,X)=>Z)) : Z =  xs match {
+  case Nil   => z
+  case y::ys => foldLeft (ys, f(z,y), f)
+}
+val xss = List(List(1,2,3),List(4,5,6,7),List(8,9),List(10))
+foldLeft (xss, 0, (z:Int,xs:List[Int])=>z + xs.length)
+            </code></pre>
+          </div>        
+        </section>
+        <section>
+          <h2>Left v Right</h2>
+          <pre><code class="scala" data-trim="">
+def foldLeft [Z,X] (xs:List[X], z:Z, f:((Z,X)=>Z)) : Z =  xs match {
+  case Nil   => z
+  case y::ys => foldLeft (ys, f(z,y), f)
+}
+          </code></pre>
+          <pre><code class="scala" data-trim="">
+def foldRight [X,Z] (xs:List[X], z:Z, f:((X,Z)=>Z)) : Z =  xs match {
+  case Nil   => z
+  case y::ys => f (y, foldRight (ys, z, f))
+}
+          </code></pre>
+          <ul>
+            <li>
+              <code>foldLeft</code> is <i>tail recursive:</i> each iteration applies <code>f</code> to
+              the next value and the accumulated result; recursive call is
+              the result
+            </li>
+            <li>
+              <code>foldRight</code> is <i>recursive into an argument:</i> each
+              iteration applies <code>f</code> to the next value and the
+              result of recursively folding the rest of the list
+            </li>
+          </ul>
+        </section>        
+        <section>
+          <h2>Builtin folds</h2>
+          <ul>
+            <li>
+              Scala <code>List</code> class has <code>fold</code> methods
+              <pre><code class="scala" data-trim="">
+xss.foldLeft (0) ((z,xs)=>z + xs.length)
+              </code></pre>
+              <div>
+                <div>
+                  vs our own <code>foldLeft</code> function
+                </div>
+                <pre><code class="scala" data-trim="">
+foldLeft (xss, 0, (z,xs)=>z + xs.length)
+                </code></pre>
+              </div>
+            </li>
+            <li>
+              Operator forms:
+              <pre><code class="scala" data-trim="">
+ xss.foldLeft(0)(f) == (0 /: xss)(f)
+xss.foldRight(0)(f) == (xss :\ 0)(f)
+              </code></pre>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Left v Right</h2>
+          <pre><code class="scala" data-trim="">
+def foldLeft [Z,X] (xs:List[X], z:Z, f:((Z,X)=>Z)) : Z =  xs match {
+  case Nil   => z
+  case y::ys => foldLeft (ys, f(z,y), f)
+}
+          </code></pre>
+          <pre><code class="scala" data-trim="">
+def foldRight [X,Z] (xs:List[X], z:Z, f:((X,Z)=>Z)) : Z =  xs match {
+  case Nil   => z
+  case y::ys => f (y, foldRight (ys, z, f))
+}
+          </code></pre>
+          <pre><code class="scala" data-trim="">
+val xs = List(a, b, c)
+foldLeft (xs, z, f) === f( f( f( f(z, a), b), c)) === (z /: xs)(f)
+foldRight(xs, z, f) === f(a, f(b, f(c, z)))       === (xs :\ z)(f) 
+          </code></pre>
+          <pre><code class="scala">                   (z /: xs)(f)           (xs :\ z)(f)
+                      f                       f
+                     / \                     / \
+                    f   c                   a   f
+                   / \                         / \
+                  f   b                       b   f
+                 / \                             / \
+                z   a                           c   z</code></pre>
+        </section>        
+        <section>
+          <h2>Currying</h2>
+          <ul>
+            <li>
+              Note that syntax for <code>foldLeft</code> is
+              <pre><code class="scala" data-trim="">
+xss.foldLeft (z) (f)
+              </code></pre>
+              <div>
+                <div>
+                  rather than 
+                </div>
+                <pre><code class="scala" data-trim="">
+xss.foldLeft (z, f)
+                </code></pre>
+              </div>
+            </li>
+            <li>
+              We can define methods and functions in either style:
+            </li>
+          </ul>
+          <span class="fragment">
+            <pre><code class="scala" data-trim="">
+def m1(x:Int, y:Int) = x+y
+def m2(x:Int)(y:Int) = x+y
+val f1 = (x:Int, y:Int) => x+y
+val f2 = (x:Int) => (y:Int) => x+y
+val sums = List(m1(11,22), m2(11)(22), f1(11,22), f2(11)(22))
+            </code></pre>
+            <pre><code class="scala" data-trim="">
+m1: (x: Int, y: Int)Int
+m2: (x: Int)(y: Int)Int
+f1: (Int, Int) => Int = ...
+f2: Int => (Int => Int) = ...
+            </code></pre>
+          </span>
+          <pre class="fragment"><code class="scala" data-trim="">
+val g1 : (Int, Int) => Int = m1(_,_)
+val g2 : Int => (Int => Int) = m2(_)
+          </code></pre>
+        </section>
+        <section>
+          <h2>Partial application</h2>
+          <ul>
+            <li>
+              Curried functions are given their arguments one at a time
+            </li>
+            <li>
+              Scala makes it easy to partially apply methods and functions
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+def m1(x:Int, y:Int) = x+y
+def m2(x:Int)(y:Int) = x+y
+val f1 = (x:Int, y:Int) => x+y
+val f2 = (x:Int) => (y:Int) => x+y
+          </code></pre>
+          <pre><code class="scala" data-trim="">
+val m1p : Int => Int = m1(11, _)
+val m2p : Int => Int = m2(11)(_)
+val f1p : Int => Int = f1(11, _)
+val f2p : Int => Int = f2(11)
+val sums = List(m1p(22), m2p(22), f1p(22), f2p(22))
+          </code></pre>
+        </section>
+        <section>
+          <h2>Higher-Order Functions</h2>
+          <ul>
+            <li>
+              <code>foreach</code>, <code>map</code>, <code>filter</code> are <i>higher-order functions</i>
+              <ul>
+                <li class="fragment">
+                  they take other functions as arguments
+                </li>
+              </ul>
+            </li>
+            <li class="fragment">
+              Curried functions, such as <code>f2</code> are also higher-order
+              <ul>
+                <li class="fragment">
+                  they return other functions as results
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Functional Programming</h2>
+          <ul>
+            <li>
+              According to Mitchell, X is <i>first-class</i> if X can be 
+              <ul>
+                <li>
+                  declared within any scope,
+                </li>
+                <li>
+                  passed as arguments to other functions, and
+                </li>
+                <li>
+                  returned as results of functions.
+                </li>
+              </ul>
+            </li>
+            <li class="fragment">
+              PL supports <i>functional programming</i> (FP)
+              <ul>
+                <li>
+                  functions are first-class citizens
+                </li>
+                <li>
+                  created/passed at runtime
+                </li>
+                <li class="fragment">
+                  Sometimes: side-effects (assignment!) banned
+                </li>
+              </ul>
+            </li>
+            <li class="fragment">
+              PL supports <i>object-oriented programming</i> (OOP)
+              <ul>
+                <li>
+                  objects are first-class citizens
+                </li>
+                <li>
+                  created/passed at runtime
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>FP - Scheme</h2>
+          <div>
+            Scheme supports FP
+          </div>
+          <pre><code class="scheme" data-trim="">
+(define f2
+  (lambda (x)
+    (lambda (y)
+      (+ x y))))
+          </code></pre>
+          <pre><code class="nohighlight" data-trim="">
+#;> (map (f2 11) '(10 20 30))
+(21 31 41)
+          </code></pre>
+        </section>
+        <section>
+          <h2>FP - Java 8</h2>
+          <pre><code class="java" data-trim="">
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+public class Map {
+  public static void main (String[] args) {
+    Function&lt;Integer, Function&lt;Integer,Integer>> f2 = x -> y -> x+y;
+    List&lt;Integer> xs = Arrays.asList(10, 20, 30);
+    List&lt;Integer> result = 
+      xs.stream ()
+        .map (f2.apply(11))
+        .collect (Collectors.toList());
+    System.out.println (result);
+  }
+}</code></pre>
+        </section>
+
+
+        <!-- content ends here -->
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="../assets/js/slides.js"></script>
+  </body>
+</html>

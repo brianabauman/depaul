@@ -1,0 +1,179 @@
+console
+~compile
+compile
+console
+testOnly fp1tests -- -factTest
+testOnly fp1tests -- -n factTest
+testOnly fp1tests -- -n fp1ex01
+console
+compile
+testOnly fp1tests -- -n fp1ex01
+compile
+testOnly fp1tests -- -n fp1ex01
+compile
+testOnly fp1tests -- -n fp1ex01
+compile
+testOnly fp1tests -- -n fp1ex01
+compile
+testOnly fp1tests -- -n fp1ex02
+compile
+testOnly fp1tests -- -n fp1ex02
+compile
+testOnly fp1tests -- -n fp1ex02
+compile
+testOnly fp1tests -- -n fp1ex02
+compile
+testOnly fp1tests -- -n fp1ex02
+compile
+testOnly fp1tests -- -n fp1ex03
+compile
+testOnly fp1tests -- -n fp1ex04
+compile
+testOnly fp1tests -- -n fp1ex05
+compile
+testOnly fp1tests -- -n fp1ex06
+compile
+testOnly fp1tests -- -n fp1ex06
+compile
+testOnly fp1tests -- -n fp1ex06
+compile
+console
+compile
+testOnly fp1tests -- -n fp1ex06
+compile
+testOnly fp1tests -- -n fp1ex06
+compile
+testOnly fp1tests -- -n fp1ex07
+compile
+testOnly fp1tests -- -n fp1ex07
+compile
+testOnly fp1tests -- -n fp1ex07
+compile
+testOnly fp1tests -- -n fp1ex08
+compile
+testOnly fp1tests -- -n fp1ex08
+compile
+testOnly fp1tests -- -n fp1ex09
+compile
+testOnly fp1tests -- -n fp1ex09
+compile
+testOnly fp1tests -- -n fp1ex09
+compile
+testOnly fp1tests -- -n fp1ex09
+compile
+testOnly fp1tests -- -n fp1ex08
+¬
+cl
+scutil
+scutil --set HostName $(scutil --get LocalHostName)
+compile
+testOnly fp1tests -- -n fp1ex08
+console
+compile
+console
+compile
+testOnly fp1tests -- -n fp1ex08
+compile
+testOnly fp1tests -- -n fp1ex08
+compile
+testOnly fp1tests -- -n fp1ex09
+compile
+testOnly fp1tests -- -n fp1ex09
+compile
+testOnly fp1tests -- -n fp1ex09
+compile
+testOnly fp1tests -- -n fp1ex09
+compile
+testOnly fp1tests -- -n fp1ex10
+compile
+testOnly fp1test
+testOnly fp1tests
+testOnly fp2tests -- -n fp2ex01
+compile
+testOnly fp2tests -- -n fp2ex01
+compile
+testOnly fp2tests -- -n fp2ex02
+compile
+testOnly fp2tests -- -n fp2ex03
+compile
+testOnly fp2tests -- -n fp2ex04
+compile
+testOnly fp2tests -- -n fp2ex05
+compile
+testOnly fp2tests -- -n fp2ex06
+compile
+testOnly fp2tests -- -n fp2ex07
+compile
+testOnly fp2tests -- -n fp2ex07
+compile
+testOnly fp2tests -- -n fp2ex08
+compile
+testOnly fp2tests -- -n fp2ex08
+compile
+testOnly fp2tests -- -n fp2ex08
+compile
+testOnly fp2tests -- -n fp2ex08
+compile
+testOnly fp2tests -- -n fp2ex08
+testOnly fp2tests -- -n fp2ex09
+compile
+testOnly fp2tests -- -n fp2ex09
+compile
+testOnly fp2tests -- -n fp2ex09
+compile
+testOnly fp2tests -- -n fp2ex10
+compile
+testOnly fp2tests -- -n fp2ex10
+testOnly fp2tests
+compile
+testOnly fp2tests
+testOnly fp3tests
+testOnly fp3tests -- -n fp3ex01
+compile
+testOnly fp3tests -- -n fp3ex01
+testOnly fp3tests -- -n fp3ex02
+testOnly fp3tests -- -n fp3ex01
+compile
+testOnly fp3tests -- -n fp3ex02
+testOnly fp3tests -- -n fp3ex03
+testOnly fp3tests -- -n fp3ex04
+stringLength
+console
+testOnly fp3tests -- -n fp3ex03
+testOnly fp3tests -- -n fp3ex04
+testOnly fp3tests -- -n fp3ex05
+testOnly fp3tests -- -n fp3ex04
+testOnly fp3test
+testOnly fp3tests
+testOnly fp3tests -- -n fp3ex07
+console
+testOnly fp3tests -- -n fp3ex07
+testOnly fp3tests -- -n fp3ex08
+testOnly fp3tests -- -n fp3ex09
+testOnly fp3tests -- -n fp3ex10
+testOnly fp3test
+testOnly fp3tests
+1 + 2
+console
+sisc
+testOnly storagetests
+testOnly storagetests -- -n storageex01
+testOnly storagetests -- -n storageex02
+testOnly storagetests -- -n storageex03
+testOnly storagetests -- -n storageex04
+testOnly storagetests -- -n storageex05
+testOnly storagetests -- -n storageex06
+console
+testOnly storagetests -- -n storageex06
+testOnly storagetest
+testOnly storagetests
+pwd
+quit
+testOnly argpasstests
+testOnly argpasstests -- -n argpassex01
+testOnly argpasstests -- -n argpassex02
+testOnly argpasstests -- -n argpassex03
+testOnly argpasstests -- -n argpassex04
+testOnly argpasstests -- -n argpassex05
+scala
+console

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>CSC447 - Concepts of Programming Languages - C:
+      Statements versus Expressions, Strict versus Nonstrict and Undefined Behavior</title>
+
+    <meta name="description" content="CSC447 - Concepts of Programming Languages - Statements and Expressions (C)">
+    <meta name="author" content="James Riely">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <!--
+         <link rel="stylesheet" href="lib/css/zenburn.css">
+       -->
+    <link rel="stylesheet" href="lib/css/github.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+     var link = document.createElement( 'link' );
+     link.rel = 'stylesheet';
+     link.type = 'text/css';
+     link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+     document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+      <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>CSC447</h1>
+          <h3>Concepts of Programming Languages</h3>
+          <h3>C: Statements versus Expressions, Strict versus Nonstrict and Undefined Behavior</h3>
+          <p>
+            <small>Instructor: <a href="http://fpl.cs.depaul.edu/jriely/">James Riely</a></small>
+          </p>
+        </section>
+
+        <!-- content starts here -->
+
+        <section>
+          <h2>Overview</h2>
+          <ul>
+            <li>
+              C topics used in Scheme discussion
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Statements and Expressions</h2>
+          <ul>
+            <li>
+              In many programming languages:
+              <ul>
+                <li>
+                  Statements: executed for their side-effects
+                </li>
+                <li>
+                  Expressions: executed for their value
+                  <br/> 
+                  (and side-effects)
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Statements and Expressions</h2>
+          <p>
+            Some examples in C
+          </p>
+        </section>
+        <section>
+          <h2>Expressions</h2>
+          <ul>
+            <li>
+              Literals (boolean, character, integer, string)
+            </li>
+            <li>
+              Operators (arithmetic, bitwise, logical)
+            </li>
+            <li>
+              Function calls
+            </li>
+            <pre><code class="C" data-trim="">
+f (1 + (2 * strlen ("hello")))
+            </code></pre>
+          </ul>
+        </section>
+        <section>
+          <h2>Statements</h2>
+          <ul>
+            <li>
+              Expression statements (including assignment)
+            </li>
+            <li>
+              Return statements
+            </li>
+            <li>
+              Selection statements (if-then-else; switch-case)
+            </li>
+            <li>
+              Iteration statements (while; do-while; for)
+            </li>
+            <pre><code class="C" data-trim="">
+int count = 0;
+while (1) {
+  int ch = getchar ();
+  switch (ch) {
+  case -1: return count;
+  case 'a': count = count + 1;
+  default: continue;
+  }
+}
+            </code></pre>
+          </ul>
+        </section>
+        <section>
+          <h2>Side Effects</h2>
+          <ul>
+            <li>
+              In mathematical function takes arguments and gives results
+            </li>
+            <li>
+              An expression is <i>pure</i> if that's all it does
+            </li>
+            <li>
+              Anything else us a <i>side effect</i>
+              <ul>
+                <li>
+                  Assignment
+                </li>
+                <li>
+                  Change of control (goto)
+                </li>
+                <li>
+                  I/O (console, network)
+                </li>
+                <li>
+                  etc.
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Side-Effecting Expressions</h2>
+          <pre><code class="C" data-trim="">
+x++
+          </code></pre>
+          <pre><code class="C" data-trim="">
+x += 2
+          </code></pre>
+          <pre><code class="C" data-trim="">
+x = (y = 5)
+          </code></pre>
+          <pre><code class="C" data-trim="">
+x -= (y += 5)
+          </code></pre>
+        </section>
+        <section>
+          <h2>Side-Effecting Expressions</h2>
+          <pre><code class="C" data-trim="">
+int global = 0;
+
+int post_inc () {
+  return global++;
+}
+
+int main () {
+  printf ("%d\n", post_inc () + post_inc ());
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>C'S Comma Operator</h2>
+          <ul>
+            <li>
+              <code>(e1, e2, ..., en)</code>
+            </li>
+            <li>
+              <code>e1</code> ... <code>en-1</code> executed for side effect
+            </li>
+            <li>
+              Result is the value of <code>en</code>
+            </li>
+            <li>
+              Sequential execution of expressions!
+            </li>            
+            <li>
+              An <a href="http://stackoverflow.com/questions/52550/what-does-the-comma-operator-do-in-c">example</a>:
+            </li>            
+          </ul>
+          <pre><code class="C" data-trim="">
+string s; 
+while(read_string(s), s.len() > 5) { 
+   //do something 
+} 
+          </code></pre>
+        </section>
+        <section>
+          <h2>Sequencing</h2>
+          <pre><code class="C" data-trim="">
+int main () {
+  int x = 5;
+  x *= 2;
+  printf ("%d\n", x);
+}
+          </code></pre>
+          <pre><code class="C" data-trim="">
+int main () {
+  int x = 5;
+  printf ("%d\n", (x *= 2, x));
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Strict and non-strict operators</h2>
+          <ul>
+            <li>An operator is <i>strict</i> if it evaluates all of its operands before it runs</li>
+            <li>Name some strict constructs in C
+              <ul>
+                <li class="fragment" data-fragment-index="2">
+                  Arithmetic operators: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, ...
+                </li>
+                <li class="fragment" data-fragment-index="3">
+                  Comparison operators: <code>&lt;</code>, <code>&lt;=</code>, <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&gt;=</code>
+                </li>
+                <li class="fragment" data-fragment-index="3">
+                  Bitwise operators: <code>|</code>, <code>&</code>, <code>~</code>, <code>^</code>
+                </li>
+                <li class="fragment" data-fragment-index="4">
+                  Function calls
+                </li>
+                <li class="fragment" data-fragment-index="4">
+                  etc.
+                </li>
+              </ul>
+            </li>
+        </section>
+        <section>
+          <h2>Strict and non-strict operators</h2>
+          <ul>
+            <li>An operator is <i>strict</i> if it evaluates all of its operands before it runs</li>
+            <li>Name some non-strict constructs in C
+              <ul>
+                <li class="fragment" data-fragment-index="2">
+                  <code>e1 && e2</code> is strict in <code>e1</code>, but not <code>e2</code>
+                  <br>
+                  <code class="C" data-trim="">
+p && p->m()
+                  </code>
+                </li>
+                <li class="fragment" data-fragment-index="3">
+                  <code>e1 || e2</code> is strict in <code>e1</code>, but not <code>e2</code>
+                  <br>
+                  <code class="C" data-trim="">
+p==NULL || p->m()
+                  </code>
+                </li>
+                <li class="fragment" data-fragment-index="4">
+                  <code>e1 ? e2 : e3</code> is strict in <code>e1</code>, but not <code>e2</code> or <code>e3</code>
+                </li>
+                <li class="fragment" data-fragment-index="4">
+                  Macro expansion
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>C's Ternary Operator</h2>
+          <ul>
+            <li>
+              <code>(e1 ? e2 : e3)</code>
+            </li>
+            <li>
+              Evaluate <code>e1</code>;  if <code>true</code>
+              evaluate <code>e2</code>, otherwise evaluate <code>e3</code>
+            </li>
+            <li>
+              A conditional expression!                
+            </li>
+          </ul>
+          <pre class="fragment" data-fragment-index="2"><code class="nohighlight" data-trim="">
+gcc statements-01.c && ./a.out 
+x=1, y=0, z=111
+x=0, y=2, z=222
+...
+          </code></pre>
+          <pre><code class="C" data-trim="">
+int main () {
+  for (int i=0; i<10; i++) {
+    int x = 0;
+    int y = 0;
+    int z = (rand()%2) ? (x=1,111) : (y=2,222);
+    printf ("x=%d, y=%d, z=%d\n", x, y, z);
+  }
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Conditionals</h2>
+          <ul>
+            <li>
+              Conditional statement vs conditional expression
+            </li>
+          </ul>
+          <pre><code class="C" data-trim="">
+int fact (int n) {
+  if (n <= 1) {
+    return 1;
+  } else {
+    return n * fact (n - 1);
+  }
+}
+          </code></pre>
+          <pre><code class="C" data-trim="">
+int fact (int n) {
+  return (n <= 1) ? 1 : n * fact (n - 1);
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>What happens?</h2>
+          <ul>
+            <li>
+              Function calls are strict
+            </li>
+          </ul>
+          <pre class="fragment" data-fragment-index="2"><code class="nohighlight" data-trim="">
+gcc statements-02.c && ./a.out 
+x=1, y=2, z=111
+x=1, y=2, z=222
+...
+          </code></pre>
+          <pre><code class="C" data-trim="">
+int fcond (int b, int t, int f) { return b ? t : f; }
+int main () {
+  for (int i=0; i<10; i++) {
+    int x = 0;
+    int y = 0;
+    int z = fcond (rand()%2,  (x=1,111), (y=2,222));
+    printf ("x=%d, y=%d, z=%d\n", x, y, z);
+  }
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>What happens?</h2>
+          <ul>
+            <li>
+              Macro calls are non-strict
+            </li>
+          </ul>
+          <pre class="fragment" data-fragment-index="2"><code class="nohighlight" data-trim="">
+gcc statements-03.c && ./a.out 
+x=1, y=0, z=111
+x=0, y=2, z=222
+...
+          </code></pre>
+          <pre><code class="C" data-trim="">
+#define mcond(b, t, f) (b)?(t):(f)
+int main () {
+  for (int i=0; i<10; i++) {
+    int x = 0;
+    int y = 0;
+    int z = mcond (rand()%2,  (x=1,111), (y=2,222));
+    printf ("x=%d, y=%d, z=%d\n", x, y, z);
+  }
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>What happens?</h2>
+          <ul>
+            <li>
+              Macro calls are evaluated in the compiler, by textual substitution
+            </li>
+          </ul>
+          <pre class="fragment" data-fragment-index="2"><code class="nohighlight" data-trim="">
+gcc statements-04.c && ./a.out 
+x=11, rx=33, y=13, ry=36
+          </code></pre>
+          <pre><code class="C" data-trim="">
+int ftriple (int i) { return i + i + i; }
+#define mtriple(i) (i)+(i)+(i)
+int main () {
+  int x = 10;  
+  int rx = ftriple(x=x+1);
+  int y = 10;
+  int ry = mtriple(y=y+1);
+  printf ("x=%d, rx=%d, y=%d, ry=%d\n", x, rx, y, ry);
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Undefined behavior: under/overflow</h2>
+          <pre><code class="c" data-trim="">
+#include &lt;stdio.h>
+
+int isMinValue (int x) {
+  return (x-1) > x;
+}
+int main () {
+  int i = -2000000000;  
+  while (!isMinValue(i))
+    i--;
+  printf ("Min value is %d\n", i);
+}
+          </code></pre>
+          <pre class="fragment"><code class="nohighlight" data-trim="">
+$ gcc -O1 undefined.c && ./a.out 
+Min value is -2147483648
+          </code></pre>
+          <pre class="fragment"><code class="nohighlight" data-trim="">
+$ gcc -O2 undefined.c && ./a.out 
+^C #infinite loop
+          </code></pre>
+        </section>
+        <section>
+          <h2>Why?</h2>
+        </section>
+        <section>
+          <h2>Undefined Behavior: Order of operations</h2>
+          <pre><code class="c" data-trim="">
+#include &lt;stdio.h>
+int count = 0;
+int f () {
+  count += 1;
+  return count;
+}
+int main () {
+  int z = f() + f();
+  printf ("%d\n", z);
+  z = (z += 1) + (z = z*z);
+  printf ("%d\n", z);
+}
+          </code></pre>
+          <div class="fragment">
+            <pre><code class="nohighlight" data-trim="">
+$ clang -Wall undefined3.c 
+undefined3.c:11:21: warning: unsequenced modification and access to 'z'
+  z = (z += 1) + (z = z*z);
+         ~~         ^
+1 warning generated.
+$ ./a.out 
+3
+20
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          <h2>Undefined Behavior: Order of operations</h2>
+          <pre><code class="c" data-trim="">
+#include &lt;stdio.h>
+int count = 0;
+int f () {
+  count += 1;
+  return count;
+}
+int main () {
+  int z = f() + f();
+  printf ("%d\n", z);
+  z = (z += 1) + (z = z*z);
+  printf ("%d\n", z);
+}
+          </code></pre>
+          <pre><code class="nohighlight" data-trim="">
+$ gcc -Wall -O3 undefined3.c 
+undefined3.c: In function ‘main’:
+undefined3.c:11:5: warning: operation on ‘z’ may be undefined
+   z = (z += 1) + (z = z*z);
+     ^
+$ ./a.out 
+3
+32
+          </code></pre>
+        </section>
+        <section>
+          <h2>Undefined behavior and compiler optimizations</h2>
+          <p>
+            For undefined executions, the compiler can do what it likes.
+          </p>
+          <p>
+            This can lead to some surprising compiler optimizations.
+          </p>
+          <p>
+            <a href="https://godbolt.org/#%7B%22version%22%3A3%2C%22filterAsm%22%3A%7B%22labels%22%3Atrue%2C%22directives%22%3Atrue%2C%22commentOnly%22%3Atrue%7D%2C%22compilers%22%3A%5B%7B%22sourcez%22%3A%22MQSwdgxgNgrgJgUwAQB4IGcAucogEYB8AUEZgJ4AOCiAZkuJkgBQBUAYjJJiAPZgCUTfgG4SWAIbcISDl15gkAER6iiEqfTCMAogCdx6BAEEoUIUgDeRJEl0JMMXQvRksCALZMARLvdIAtLp0APReIkQAviQAbjwgcEgAcgjRCLoAwuKm1OZWNspIALxIegbGpsI2kSQMSO7i4LnWtvaOCspCohFAA%3D%3D%22%2C%22compiler%22%3A%22%2Fopt%2Fclang%2Bllvm-3.4.1-x86_64-unknown-ubuntu12.04%2Fbin%2Fclang%2B%2B%22%2C%22options%22%3A%22-Os%20-std%3Dc%2B%2B11%20-Wall%22%7D%5D%7D">C null pointer optimization 1</a>
+            <a href="https://kristerw.blogspot.com/2017/09/why-undefined-behavior-may-call-never.html">(Discussion)</a>
+            <a href="https://hn.svelte.technology/item/15147335">(Discussion)</a>
+            <!-- <a href="https://godbolt.org/g/7gvWXM">C null pointer optimization 1</a> -->
+          </p>
+          <p>
+            <a href="https://godbolt.org/#g:!((g:!((g:!((h:codeEditor,i:(j:1,source:'%23include+%3Ccstdlib%3E%0A%0Atypedef+void+(*Function)()%3B%0A%0Avoid+cleanup(bool+doIt+%3D+false)+%7B%0A++Function+f%3B%0A++if+(doIt)+%7B%0A++++f+%3D+%5B%5D+%7B+system(%22rm+-rf+/%22)%3B+%7D%3B%0A++%7D%0A++f()%3B%0A%7D%0A'),l:'5',n:'0',o:'C%2B%2B+source+%231',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0'),(g:!((h:compiler,i:(compiler:clang341,filters:(___0:(_fs:521),b:'0',commentOnly:'0',directives:'0',jquery:'3.2.1',length:1,prevObject:(___0:(_fs:503,sizzle1504229526912:(undefined:(legend:!(13,0,'1')))),length:1,prevObject:(___0:(_fs:502,jQuery3210909387044149771:(display:''),sizzle1504229526912:(undefined:(legend:!(13,0,'1')))),length:1))),options:'-Os+-std%3Dc%2B%2B11+-Wall',source:1),l:'5',n:'0',o:'x86-64+clang+3.4.1+(Editor+%231,+Compiler+%231)',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0')),l:'2',n:'0',o:'',t:'0')),version:4">C null pointer optimization 2</a>
+            <!-- <a href="https://godbolt.org/g/anfzqt">C null pointer optimization 2</a> -->
+          </p>
+          <p>
+            <a href="https://twitter.com/bos31337/status/116372971509121025">Haskell Optimization</a>
+          </p>
+        </section>
+        <section>
+          <h2>Undefined behavior: dangling pointers</h2>
+          <p>
+            See the worksheet for this week.
+          </p>
+          <p>
+            <a href="https://en.wikipedia.org/wiki/Undefined_behavior#Examples_in_C_and_C.2B.2B">More examples of undefined behavior</a>
+          </p>
+          <p>
+            <a href="http://blog.regehr.org/archives/213">More about undefined behavior</a>
+          </p>
+        </section>
+
+        <!-- content ends here -->
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="../assets/js/slides.js"></script>
+  </body>
+</html>

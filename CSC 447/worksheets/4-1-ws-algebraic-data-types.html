@@ -1,0 +1,1307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Worksheet Algebraic Data Types and Pattern Matching</title>
+<!-- 2017-10-10 Tue 05:36 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="James Riely" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Worksheet Algebraic Data Types and Pattern Matching</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Questions and Completion</a></li>
+<li><a href="#sec-2">2. Option Type</a>
+<ul>
+<li><a href="#sec-2-1">2.1. Maximum of a List</a></li>
+<li><a href="#sec-2-2">2.2. Find Element</a></li>
+<li><a href="#sec-2-3">2.3. Handle an Option - Pattern Matching</a></li>
+<li><a href="#sec-2-4">2.4. Handle an Option - flatMap</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. Tail Recursion</a>
+<ul>
+<li><a href="#sec-3-1">3.1. Scheme - Looping in Scheme</a></li>
+<li><a href="#sec-3-2">3.2. Scheme - Looping in Scheme with a Function</a></li>
+<li><a href="#sec-3-3">3.3. Scala - Looping in Scala with a Function</a></li>
+<li><a href="#sec-3-4">3.4. Scheme - Counting Values</a></li>
+<li><a href="#sec-3-5">3.5. Scala - Counting Values</a></li>
+<li><a href="#sec-3-6">3.6. Scala - Which Functions Are Tail Recursive?</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4. Lists</a>
+<ul>
+<li><a href="#sec-4-1">4.1. flatMap for Lists</a></li>
+</ul>
+</li>
+<li><a href="#sec-5">5. Classes in Scala</a>
+<ul>
+<li><a href="#sec-5-1">5.1. Java Translation</a></li>
+</ul>
+</li>
+<li><a href="#sec-6">6. Algebraic Data Types via Case classes in Scala</a>
+<ul>
+<li><a href="#sec-6-1">6.1. MyList Case Class</a></li>
+<li><a href="#sec-6-2">6.2. Binary Tree Case Class</a></li>
+</ul>
+</li>
+<li><a href="#sec-7">7. Solutions</a>
+<ul>
+<li><a href="#maximum-lists">7.1. Solution: Maximum of a List</a></li>
+<li><a href="#find-element-lists">7.2. Solution: Find Element</a></li>
+<li><a href="#handle-option-pattern-matching">7.3. Solution: Handle an Option - Pattern Matching</a></li>
+<li><a href="#handle-option-flatmap">7.4. Solution: Handle an Option - flatMap</a></li>
+<li><a href="#scheme-loop">7.5. Solution: Scheme - Looping in Scheme</a></li>
+<li><a href="#scheme-loop-with-a-function">7.6. Solution: Scheme - Looping in Scheme with a Function</a></li>
+<li><a href="#scala-loop-with-a-function">7.7. Solution: Scala - Looping in Scala with a Function</a></li>
+<li><a href="#scheme-counting-values">7.8. Solution: Scheme - Counting Values</a></li>
+<li><a href="#scala-counting-values">7.9. Solution: Scala - Counting Values</a></li>
+<li><a href="#flatmap-lists">7.10. Solution: flatMap for Lists</a></li>
+<li><a href="#classes-java-translation">7.11. Solution: Classes - Java Translation</a></li>
+<li><a href="#mylist-case-class">7.12. Solution: MyList Case Class</a></li>
+<li><a href="#binary-tree-case-class">7.13. Solution: Binary Tree Case Class</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Questions and Completion</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+To receive credit for completing the worksheet, you must complete the corresponding quiz (it is just a checkbox) on D2L when you have finished the worksheet.
+</p>
+
+<p>
+If you have questions as you go through this worksheet, please feel free to post them on the Google group.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Option Type</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Maximum of a List</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Write a recursive function that returns the maximum of a list of integers.
+</p>
+
+<p>
+Instead of throwing an exception when the list is empty, return an <code>Option</code> type.
+That is, your function should have the following form.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF;">def</span> <span style="color: #006699;">maximum</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">Int</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Option</span><span style="color: #707183;">[</span><span style="color: #D0372D;">Int</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  ...
+<span style="color: #707183;">}</span>
+</pre>
+</pre>
+</div>
+
+<p>
+<a href="#maximum-lists">Solution: Maximum of a List</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Find Element</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Write a higher-order function that finds the first element in a list that satisfies a given predicate (function taking an element of the list and returning a Boolean value).
+</p>
+
+<p>
+Instead of throwing an exception when no such element is found, return an <code>Option</code> type.
+That is, your function should have the following form.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF;">def</span> <span style="color: #006699;">find</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span>, p<span style="color: #0000FF;">:</span><span style="color: #6434A3;">X</span><span style="color: #0000FF;">=&gt;</span><span style="color: #D0372D;">Boolean</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Option</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  ...
+<span style="color: #707183;">}</span>
+</pre>
+</pre>
+</div>
+
+<p>
+<a href="#find-element-lists">Solution: Find Element</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> Handle an Option - Pattern Matching</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Consider the following Scala function.
+It searches for the first <code>String</code> in a list of <code>String</code> references that is strictly longer than <code>s</code> and that contains <code>s</code> as a substring.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF;">def</span> <span style="color: #006699;">oneFind</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">String</span><span style="color: #7388D6;">]</span>, s<span style="color: #0000FF;">:</span><span style="color: #6434A3;">String</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Option</span><span style="color: #707183;">[</span><span style="color: #D0372D;">String</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  xs.find <span style="color: #7388D6;">(</span><span style="color: #909183;">(</span>x<span style="color: #0000FF;">:</span><span style="color: #6434A3;">String</span><span style="color: #909183;">)</span> <span style="color: #0000FF;">=&gt;</span> <span style="color: #909183;">(</span>x.length &gt; s.length<span style="color: #909183;">)</span> &amp;&amp; x.contains <span style="color: #909183;">(</span>s<span style="color: #909183;">)</span><span style="color: #7388D6;">)</span>
+<span style="color: #707183;">}</span>
+</pre>
+</pre>
+</div>
+
+<p>
+For example:
+</p>
+<pre class="example">
+scala&gt; oneFind (List ("the", "rain", "in", "spain"), "i")
+res1: Option[String] = Some(rain)
+
+scala&gt; oneFind (List ("the", "rain", "in", "spain"), "in")
+res2: Option[String] = Some(rain)
+
+scala&gt; oneFind (List ("the", "rain", "in", "spain"), "ain")
+res3: Option[String] = Some(rain)
+
+scala&gt; oneFind (List ("the", "rain", "in", "spain"), "pain")
+res16: Option[String] = Some(spain)
+
+scala&gt; oneFind (List ("the", "rain", "in", "spain"), "rain")
+res4: Option[String] = None
+</pre>
+
+<p>
+Now write a function <code>twoFind</code> that calls <code>oneFind</code> and then uses the result (if there is one) in a second call to <code>oneFind</code>.
+</p>
+
+<p>
+Use pattern-matching to do case analysis on the result of the first call to <code>oneFind</code>.
+Your definition of <code>twoFind</code> should have the following form.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF;">def</span> <span style="color: #006699;">twoFind</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">String</span><span style="color: #7388D6;">]</span>, s<span style="color: #0000FF;">:</span><span style="color: #6434A3;">String</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Option</span><span style="color: #707183;">[</span><span style="color: #D0372D;">String</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  ...
+<span style="color: #707183;">}</span>
+</pre>
+</pre>
+</div>
+
+<p>
+Note that <code>twoFind</code> must not have return type <code>Option[Option[String]]</code>!
+</p>
+
+<p>
+For example:
+</p>
+<pre class="example">
+twoFind (List ("the", "rain", "in", "spain"), "i")
+res1: Option[String] = None
+
+scala&gt; twoFind (List ("the", "rain", "in", "spain"), "in")
+res2: Option[String] = None
+
+scala&gt; twoFind (List ("the", "rain", "in", "spain"), "n")
+res3: Option[String] = None
+
+scala&gt; twoFind (List ("the", "rain", "in", "spain", "trained", "after", "a", "sprain"), "in")
+res4: Option[String] = Some(trained)
+
+scala&gt; twoFind (List ("the", "rain", "in", "spain", "trained", "after", "a", "sprain"), "i")
+res5: Option[String] = Some(trained)
+
+scala&gt; twoFind (List ("the", "rain", "in", "spain", "trained", "after", "a", "sprain"), "n")
+res6: Option[String] = Some(trained)
+
+scala&gt; twoFind (List ("the", "rain", "in", "spain", "trained", "after", "a", "sprain"), "ain")
+res7: Option[String] = Some(trained)
+
+scala&gt; twoFind (List ("the", "rain", "in", "spain", "trained", "after", "a", "sprain"), "pain")
+res8: Option[String] = None
+</pre>
+
+<p>
+<a href="#handle-option-pattern-matching">Solution: Handle an Option - Pattern Matching</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> Handle an Option - flatMap</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Rewrite <code>twoFind</code> from the previous question to use <code>flatMap</code> for the <code>Option</code> type instead of explicit pattern-matching.
+</p>
+
+<p>
+Note: if <code>e</code> has type <code>Option[A]</code> and you write <code>e.flatMap (f)</code>, then it will have type <code>Option[B]</code> whenever <code>f</code> has type <code>A=&gt;Option[B]</code>.
+You may find it helpful to look at the Scala API documentation for the <code>Option</code> type at <a href="http://www.scala-lang.org/api/2.11.7/#scala.Option">http://www.scala-lang.org/api/2.11.7/#scala.Option</a>.
+</p>
+
+<p>
+Variations of <code>flatMap</code> are idiomatic in many languages that use <code>Option</code> types.
+</p>
+
+<p>
+<a href="#handle-option-flatmap">Solution: Handle an Option - flatMap</a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Tail Recursion</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Scheme - Looping in Scheme</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Write a Scheme expression that uses a <code>let</code> special form with a <code>loop</code> variable to print the following:
+</p>
+<pre class="example">
+1 potato
+2 potato
+3 potato
+4 potato
+</pre>
+
+<p>
+You <b>should not</b> define a function for this.
+</p>
+
+<p>
+<a href="#scheme-loop">Solution: Scheme - Looping in Scheme</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Scheme - Looping in Scheme with a Function</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Write Scheme code that uses a <b>tail-recursive</b> function to print the following:
+</p>
+<pre class="example">
+1 potato
+2 potato
+3 potato
+4 potato
+</pre>
+
+<p>
+You <b>should</b> define a function for this.
+</p>
+
+<p>
+<a href="#scheme-loop-with-a-function">Solution: Scheme - Looping in Scheme with a Function</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> Scala - Looping in Scala with a Function</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+Write Scala code that uses a <b>tail-recursive</b> function to print the following:
+</p>
+<pre class="example">
+1 potato
+2 potato
+3 potato
+4 potato
+</pre>
+
+<p>
+You <b>should</b> define a function for this.
+</p>
+
+<p>
+Include a <code>tailrec</code> annotation so that the Scala system tells you if your function is not tail recursive.
+</p>
+
+<p>
+<a href="#scala-loop-with-a-function">Solution: Scala - Looping in Scala with a Function</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4" class="outline-3">
+<h3 id="sec-3-4"><span class="section-number-3">3.4</span> Scheme - Counting Values</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+Here is Java code to count the number of integers in a linked list that are between low and high values.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">CountingValues</span> <span style="color: #707183;">{</span>
+  <span style="color: #0000FF;">static</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">Node</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">item</span>;
+    <span style="color: #6434A3;">Node</span> <span style="color: #BA36A5;">next</span>;
+
+    <span style="color: #0000FF;">public</span> <span style="color: #006699;">Node</span> <span style="color: #909183;">(</span><span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">item</span>, <span style="color: #6434A3;">Node</span> <span style="color: #BA36A5;">next</span><span style="color: #909183;">)</span> <span style="color: #909183;">{</span> 
+      <span style="color: #0000FF;">this</span>.item = item; 
+      <span style="color: #0000FF;">this</span>.next = next; 
+    <span style="color: #909183;">}</span>
+  <span style="color: #7388D6;">}</span>
+
+  <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">int</span> <span style="color: #006699;">count</span> <span style="color: #7388D6;">(</span><span style="color: #6434A3;">Node</span> <span style="color: #BA36A5;">data</span>, <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">low</span>, <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">high</span><span style="color: #7388D6;">)</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">result</span> = 0;
+    <span style="color: #0000FF;">while</span> <span style="color: #909183;">(</span>data != <span style="color: #D0372D;">null</span><span style="color: #909183;">)</span> <span style="color: #909183;">{</span>
+      <span style="color: #0000FF;">if</span> <span style="color: #709870;">(</span>low &lt;= data.item &amp;&amp; data.item &lt;= high<span style="color: #709870;">)</span> <span style="color: #709870;">{</span>
+        result = result + 1;
+      <span style="color: #709870;">}</span>
+      data = data.next;
+    <span style="color: #909183;">}</span>
+    <span style="color: #0000FF;">return</span> result;
+  <span style="color: #7388D6;">}</span>
+
+  <span style="color: #0000FF;">public</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">main</span> <span style="color: #7388D6;">(</span><span style="color: #6434A3;">String</span><span style="color: #909183;">[]</span> <span style="color: #BA36A5;">args</span><span style="color: #7388D6;">)</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #6434A3;">Node</span> <span style="color: #BA36A5;">data</span> = <span style="color: #D0372D;">null</span>;
+    <span style="color: #0000FF;">for</span> <span style="color: #909183;">(</span><span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">i</span> = args.length - 1; i &gt;= 0; i--<span style="color: #909183;">)</span> <span style="color: #909183;">{</span>
+      data = <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Node</span> <span style="color: #709870;">(</span>Integer.parseInt <span style="color: #907373;">(</span>args<span style="color: #6276BA;">[</span>i<span style="color: #6276BA;">]</span><span style="color: #907373;">)</span>, data<span style="color: #709870;">)</span>;
+    <span style="color: #909183;">}</span>
+
+    System.out.printf <span style="color: #909183;">(</span><span style="color: #008000;">"count (..., 5, 10) = %d%n"</span>, count <span style="color: #709870;">(</span>data, 5, 10<span style="color: #709870;">)</span><span style="color: #909183;">)</span>;
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>
+</pre>
+</pre>
+</div>
+
+<pre class="example">
+$ javac CountingValues.java 
+
+$ java CountingValues 1 2 3 4 5 6 7 8 9 10 11 12
+count (..., 5, 10) = 6
+</pre>
+
+<p>
+Your task is to rewrite the <code>count</code> function in Scheme.  Your definition should be a <b>tail-recursive</b> function.
+</p>
+
+<p>
+<a href="#scheme-counting-values">Solution: Scheme - Counting Values</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-5" class="outline-3">
+<h3 id="sec-3-5"><span class="section-number-3">3.5</span> Scala - Counting Values</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+Repeat the previous "Counting Values" task in Scala.  Your definition should be a <b>tail-recursive</b> function.
+</p>
+
+<p>
+<a href="#scala-counting-values">Solution: Scala - Counting Values</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-6" class="outline-3">
+<h3 id="sec-3-6"><span class="section-number-3">3.6</span> Scala - Which Functions Are Tail Recursive?</h3>
+<div class="outline-text-3" id="text-3-6">
+<p>
+Consider each of the following Scala functions.
+For each Scala function, is it tail recursive?
+Test your answers by adding a <code>tailrec</code> annotation and pasting the function definition into the Scala console.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #8D8D84;">/* </span><span style="color: #8D8D84; font-style: italic;">The Scala library includes many other functions on lists that are common.</span>
+<span style="color: #8D8D84; font-style: italic;"> * Below we define our own versions of these functions for pedagogical purposes,</span>
+<span style="color: #8D8D84; font-style: italic;"> * but normally the library versions would be used instead.</span>
+<span style="color: #8D8D84; font-style: italic;"> */</span>
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">append</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span>, ys<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">List</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  xs <span style="color: #0000FF;">match</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">Nil</span>   <span style="color: #0000FF;">=&gt;</span> ys
+    <span style="color: #0000FF;">case</span> <span style="color: #BA36A5;">z</span><span style="color: #6434A3;">::</span><span style="color: #BA36A5;">zs</span> <span style="color: #0000FF;">=&gt;</span> z :: append <span style="color: #909183;">(</span>zs, ys<span style="color: #909183;">)</span>
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">flatten</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>xss<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">List</span><span style="color: #909183;">[</span><span style="color: #D0372D;">X</span><span style="color: #909183;">]</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">List</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  xss <span style="color: #0000FF;">match</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">Nil</span>     <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Nil</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #BA36A5;">ys</span><span style="color: #6434A3;">::</span><span style="color: #BA36A5;">yss</span> <span style="color: #0000FF;">=&gt;</span> ys ::: flatten <span style="color: #909183;">(</span>yss<span style="color: #909183;">)</span>
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>
+
+<span style="color: #8D8D84;">/* </span><span style="color: #8D8D84; font-style: italic;">The "take" function takes the first n elements of a list. */</span>
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">take</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>n<span style="color: #0000FF;">:</span><span style="color: #6434A3;">Int</span>, xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">List</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  <span style="color: #0000FF;">if</span> <span style="color: #7388D6;">(</span>n &lt;= <span style="color: #D0372D;">0</span><span style="color: #7388D6;">)</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #D0372D;">Nil</span>
+  <span style="color: #7388D6;">}</span> <span style="color: #0000FF;">else</span> <span style="color: #7388D6;">{</span>
+    xs <span style="color: #0000FF;">match</span> <span style="color: #909183;">{</span>
+      <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">Nil</span>   <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Nil</span>
+      <span style="color: #0000FF;">case</span> <span style="color: #BA36A5;">y</span><span style="color: #6434A3;">::</span><span style="color: #BA36A5;">ys</span> <span style="color: #0000FF;">=&gt;</span> y :: take <span style="color: #709870;">(</span>n - <span style="color: #D0372D;">1</span>, ys<span style="color: #709870;">)</span>
+    <span style="color: #909183;">}</span>
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>
+
+<span style="color: #8D8D84;">/* </span><span style="color: #8D8D84; font-style: italic;">The "drop" function drop the first n elements of a list. */</span>
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">drop</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>n<span style="color: #0000FF;">:</span><span style="color: #6434A3;">Int</span>, xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">List</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  <span style="color: #0000FF;">if</span> <span style="color: #7388D6;">(</span>n &lt;= <span style="color: #D0372D;">0</span><span style="color: #7388D6;">)</span> <span style="color: #7388D6;">{</span>
+    xs
+  <span style="color: #7388D6;">}</span> <span style="color: #0000FF;">else</span> <span style="color: #7388D6;">{</span>
+    xs <span style="color: #0000FF;">match</span> <span style="color: #909183;">{</span>
+      <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">Nil</span>   <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Nil</span>
+      <span style="color: #0000FF;">case</span> <span style="color: #BA36A5;">y</span><span style="color: #6434A3;">::</span><span style="color: #BA36A5;">ys</span> <span style="color: #0000FF;">=&gt;</span> drop <span style="color: #709870;">(</span>n - <span style="color: #D0372D;">1</span>, ys<span style="color: #709870;">)</span>
+    <span style="color: #909183;">}</span>
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>
+
+<span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">sampleList</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">List</span><span style="color: #707183;">[</span><span style="color: #D0372D;">Int</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">(</span><span style="color: #D0372D;">1</span> to <span style="color: #D0372D;">12</span><span style="color: #707183;">)</span>.toList
+<span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">takeresult</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">List</span><span style="color: #707183;">[</span><span style="color: #D0372D;">Int</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> take <span style="color: #707183;">(</span><span style="color: #D0372D;">3</span>, sampleList<span style="color: #707183;">)</span>
+<span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">dropresult</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">List</span><span style="color: #707183;">[</span><span style="color: #D0372D;">Int</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> drop <span style="color: #707183;">(</span><span style="color: #D0372D;">3</span>, sampleList<span style="color: #707183;">)</span>
+
+<span style="color: #8D8D84;">/* </span><span style="color: #8D8D84; font-style: italic;">Reverse a list.  This version is straightforward, but inefficient.  Revisited later on. */</span>
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">reverse</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">List</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  xs <span style="color: #0000FF;">match</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">Nil</span>   <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Nil</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #BA36A5;">y</span><span style="color: #6434A3;">::</span><span style="color: #BA36A5;">ys</span> <span style="color: #0000FF;">=&gt;</span> reverse <span style="color: #909183;">(</span>ys<span style="color: #909183;">)</span> ::: <span style="color: #D0372D;">List</span> <span style="color: #909183;">(</span>y<span style="color: #909183;">)</span>
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>
+
+<span style="color: #8D8D84;">/* </span><span style="color: #8D8D84; font-style: italic;">zip takes two lists and creates a single list containing pairs from the two lists</span>
+<span style="color: #8D8D84; font-style: italic;"> * that occur at the same position.  The definition shows more sophisticated pattern</span>
+<span style="color: #8D8D84; font-style: italic;"> * matching: the use of wildcards; overlapping patterns; and decomposing pairs and</span>
+<span style="color: #8D8D84; font-style: italic;"> * lists simultaneously.  Note that the "xs" and "ys" in the third case shadow the</span>
+<span style="color: #8D8D84; font-style: italic;"> * "xs" and "ys" parameters to the function.</span>
+<span style="color: #8D8D84; font-style: italic;"> */</span>
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">zip</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span>,<span style="color: #D0372D;">Y</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span>, ys<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">Y</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">List</span><span style="color: #707183;">[</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">X</span>,<span style="color: #D0372D;">Y</span><span style="color: #7388D6;">)</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">(</span>xs, ys<span style="color: #707183;">)</span> <span style="color: #0000FF;">match</span> <span style="color: #707183;">{</span>
+  <span style="color: #0000FF;">case</span> <span style="color: #7388D6;">(</span><span style="color: #D0372D;">Nil</span>, <span style="color: #0000FF;">_</span><span style="color: #7388D6;">)</span>       <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Nil</span>
+  <span style="color: #0000FF;">case</span> <span style="color: #7388D6;">(</span><span style="color: #0000FF;">_</span>, <span style="color: #D0372D;">Nil</span><span style="color: #7388D6;">)</span>       <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Nil</span>
+  <span style="color: #0000FF;">case</span> <span style="color: #7388D6;">(</span><span style="color: #BA36A5;">x</span><span style="color: #6434A3;">::</span><span style="color: #BA36A5;">xs</span>, <span style="color: #BA36A5;">y</span><span style="color: #6434A3;">::</span><span style="color: #BA36A5;">ys</span><span style="color: #7388D6;">)</span> <span style="color: #0000FF;">=&gt;</span> <span style="color: #7388D6;">(</span>x, y<span style="color: #7388D6;">)</span> :: zip <span style="color: #7388D6;">(</span>xs, ys<span style="color: #7388D6;">)</span>
+<span style="color: #707183;">}</span>
+
+<span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">ziplist</span> <span style="color: #0000FF;">=</span> zip <span style="color: #707183;">(</span><span style="color: #D0372D;">List</span> <span style="color: #7388D6;">(</span><span style="color: #D0372D;">1</span>, <span style="color: #D0372D;">2</span>, <span style="color: #D0372D;">3</span><span style="color: #7388D6;">)</span>, <span style="color: #D0372D;">List</span> <span style="color: #7388D6;">(</span><span style="color: #008000;">"the"</span>, <span style="color: #008000;">"rain"</span>, <span style="color: #008000;">"in"</span>, <span style="color: #008000;">"spain"</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+
+<span style="color: #8D8D84;">/* </span><span style="color: #8D8D84; font-style: italic;">unzip decomposes a list of pairs into a pair of lists.</span>
+<span style="color: #8D8D84; font-style: italic;"> * The recursive case illustrates pattern-matching the result of the</span>
+<span style="color: #8D8D84; font-style: italic;"> * recursive call in order to apply an operation to the elements.</span>
+<span style="color: #8D8D84; font-style: italic;"> */</span>
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">unzip</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span>,<span style="color: #D0372D;">Y</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>ps<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #909183;">(</span><span style="color: #D0372D;">X</span>,<span style="color: #D0372D;">Y</span><span style="color: #909183;">)</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #707183;">(</span><span style="color: #D0372D;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span>, <span style="color: #D0372D;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">Y</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  ps <span style="color: #0000FF;">match</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">Nil</span>        <span style="color: #0000FF;">=&gt;</span> <span style="color: #909183;">(</span><span style="color: #D0372D;">Nil</span>, <span style="color: #D0372D;">Nil</span><span style="color: #909183;">)</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #909183;">(</span><span style="color: #BA36A5;">x</span>, <span style="color: #BA36A5;">y</span><span style="color: #909183;">)</span><span style="color: #D0372D;">::</span><span style="color: #6434A3;">qs</span> <span style="color: #0000FF;">=&gt;</span> <span style="color: #909183;">{</span>
+      <span style="color: #0000FF;">val</span> <span style="color: #709870;">(</span><span style="color: #BA36A5;">xs</span>, <span style="color: #BA36A5;">ys</span><span style="color: #709870;">)</span> <span style="color: #0000FF;">=</span> unzip <span style="color: #709870;">(</span>qs<span style="color: #709870;">)</span>
+      <span style="color: #709870;">(</span>x :: xs, y :: ys<span style="color: #709870;">)</span>
+    <span style="color: #909183;">}</span>
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>
+
+<span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">unziplist</span> <span style="color: #0000FF;">=</span> unzip <span style="color: #707183;">(</span>ziplist<span style="color: #707183;">)</span>
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">reverse2</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">List</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  <span style="color: #0000FF;">def</span> <span style="color: #006699;">aux</span> <span style="color: #7388D6;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #909183;">[</span><span style="color: #D0372D;">X</span><span style="color: #909183;">]</span>, result<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #909183;">[</span><span style="color: #D0372D;">X</span><span style="color: #909183;">]</span><span style="color: #7388D6;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span> <span style="color: #0000FF;">=</span> xs <span style="color: #0000FF;">match</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">Nil</span>   <span style="color: #0000FF;">=&gt;</span> result
+    <span style="color: #0000FF;">case</span> <span style="color: #BA36A5;">y</span><span style="color: #6434A3;">::</span><span style="color: #BA36A5;">ys</span> <span style="color: #0000FF;">=&gt;</span> aux <span style="color: #909183;">(</span>ys, y :: result<span style="color: #909183;">)</span>
+
+  <span style="color: #7388D6;">}</span>
+  aux <span style="color: #7388D6;">(</span>xs, <span style="color: #D0372D;">Nil</span><span style="color: #7388D6;">)</span>
+<span style="color: #707183;">}</span>
+</pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Lists</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> flatMap for Lists</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+What is the result of evaluating the following Scala expressions?
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF;">def</span> <span style="color: #006699;">repeat</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>x<span style="color: #0000FF;">:</span><span style="color: #6434A3;">X</span>, n<span style="color: #0000FF;">:</span><span style="color: #6434A3;">Int</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">List</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  <span style="color: #0000FF;">if</span> <span style="color: #7388D6;">(</span>n == <span style="color: #D0372D;">0</span><span style="color: #7388D6;">)</span> 
+    <span style="color: #D0372D;">Nil</span>
+  <span style="color: #0000FF;">else</span> 
+    x :: repeat <span style="color: #7388D6;">(</span>x, n - <span style="color: #D0372D;">1</span><span style="color: #7388D6;">)</span>
+<span style="color: #707183;">}</span>
+
+<span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">xs</span><span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #707183;">[</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">Char</span>,<span style="color: #D0372D;">Int</span><span style="color: #7388D6;">)</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #D0372D;">List</span> <span style="color: #707183;">(</span><span style="color: #7388D6;">(</span><span style="color: #008000;">'a'</span>, <span style="color: #D0372D;">2</span><span style="color: #7388D6;">)</span>, <span style="color: #7388D6;">(</span><span style="color: #008000;">'b'</span>, <span style="color: #D0372D;">4</span><span style="color: #7388D6;">)</span>, <span style="color: #7388D6;">(</span><span style="color: #008000;">'c'</span>, <span style="color: #D0372D;">8</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+
+<span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">ys</span> <span style="color: #0000FF;">=</span> xs.map <span style="color: #707183;">(</span><span style="color: #7388D6;">(</span>p<span style="color: #0000FF;">:</span><span style="color: #909183;">(</span><span style="color: #D0372D;">Char</span>,<span style="color: #D0372D;">Int</span><span style="color: #909183;">)</span><span style="color: #7388D6;">)</span> <span style="color: #0000FF;">=&gt;</span> repeat <span style="color: #7388D6;">(</span>p._1, p._2<span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+
+<span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">zs</span> <span style="color: #0000FF;">=</span> xs.flatMap <span style="color: #707183;">(</span><span style="color: #7388D6;">(</span>p<span style="color: #0000FF;">:</span><span style="color: #909183;">(</span><span style="color: #D0372D;">Char</span>,<span style="color: #D0372D;">Int</span><span style="color: #909183;">)</span><span style="color: #7388D6;">)</span> <span style="color: #0000FF;">=&gt;</span> repeat <span style="color: #7388D6;">(</span>p._1, p._2<span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+</pre>
+</pre>
+</div>
+
+<p>
+What types do <code>ys</code> and <code>zs</code> have, and how does <code>flatMap</code> differ from <code>map</code>?  
+Try to express <code>flatMap</code> using <code>map</code> and <code>flatten</code>.
+</p>
+
+<p>
+<a href="#flatmap-lists">Solution: flatMap for Lists</a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Classes in Scala</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> Java Translation</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+Translate the following Java class definition into a corresponding Scala class definition.
+You will need a companion object definition to model the <code>static</code> components.
+</p>
+
+<p>
+In order to definition the Scala class and object at the same time in the Scala REPL, you must enter <code>:paste</code>, paste your definitions <b>together</b>, and then press control-D.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #0000FF;">class</span> <span style="color: #6434A3;">Counter</span> <span style="color: #707183;">{</span>
+  <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">numCounters</span> = 0;
+
+  <span style="color: #0000FF;">final</span> <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">id</span>;
+  <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">count</span>;
+
+  <span style="color: #006699;">Counter</span> <span style="color: #7388D6;">(</span><span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">initial</span><span style="color: #7388D6;">)</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #0000FF;">this</span>.id = numCounters;
+    <span style="color: #0000FF;">this</span>.count = initial;
+    numCounters++;
+  <span style="color: #7388D6;">}</span>
+
+  <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">int</span> <span style="color: #006699;">getNumCounters</span> <span style="color: #7388D6;">()</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #0000FF;">return</span> numCounters;
+  <span style="color: #7388D6;">}</span>
+
+  <span style="color: #6434A3;">int</span> <span style="color: #006699;">getId</span> <span style="color: #7388D6;">()</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #0000FF;">return</span> <span style="color: #0000FF;">this</span>.id;
+  <span style="color: #7388D6;">}</span>
+
+  <span style="color: #6434A3;">int</span> <span style="color: #006699;">getNextCount</span> <span style="color: #7388D6;">()</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #0000FF;">return</span> <span style="color: #0000FF;">this</span>.count++;
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>
+</pre>
+</pre>
+</div>
+
+<p>
+<a href="#classes-java-translation">Solution: Classes - Java Translation</a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Algebraic Data Types via Case classes in Scala</h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> MyList Case Class</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+Define your own <code>MyList</code> class in Scala (as in the slides).
+</p>
+
+<p>
+Now implement the following functions:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF;">trait</span> <span style="color: #6434A3;">MyList</span><span style="color: #707183;">[</span>+<span style="color: #D0372D;">X</span><span style="color: #707183;">]</span>
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">length</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">MyList</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Int</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  ...
+<span style="color: #707183;">}</span>
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">toList</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">MyList</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">List</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  ...
+<span style="color: #707183;">}</span>
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">fromList</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">MyList</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  ...
+<span style="color: #707183;">}</span>
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">append</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">MyList</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span>, ys<span style="color: #0000FF;">:</span><span style="color: #6434A3;">MyList</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">MyList</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  ...
+<span style="color: #707183;">}</span>
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">map</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span>,<span style="color: #D0372D;">Y</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">MyList</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span>, f<span style="color: #0000FF;">:</span><span style="color: #6434A3;">X</span><span style="color: #0000FF;">=&gt;</span><span style="color: #D0372D;">Y</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">MyList</span><span style="color: #707183;">[</span><span style="color: #D0372D;">Y</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  ...
+<span style="color: #707183;">}</span>
+</pre>
+</pre>
+</div>
+
+<p>
+<a href="#mylist-case-class">Solution: MyList Case Class</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-2" class="outline-3">
+<h3 id="sec-6-2"><span class="section-number-3">6.2</span> Binary Tree Case Class</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+Define your own <code>Tree</code> class for binary trees in Scala (as in the slides).
+</p>
+
+<p>
+Now implement the following functions:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF;">trait</span> <span style="color: #6434A3;">Tree</span><span style="color: #707183;">[</span>+<span style="color: #D0372D;">X</span><span style="color: #707183;">]</span>
+<span style="color: #0000FF;">case</span> <span style="color: #0000FF;">object</span> <span style="color: #D0372D;">Leaf</span>                                 <span style="color: #0000FF;">extends</span> <span style="color: #6434A3;">Tree</span><span style="color: #707183;">[</span><span style="color: #D0372D;">Nothing</span><span style="color: #707183;">]</span>
+<span style="color: #0000FF;">case</span> <span style="color: #0000FF;">class</span>  <span style="color: #6434A3;">Node</span><span style="color: #707183;">[</span>+<span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>l<span style="color: #0000FF;">:</span><span style="color: #6434A3;">Tree</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span>, c<span style="color: #0000FF;">:</span><span style="color: #6434A3;">X</span>, r<span style="color: #0000FF;">:</span><span style="color: #6434A3;">Tree</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">extends</span> <span style="color: #6434A3;">Tree</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span>
+
+<span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">tree1</span><span style="color: #0000FF;">:</span><span style="color: #6434A3;">Tree</span><span style="color: #707183;">[</span><span style="color: #D0372D;">Int</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #D0372D;">Leaf</span>
+
+<span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">tree2</span><span style="color: #0000FF;">:</span><span style="color: #6434A3;">Tree</span><span style="color: #707183;">[</span><span style="color: #D0372D;">Int</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #D0372D;">Node</span> <span style="color: #707183;">(</span><span style="color: #D0372D;">Leaf</span>, <span style="color: #D0372D;">5</span>, <span style="color: #D0372D;">Leaf</span><span style="color: #707183;">)</span>
+
+<span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">tree3</span><span style="color: #0000FF;">:</span><span style="color: #6434A3;">Tree</span><span style="color: #707183;">[</span><span style="color: #D0372D;">Int</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #D0372D;">Node</span> <span style="color: #707183;">(</span><span style="color: #D0372D;">Node</span> <span style="color: #7388D6;">(</span><span style="color: #D0372D;">Leaf</span>, <span style="color: #D0372D;">2</span>, <span style="color: #D0372D;">Leaf</span><span style="color: #7388D6;">)</span>, <span style="color: #D0372D;">3</span>, <span style="color: #D0372D;">Node</span> <span style="color: #7388D6;">(</span><span style="color: #D0372D;">Leaf</span>, <span style="color: #D0372D;">4</span>, <span style="color: #D0372D;">Leaf</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+
+<span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Find the size of a binary tree.  Leaves have size zero here.</span>
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">size</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>t<span style="color: #0000FF;">:</span><span style="color: #6434A3;">Tree</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Int</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  ...
+<span style="color: #707183;">}</span>
+
+<span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Insert a number into a sorted binary tree.</span>
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">insert</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>x<span style="color: #0000FF;">:</span><span style="color: #6434A3;">X</span>, t<span style="color: #0000FF;">:</span><span style="color: #6434A3;">Tree</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span>, lt<span style="color: #0000FF;">:</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">X</span>,<span style="color: #D0372D;">X</span><span style="color: #7388D6;">)</span><span style="color: #0000FF;">=&gt;</span><span style="color: #D0372D;">Boolean</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Tree</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  ...
+<span style="color: #707183;">}</span>
+
+<span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Put the elements of the tree into a list using an in-order traversal.</span>
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">inorder</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>t<span style="color: #0000FF;">:</span><span style="color: #6434A3;">Tree</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">List</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  ...
+<span style="color: #707183;">}</span>
+</pre>
+</pre>
+</div>
+
+<p>
+<a href="#binary-tree-case-class">Solution: Binary Tree Case Class</a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Solutions</h2>
+<div class="outline-text-2" id="text-7">
+</div><div id="outline-container-maximum-lists" class="outline-3">
+<h3 id="maximum-lists"><a id="sec-7-1" name="sec-7-1"></a><span class="section-number-3">7.1</span> Solution: Maximum of a List</h3>
+<div class="outline-text-3" id="text-maximum-lists">
+
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF;">def</span> <span style="color: #006699;">maximum</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">Int</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Option</span><span style="color: #707183;">[</span><span style="color: #D0372D;">Int</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  xs <span style="color: #0000FF;">match</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">Nil</span>   <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">None</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #BA36A5;">y</span><span style="color: #6434A3;">::</span><span style="color: #BA36A5;">ys</span> <span style="color: #0000FF;">=&gt;</span> 
+      maximum <span style="color: #909183;">(</span>ys<span style="color: #909183;">)</span> <span style="color: #0000FF;">match</span> <span style="color: #909183;">{</span>
+        <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">None</span> <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Some</span> <span style="color: #709870;">(</span>y<span style="color: #709870;">)</span>
+        <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">Some</span> <span style="color: #709870;">(</span><span style="color: #BA36A5;">z</span><span style="color: #709870;">)</span> <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Some</span> <span style="color: #709870;">(</span>y max z<span style="color: #709870;">)</span>
+      <span style="color: #909183;">}</span>
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>
+</pre>
+</pre>
+</div>
+
+<p>
+Suppose we start with maximum (List(11,31,21)).
+Computation goes as follows:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scala"> maximum <span style="color: #707183;">(</span><span style="color: #D0372D;">List</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">11</span>,<span style="color: #D0372D;">31</span>,<span style="color: #D0372D;">21</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+<span style="color: #0000FF;">=&gt;</span> maximum <span style="color: #707183;">(</span><span style="color: #D0372D;">List</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">31</span>,<span style="color: #D0372D;">21</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">match</span> <span style="color: #707183;">[</span><span style="color: #0000FF;">with</span> <span style="color: #6434A3;">y</span><span style="color: #0000FF;">=</span><span style="color: #D0372D;">11</span><span style="color: #707183;">]</span> <span style="color: #707183;">{</span> ... <span style="color: #707183;">}</span>
+<span style="color: #0000FF;">=&gt;</span> <span style="color: #707183;">(</span>maximum <span style="color: #7388D6;">(</span><span style="color: #D0372D;">List</span><span style="color: #909183;">(</span><span style="color: #D0372D;">21</span><span style="color: #909183;">)</span><span style="color: #7388D6;">)</span> <span style="color: #0000FF;">match</span> <span style="color: #7388D6;">[</span><span style="color: #0000FF;">with</span> <span style="color: #6434A3;">y</span><span style="color: #0000FF;">=</span><span style="color: #D0372D;">31</span><span style="color: #7388D6;">]</span> <span style="color: #7388D6;">{</span>...<span style="color: #7388D6;">}</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">match</span> <span style="color: #707183;">[</span><span style="color: #0000FF;">with</span> <span style="color: #6434A3;">y</span><span style="color: #0000FF;">=</span><span style="color: #D0372D;">11</span><span style="color: #707183;">]</span> <span style="color: #707183;">{</span> ... <span style="color: #707183;">}</span>
+<span style="color: #0000FF;">=&gt;</span> <span style="color: #707183;">(</span><span style="color: #7388D6;">(</span>maximum <span style="color: #909183;">(</span><span style="color: #D0372D;">List</span><span style="color: #709870;">()</span><span style="color: #909183;">)</span> <span style="color: #0000FF;">match</span> <span style="color: #909183;">[</span><span style="color: #0000FF;">with</span> <span style="color: #6434A3;">y</span><span style="color: #0000FF;">=</span><span style="color: #D0372D;">21</span><span style="color: #909183;">]</span> <span style="color: #909183;">{</span>...<span style="color: #909183;">}</span><span style="color: #7388D6;">)</span> <span style="color: #0000FF;">match</span> <span style="color: #7388D6;">[</span><span style="color: #0000FF;">with</span> <span style="color: #6434A3;">y</span><span style="color: #0000FF;">=</span><span style="color: #D0372D;">31</span><span style="color: #7388D6;">]</span> <span style="color: #7388D6;">{</span>...<span style="color: #7388D6;">}</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">match</span> <span style="color: #707183;">[</span><span style="color: #0000FF;">with</span> <span style="color: #6434A3;">y</span><span style="color: #0000FF;">=</span><span style="color: #D0372D;">11</span><span style="color: #707183;">]</span> <span style="color: #707183;">{</span> ... <span style="color: #707183;">}</span>
+<span style="color: #0000FF;">=&gt;</span> <span style="color: #707183;">(</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">None</span> <span style="color: #0000FF;">match</span> <span style="color: #909183;">[</span><span style="color: #0000FF;">with</span> <span style="color: #6434A3;">y</span><span style="color: #0000FF;">=</span><span style="color: #D0372D;">21</span><span style="color: #909183;">]</span> <span style="color: #909183;">{</span>...<span style="color: #909183;">}</span><span style="color: #7388D6;">)</span> <span style="color: #0000FF;">match</span> <span style="color: #7388D6;">[</span><span style="color: #0000FF;">with</span> <span style="color: #6434A3;">y</span><span style="color: #0000FF;">=</span><span style="color: #D0372D;">31</span><span style="color: #7388D6;">]</span> <span style="color: #7388D6;">{</span>...<span style="color: #7388D6;">}</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">match</span> <span style="color: #707183;">[</span><span style="color: #0000FF;">with</span> <span style="color: #6434A3;">y</span><span style="color: #0000FF;">=</span><span style="color: #D0372D;">11</span><span style="color: #707183;">]</span> <span style="color: #707183;">{</span> ... <span style="color: #707183;">}</span>
+<span style="color: #0000FF;">=&gt;</span> <span style="color: #707183;">(</span><span style="color: #D0372D;">Some</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">21</span><span style="color: #7388D6;">)</span> <span style="color: #0000FF;">match</span> <span style="color: #7388D6;">[</span><span style="color: #0000FF;">with</span> <span style="color: #6434A3;">y</span><span style="color: #0000FF;">=</span><span style="color: #D0372D;">31</span><span style="color: #7388D6;">]</span> <span style="color: #7388D6;">{</span>...<span style="color: #7388D6;">}</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">match</span> <span style="color: #707183;">[</span><span style="color: #0000FF;">with</span> <span style="color: #6434A3;">y</span><span style="color: #0000FF;">=</span><span style="color: #D0372D;">11</span><span style="color: #707183;">]</span> <span style="color: #707183;">{</span> ... <span style="color: #707183;">}</span>
+<span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Some</span><span style="color: #707183;">(</span><span style="color: #D0372D;">31</span> max <span style="color: #D0372D;">21</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">match</span> <span style="color: #707183;">[</span><span style="color: #0000FF;">with</span> <span style="color: #6434A3;">y</span><span style="color: #0000FF;">=</span><span style="color: #D0372D;">11</span><span style="color: #707183;">]</span> <span style="color: #707183;">{</span> ... <span style="color: #707183;">}</span>
+<span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Some</span><span style="color: #707183;">(</span><span style="color: #D0372D;">31</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">match</span> <span style="color: #707183;">[</span><span style="color: #0000FF;">with</span> <span style="color: #6434A3;">y</span><span style="color: #0000FF;">=</span><span style="color: #D0372D;">11</span><span style="color: #707183;">]</span> <span style="color: #707183;">{</span> ... <span style="color: #707183;">}</span>
+<span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Some</span><span style="color: #707183;">(</span><span style="color: #D0372D;">11</span> max <span style="color: #D0372D;">31</span><span style="color: #707183;">)</span>
+<span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Some</span><span style="color: #707183;">(</span><span style="color: #D0372D;">31</span><span style="color: #707183;">)</span>
+</pre>
+</pre>
+</div>
+<p>
+It’s actually easier to understand if you starting at Nil by running on
+progressively longer lists:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scala"> maximum<span style="color: #707183;">(</span><span style="color: #D0372D;">List</span><span style="color: #7388D6;">()</span><span style="color: #707183;">)</span>
+<span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">None</span>
+
+maximum<span style="color: #707183;">(</span><span style="color: #D0372D;">List</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">21</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+<span style="color: #0000FF;">=&gt;</span> maximum<span style="color: #707183;">(</span><span style="color: #D0372D;">List</span><span style="color: #7388D6;">()</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">match</span> <span style="color: #707183;">{</span>...<span style="color: #707183;">}</span>
+<span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">None</span> <span style="color: #0000FF;">match</span> <span style="color: #707183;">{</span>...<span style="color: #707183;">}</span>
+<span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Some</span><span style="color: #707183;">(</span><span style="color: #D0372D;">21</span><span style="color: #707183;">)</span>
+
+maximum<span style="color: #707183;">(</span><span style="color: #D0372D;">List</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">31</span>,<span style="color: #D0372D;">21</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+<span style="color: #0000FF;">=&gt;</span> maximum<span style="color: #707183;">(</span><span style="color: #D0372D;">List</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">21</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">match</span> <span style="color: #707183;">{</span>...<span style="color: #707183;">}</span>
+<span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Some</span><span style="color: #707183;">(</span><span style="color: #D0372D;">21</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">match</span> <span style="color: #707183;">{</span>...<span style="color: #707183;">}</span>
+<span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Some</span><span style="color: #707183;">(</span><span style="color: #D0372D;">31</span> max <span style="color: #D0372D;">21</span><span style="color: #707183;">)</span>
+<span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Some</span><span style="color: #707183;">(</span><span style="color: #D0372D;">31</span><span style="color: #707183;">)</span>
+
+maximum<span style="color: #707183;">(</span><span style="color: #D0372D;">List</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">11</span>,<span style="color: #D0372D;">31</span>,<span style="color: #D0372D;">21</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+<span style="color: #0000FF;">=&gt;</span> maximum<span style="color: #707183;">(</span><span style="color: #D0372D;">List</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">31</span>,<span style="color: #D0372D;">21</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">match</span> <span style="color: #707183;">{</span>...<span style="color: #707183;">}</span>
+<span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Some</span><span style="color: #707183;">(</span><span style="color: #D0372D;">31</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">match</span> <span style="color: #707183;">{</span>...<span style="color: #707183;">}</span>
+<span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Some</span><span style="color: #707183;">(</span><span style="color: #D0372D;">11</span> max <span style="color: #D0372D;">31</span><span style="color: #707183;">)</span>
+<span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Some</span><span style="color: #707183;">(</span><span style="color: #D0372D;">31</span><span style="color: #707183;">)</span>
+</pre>
+</pre>
+</div>
+
+<p>
+Recall that match is simply short-hand for if-else and is evaluated left to
+right.  So the definition above is equivalent to:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-scala"> <span style="color: #0000FF;">def</span> <span style="color: #006699;">maximum</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">Int</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Option</span><span style="color: #707183;">[</span><span style="color: #D0372D;">Int</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  <span style="color: #0000FF;">if</span> <span style="color: #7388D6;">(</span>xs == <span style="color: #D0372D;">Nil</span><span style="color: #7388D6;">)</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #D0372D;">None</span>
+  <span style="color: #7388D6;">}</span> <span style="color: #0000FF;">else</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">y</span> <span style="color: #0000FF;">=</span> xs.head
+    <span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">ys</span> <span style="color: #0000FF;">=</span> xs.tail
+    <span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">zoption</span> <span style="color: #0000FF;">=</span> maximum <span style="color: #909183;">(</span>ys<span style="color: #909183;">)</span>
+    <span style="color: #0000FF;">if</span> <span style="color: #909183;">(</span>zoption == <span style="color: #D0372D;">None</span><span style="color: #909183;">)</span> <span style="color: #909183;">{</span>
+      <span style="color: #D0372D;">Some</span> <span style="color: #709870;">(</span>y<span style="color: #709870;">)</span>
+    <span style="color: #909183;">}</span> <span style="color: #0000FF;">else</span> <span style="color: #909183;">{</span>
+      <span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">z</span> <span style="color: #0000FF;">=</span> x.get
+      <span style="color: #D0372D;">Some</span> <span style="color: #709870;">(</span>y max z<span style="color: #709870;">)</span>
+    <span style="color: #909183;">}</span>
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>
+</pre>
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-find-element-lists" class="outline-3">
+<h3 id="find-element-lists"><a id="sec-7-2" name="sec-7-2"></a><span class="section-number-3">7.2</span> Solution: Find Element</h3>
+<div class="outline-text-3" id="text-find-element-lists">
+
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF;">def</span> <span style="color: #006699;">find</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span>, p<span style="color: #0000FF;">:</span><span style="color: #6434A3;">X</span><span style="color: #0000FF;">=&gt;</span><span style="color: #D0372D;">Boolean</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Option</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  xs <span style="color: #0000FF;">match</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">Nil</span>            <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">None</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #BA36A5;">y</span><span style="color: #6434A3;">::</span><span style="color: #BA36A5;">ys</span> <span style="color: #0000FF;">if</span> p <span style="color: #909183;">(</span>y<span style="color: #909183;">)</span> <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Some</span> <span style="color: #909183;">(</span>y<span style="color: #909183;">)</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #0000FF;">_</span><span style="color: #6434A3;">::</span><span style="color: #BA36A5;">ys</span>          <span style="color: #0000FF;">=&gt;</span> find <span style="color: #909183;">(</span>ys, p<span style="color: #909183;">)</span>
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>
+</pre>
+</pre>
+</div>
+<p>
+This one is easier since tail recursive:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scala"> <span style="color: #0000FF;">def</span> <span style="color: #006699;">p</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">(</span>x<span style="color: #0000FF;">:</span><span style="color: #6434A3;">Int</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">=&gt;</span> <span style="color: #707183;">(</span>x==<span style="color: #D0372D;">5</span><span style="color: #707183;">)</span>
+
+find<span style="color: #707183;">(</span><span style="color: #D0372D;">List</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">11</span>,<span style="color: #D0372D;">5</span>,<span style="color: #D0372D;">21</span><span style="color: #7388D6;">)</span>, p<span style="color: #707183;">)</span>
+<span style="color: #0000FF;">=&gt;</span> find<span style="color: #707183;">(</span><span style="color: #D0372D;">List</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">5</span>,<span style="color: #D0372D;">21</span><span style="color: #7388D6;">)</span>, p<span style="color: #707183;">)</span>
+<span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Some</span><span style="color: #707183;">(</span><span style="color: #D0372D;">5</span><span style="color: #707183;">)</span>
+
+find<span style="color: #707183;">(</span><span style="color: #D0372D;">List</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">11</span>,<span style="color: #D0372D;">21</span><span style="color: #7388D6;">)</span>, p<span style="color: #707183;">)</span>
+<span style="color: #0000FF;">=&gt;</span> find<span style="color: #707183;">(</span><span style="color: #D0372D;">List</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">21</span><span style="color: #7388D6;">)</span>, p<span style="color: #707183;">)</span>
+<span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">None</span>
+</pre>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-handle-option-pattern-matching" class="outline-3">
+<h3 id="handle-option-pattern-matching"><a id="sec-7-3" name="sec-7-3"></a><span class="section-number-3">7.3</span> Solution: Handle an Option - Pattern Matching</h3>
+<div class="outline-text-3" id="text-handle-option-pattern-matching">
+
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF;">def</span> <span style="color: #006699;">oneFind</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">String</span><span style="color: #7388D6;">]</span>, s<span style="color: #0000FF;">:</span><span style="color: #6434A3;">String</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Option</span><span style="color: #707183;">[</span><span style="color: #D0372D;">String</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  xs.find <span style="color: #7388D6;">(</span><span style="color: #909183;">(</span>x<span style="color: #0000FF;">:</span><span style="color: #6434A3;">String</span><span style="color: #909183;">)</span> <span style="color: #0000FF;">=&gt;</span> <span style="color: #909183;">(</span>x.length &gt; s.length<span style="color: #909183;">)</span> &amp;&amp; x.contains <span style="color: #909183;">(</span>s<span style="color: #909183;">)</span><span style="color: #7388D6;">)</span>
+<span style="color: #707183;">}</span>
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">twoFind</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">String</span><span style="color: #7388D6;">]</span>, s<span style="color: #0000FF;">:</span><span style="color: #6434A3;">String</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Option</span><span style="color: #707183;">[</span><span style="color: #D0372D;">String</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  oneFind <span style="color: #7388D6;">(</span>xs, s<span style="color: #7388D6;">)</span> <span style="color: #0000FF;">match</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">None</span>     <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">None</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">Some</span> <span style="color: #909183;">(</span><span style="color: #BA36A5;">t</span><span style="color: #909183;">)</span> <span style="color: #0000FF;">=&gt;</span> oneFind <span style="color: #909183;">(</span>xs, t<span style="color: #909183;">)</span>
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>
+</pre>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-handle-option-flatmap" class="outline-3">
+<h3 id="handle-option-flatmap"><a id="sec-7-4" name="sec-7-4"></a><span class="section-number-3">7.4</span> Solution: Handle an Option - flatMap</h3>
+<div class="outline-text-3" id="text-handle-option-flatmap">
+
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF;">def</span> <span style="color: #006699;">oneFind</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">String</span><span style="color: #7388D6;">]</span>, s<span style="color: #0000FF;">:</span><span style="color: #6434A3;">String</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Option</span><span style="color: #707183;">[</span><span style="color: #D0372D;">String</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  xs.find <span style="color: #7388D6;">(</span><span style="color: #909183;">(</span>x<span style="color: #0000FF;">:</span><span style="color: #6434A3;">String</span><span style="color: #909183;">)</span> <span style="color: #0000FF;">=&gt;</span> <span style="color: #909183;">(</span>x.length &gt; s.length<span style="color: #909183;">)</span> &amp;&amp; x.contains <span style="color: #909183;">(</span>s<span style="color: #909183;">)</span><span style="color: #7388D6;">)</span>
+<span style="color: #707183;">}</span>
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">twoFind</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">String</span><span style="color: #7388D6;">]</span>, s<span style="color: #0000FF;">:</span><span style="color: #6434A3;">String</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Option</span><span style="color: #707183;">[</span><span style="color: #D0372D;">String</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  oneFind <span style="color: #7388D6;">(</span>xs, s<span style="color: #7388D6;">)</span>.flatMap <span style="color: #7388D6;">(</span><span style="color: #909183;">(</span>t<span style="color: #0000FF;">:</span><span style="color: #6434A3;">String</span><span style="color: #909183;">)</span> <span style="color: #0000FF;">=&gt;</span> oneFind <span style="color: #909183;">(</span>xs, t<span style="color: #909183;">)</span><span style="color: #7388D6;">)</span>
+<span style="color: #707183;">}</span>
+</pre>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-scheme-loop" class="outline-3">
+<h3 id="scheme-loop"><a id="sec-7-5" name="sec-7-5"></a><span class="section-number-3">7.5</span> Solution: Scheme - Looping in Scheme</h3>
+<div class="outline-text-3" id="text-scheme-loop">
+
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span style="color: #707183;">(</span><span style="color: #0000FF;">let</span> <span style="color: #006699;">loop</span> <span style="color: #7388D6;">(</span><span style="color: #909183;">[</span>n 1<span style="color: #909183;">]</span><span style="color: #7388D6;">)</span>
+  <span style="color: #7388D6;">(</span><span style="color: #0000FF;">if</span> <span style="color: #909183;">(</span>&gt; n 4<span style="color: #909183;">)</span>
+      <span style="color: #909183;">()</span>
+      <span style="color: #909183;">(</span><span style="color: #0000FF;">begin</span>
+        <span style="color: #709870;">(</span>display <span style="color: #907373;">(</span>string-append <span style="color: #6276BA;">(</span>number-&gt;string n<span style="color: #6276BA;">)</span> <span style="color: #008000;">" potato\n"</span><span style="color: #907373;">)</span><span style="color: #709870;">)</span>
+        <span style="color: #709870;">(</span>loop <span style="color: #907373;">(</span>+ n 1<span style="color: #907373;">)</span><span style="color: #709870;">)</span><span style="color: #909183;">)</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+</pre>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-scheme-loop-with-a-function" class="outline-3">
+<h3 id="scheme-loop-with-a-function"><a id="sec-7-6" name="sec-7-6"></a><span class="section-number-3">7.6</span> Solution: Scheme - Looping in Scheme with a Function</h3>
+<div class="outline-text-3" id="text-scheme-loop-with-a-function">
+
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span style="color: #707183;">(</span><span style="color: #0000FF;">define</span> <span style="color: #7388D6;">(</span><span style="color: #006699;">foo</span> n<span style="color: #7388D6;">)</span>
+  <span style="color: #7388D6;">(</span><span style="color: #0000FF;">if</span> <span style="color: #909183;">(</span>&gt; n 4<span style="color: #909183;">)</span>
+      <span style="color: #909183;">()</span>
+      <span style="color: #909183;">(</span><span style="color: #0000FF;">begin</span>
+        <span style="color: #709870;">(</span>display <span style="color: #907373;">(</span>string-append <span style="color: #6276BA;">(</span>number-&gt;string n<span style="color: #6276BA;">)</span> <span style="color: #008000;">" potato\n"</span><span style="color: #907373;">)</span><span style="color: #709870;">)</span>
+        <span style="color: #709870;">(</span>foo <span style="color: #907373;">(</span>+ n 1<span style="color: #907373;">)</span><span style="color: #709870;">)</span><span style="color: #909183;">)</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+</pre>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-scala-loop-with-a-function" class="outline-3">
+<h3 id="scala-loop-with-a-function"><a id="sec-7-7" name="sec-7-7"></a><span class="section-number-3">7.7</span> Solution: Scala - Looping in Scala with a Function</h3>
+<div class="outline-text-3" id="text-scala-loop-with-a-function">
+
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF;">import</span> scala.annotation.tailrec
+
+<span style="color: #808080;">@tailrec</span>
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">foo</span> <span style="color: #707183;">(</span>n<span style="color: #0000FF;">:</span><span style="color: #6434A3;">Int</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Unit</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  <span style="color: #0000FF;">if</span> <span style="color: #7388D6;">(</span>!<span style="color: #909183;">(</span>n &gt; <span style="color: #D0372D;">4</span><span style="color: #909183;">)</span><span style="color: #7388D6;">)</span> <span style="color: #7388D6;">{</span>
+    println <span style="color: #909183;">(</span><span style="color: #008000;">"%d potato"</span>.format <span style="color: #709870;">(</span>n<span style="color: #709870;">)</span><span style="color: #909183;">)</span>
+    foo <span style="color: #909183;">(</span>n + <span style="color: #D0372D;">1</span><span style="color: #909183;">)</span>
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>
+</pre>
+</pre>
+</div>
+
+<pre class="example">
+scala&gt; foo (1)
+1 potato
+2 potato
+3 potato
+4 potato
+</pre>
+</div>
+</div>
+
+<div id="outline-container-scheme-counting-values" class="outline-3">
+<h3 id="scheme-counting-values"><a id="sec-7-8" name="sec-7-8"></a><span class="section-number-3">7.8</span> Solution: Scheme - Counting Values</h3>
+<div class="outline-text-3" id="text-scheme-counting-values">
+
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span style="color: #707183;">(</span><span style="color: #0000FF;">define</span> <span style="color: #7388D6;">(</span><span style="color: #006699;">count-aux</span> xs low high result<span style="color: #7388D6;">)</span> 
+  <span style="color: #7388D6;">(</span><span style="color: #0000FF;">if</span> <span style="color: #909183;">(</span>equal? xs <span style="color: #709870;">()</span><span style="color: #909183;">)</span>
+      result
+      <span style="color: #909183;">(</span><span style="color: #0000FF;">if</span> <span style="color: #709870;">(</span><span style="color: #0000FF;">and</span> <span style="color: #907373;">(</span>&lt;= low <span style="color: #6276BA;">(</span>car xs<span style="color: #6276BA;">)</span><span style="color: #907373;">)</span> <span style="color: #907373;">(</span>&lt;= <span style="color: #6276BA;">(</span>car xs<span style="color: #6276BA;">)</span> high<span style="color: #907373;">)</span><span style="color: #709870;">)</span>
+          <span style="color: #709870;">(</span>count-aux <span style="color: #907373;">(</span>cdr xs<span style="color: #907373;">)</span> low high <span style="color: #907373;">(</span>+ 1 result<span style="color: #907373;">)</span><span style="color: #709870;">)</span>
+          <span style="color: #709870;">(</span>count-aux <span style="color: #907373;">(</span>cdr xs<span style="color: #907373;">)</span> low high result<span style="color: #709870;">)</span><span style="color: #909183;">)</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+
+<span style="color: #707183;">(</span><span style="color: #0000FF;">define</span> <span style="color: #7388D6;">(</span><span style="color: #006699;">count</span> xs low high<span style="color: #7388D6;">)</span> 
+  <span style="color: #7388D6;">(</span>count-aux xs low high 0<span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+
+
+<span style="color: #8D8D84;">; </span><span style="color: #8D8D84; font-style: italic;">Alternative version</span>
+
+<span style="color: #707183;">(</span><span style="color: #0000FF;">define</span> <span style="color: #7388D6;">(</span><span style="color: #006699;">count-alternate</span> xs low high<span style="color: #7388D6;">)</span> 
+  <span style="color: #7388D6;">(</span><span style="color: #0000FF;">let</span> <span style="color: #006699;">loop</span> <span style="color: #909183;">(</span><span style="color: #709870;">[</span>xs xs<span style="color: #709870;">]</span> <span style="color: #709870;">[</span>result 0<span style="color: #709870;">]</span><span style="color: #909183;">)</span>
+    <span style="color: #909183;">(</span><span style="color: #0000FF;">if</span> <span style="color: #709870;">(</span>equal? xs <span style="color: #907373;">()</span><span style="color: #709870;">)</span>
+        result
+        <span style="color: #709870;">(</span><span style="color: #0000FF;">if</span> <span style="color: #907373;">(</span><span style="color: #0000FF;">and</span> <span style="color: #6276BA;">(</span>&lt;= low <span style="color: #858580;">(</span>car xs<span style="color: #858580;">)</span><span style="color: #6276BA;">)</span> <span style="color: #6276BA;">(</span>&lt;= <span style="color: #858580;">(</span>car xs<span style="color: #858580;">)</span> high<span style="color: #6276BA;">)</span><span style="color: #907373;">)</span>
+          <span style="color: #907373;">(</span>loop <span style="color: #6276BA;">(</span>cdr xs<span style="color: #6276BA;">)</span> <span style="color: #6276BA;">(</span>+ 1 result<span style="color: #6276BA;">)</span><span style="color: #907373;">)</span>
+          <span style="color: #907373;">(</span>loop <span style="color: #6276BA;">(</span>cdr xs<span style="color: #6276BA;">)</span> result<span style="color: #907373;">)</span><span style="color: #709870;">)</span><span style="color: #909183;">)</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+</pre>
+</pre>
+</div>
+
+<pre class="example">
+#;&gt; (count-aux '(1 2 3 4 5 6 7 8 9 10 11 12) 5 10 0)
+6
+
+#;&gt; (count '(1 2 3 4 5 6 7 8 9 10 11 12) 5 10)
+6
+
+#;&gt; (count-alternate '(1 2 3 4 5 6 7 8 9 10 11 12) 5 10)
+6
+</pre>
+</div>
+</div>
+
+<div id="outline-container-scala-counting-values" class="outline-3">
+<h3 id="scala-counting-values"><a id="sec-7-9" name="sec-7-9"></a><span class="section-number-3">7.9</span> Solution: Scala - Counting Values</h3>
+<div class="outline-text-3" id="text-scala-counting-values">
+
+<p>
+Here is one way to structure the program.
+The tail-recursive <code>aux</code> function is nested inside <code>count</code>, which means it can only be called from inside <code>count</code>.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF;">def</span> <span style="color: #006699;">count</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">Int</span><span style="color: #7388D6;">]</span>, low<span style="color: #0000FF;">:</span><span style="color: #6434A3;">Int</span>, high<span style="color: #0000FF;">:</span><span style="color: #6434A3;">Int</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Int</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  <span style="color: #0000FF;">def</span> <span style="color: #006699;">aux</span> <span style="color: #7388D6;">(</span>ys<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #909183;">[</span><span style="color: #D0372D;">Int</span><span style="color: #909183;">]</span>, result<span style="color: #0000FF;">:</span><span style="color: #6434A3;">Int</span><span style="color: #7388D6;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Int</span> <span style="color: #0000FF;">=</span> <span style="color: #7388D6;">{</span>
+    ys <span style="color: #0000FF;">match</span> <span style="color: #909183;">{</span>
+      <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">Nil</span>                              <span style="color: #0000FF;">=&gt;</span> result
+      <span style="color: #0000FF;">case</span> <span style="color: #BA36A5;">z</span><span style="color: #6434A3;">::</span><span style="color: #BA36A5;">zs</span> <span style="color: #0000FF;">if</span> <span style="color: #709870;">(</span>low &lt;= z &amp;&amp; z &lt;= high<span style="color: #709870;">)</span> <span style="color: #0000FF;">=&gt;</span> aux <span style="color: #709870;">(</span>zs, result + <span style="color: #D0372D;">1</span><span style="color: #709870;">)</span>
+      <span style="color: #0000FF;">case</span> <span style="color: #0000FF;">_</span><span style="color: #6434A3;">::</span><span style="color: #BA36A5;">zs</span>                            <span style="color: #0000FF;">=&gt;</span> aux <span style="color: #709870;">(</span>zs, result<span style="color: #709870;">)</span>
+    <span style="color: #909183;">}</span>
+  <span style="color: #7388D6;">}</span>
+  aux <span style="color: #7388D6;">(</span>xs, <span style="color: #D0372D;">0</span><span style="color: #7388D6;">)</span>
+<span style="color: #707183;">}</span>
+</pre>
+</pre>
+</div>
+
+<pre class="example">
+scala&gt; count (List (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12), 5, 10)
+res1: Int = 6
+</pre>
+</div>
+</div>
+
+<div id="outline-container-flatmap-lists" class="outline-3">
+<h3 id="flatmap-lists"><a id="sec-7-10" name="sec-7-10"></a><span class="section-number-3">7.10</span> Solution: flatMap for Lists</h3>
+<div class="outline-text-3" id="text-flatmap-lists">
+
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF;">def</span> <span style="color: #006699;">repeat</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>x<span style="color: #0000FF;">:</span><span style="color: #6434A3;">X</span>, n<span style="color: #0000FF;">:</span><span style="color: #6434A3;">Int</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">List</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  <span style="color: #0000FF;">if</span> <span style="color: #7388D6;">(</span>n == <span style="color: #D0372D;">0</span><span style="color: #7388D6;">)</span> 
+    <span style="color: #D0372D;">Nil</span>
+  <span style="color: #0000FF;">else</span> 
+    x :: repeat <span style="color: #7388D6;">(</span>x, n - <span style="color: #D0372D;">1</span><span style="color: #7388D6;">)</span>
+<span style="color: #707183;">}</span>
+
+<span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">xs</span><span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #707183;">[</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">Char</span>,<span style="color: #D0372D;">Int</span><span style="color: #7388D6;">)</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #D0372D;">List</span> <span style="color: #707183;">(</span><span style="color: #7388D6;">(</span><span style="color: #008000;">'a'</span>, <span style="color: #D0372D;">2</span><span style="color: #7388D6;">)</span>, <span style="color: #7388D6;">(</span><span style="color: #008000;">'b'</span>, <span style="color: #D0372D;">4</span><span style="color: #7388D6;">)</span>, <span style="color: #7388D6;">(</span><span style="color: #008000;">'c'</span>, <span style="color: #D0372D;">8</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+
+<span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">ys</span> <span style="color: #0000FF;">=</span> xs.map <span style="color: #707183;">(</span><span style="color: #7388D6;">(</span>p<span style="color: #0000FF;">:</span><span style="color: #909183;">(</span><span style="color: #D0372D;">Char</span>,<span style="color: #D0372D;">Int</span><span style="color: #909183;">)</span><span style="color: #7388D6;">)</span> <span style="color: #0000FF;">=&gt;</span> repeat <span style="color: #7388D6;">(</span>p._1, p._2<span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+
+<span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">zs</span> <span style="color: #0000FF;">=</span> xs.flatMap <span style="color: #707183;">(</span><span style="color: #7388D6;">(</span>p<span style="color: #0000FF;">:</span><span style="color: #909183;">(</span><span style="color: #D0372D;">Char</span>,<span style="color: #D0372D;">Int</span><span style="color: #909183;">)</span><span style="color: #7388D6;">)</span> <span style="color: #0000FF;">=&gt;</span> repeat <span style="color: #7388D6;">(</span>p._1, p._2<span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+
+<span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">zs2</span> <span style="color: #0000FF;">=</span> xs.map <span style="color: #707183;">(</span><span style="color: #7388D6;">(</span>p<span style="color: #0000FF;">:</span><span style="color: #909183;">(</span><span style="color: #D0372D;">Char</span>,<span style="color: #D0372D;">Int</span><span style="color: #909183;">)</span><span style="color: #7388D6;">)</span> <span style="color: #0000FF;">=&gt;</span> repeat <span style="color: #7388D6;">(</span>p._1, p._2<span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>.flatten
+
+<span style="color: #707183;">(</span>zs == zs2<span style="color: #707183;">)</span>
+</pre>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-classes-java-translation" class="outline-3">
+<h3 id="classes-java-translation"><a id="sec-7-11" name="sec-7-11"></a><span class="section-number-3">7.11</span> Solution: Classes - Java Translation</h3>
+<div class="outline-text-3" id="text-classes-java-translation">
+
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF;">object</span> <span style="color: #D0372D;">Counter</span> <span style="color: #707183;">{</span>
+  <span style="color: #006FE0;">private</span> <span style="color: #0000FF;">var</span> <span style="color: #ff0000; font-weight: bold;">numCounters</span> <span style="color: #0000FF;">=</span> <span style="color: #D0372D;">0</span>
+
+  <span style="color: #0000FF;">def</span> <span style="color: #006699;">getNumCounters</span> <span style="color: #7388D6;">()</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Int</span> <span style="color: #0000FF;">=</span> numCounters
+  <span style="color: #0000FF;">def</span> <span style="color: #006699;">incNumCounters</span> <span style="color: #7388D6;">()</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Unit</span> <span style="color: #0000FF;">=</span> numCounters <span style="color: #0000FF;">=</span> numCounters + <span style="color: #D0372D;">1</span>
+<span style="color: #707183;">}</span>
+
+<span style="color: #0000FF;">class</span> <span style="color: #6434A3;">Counter</span> <span style="color: #707183;">(</span>initial<span style="color: #0000FF;">:</span><span style="color: #6434A3;">Int</span><span style="color: #707183;">)</span> <span style="color: #707183;">{</span>
+  <span style="color: #006FE0;">private</span> <span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">id</span><span style="color: #0000FF;">:</span><span style="color: #6434A3;">Int</span> <span style="color: #0000FF;">=</span> <span style="color: #D0372D;">Counter</span>.getNumCounters
+  <span style="color: #006FE0;">private</span> <span style="color: #0000FF;">var</span> <span style="color: #ff0000; font-weight: bold;">count</span><span style="color: #0000FF;">:</span><span style="color: #6434A3;">Int</span> <span style="color: #0000FF;">=</span> initial
+  <span style="color: #D0372D;">Counter</span>.incNumCounters
+
+  <span style="color: #0000FF;">def</span> <span style="color: #006699;">getId</span> <span style="color: #7388D6;">()</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Int</span> <span style="color: #0000FF;">=</span> id
+  <span style="color: #0000FF;">def</span> <span style="color: #006699;">getNextCount</span> <span style="color: #7388D6;">()</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Int</span> <span style="color: #0000FF;">=</span> <span style="color: #7388D6;">{</span> <span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">tmp</span> <span style="color: #0000FF;">=</span> count; count <span style="color: #0000FF;">=</span> count + <span style="color: #D0372D;">1</span>; tmp <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>
+</pre>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-mylist-case-class" class="outline-3">
+<h3 id="mylist-case-class"><a id="sec-7-12" name="sec-7-12"></a><span class="section-number-3">7.12</span> Solution: MyList Case Class</h3>
+<div class="outline-text-3" id="text-mylist-case-class">
+
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF;">trait</span> <span style="color: #6434A3;">MyList</span><span style="color: #707183;">[</span>+<span style="color: #D0372D;">X</span><span style="color: #707183;">]</span>
+<span style="color: #0000FF;">case</span> <span style="color: #0000FF;">object</span> <span style="color: #D0372D;">MyNil</span>                               <span style="color: #0000FF;">extends</span> <span style="color: #6434A3;">MyList</span><span style="color: #707183;">[</span><span style="color: #D0372D;">Nothing</span><span style="color: #707183;">]</span>
+<span style="color: #0000FF;">case</span> <span style="color: #0000FF;">class</span>  <span style="color: #6434A3;">MyCons</span><span style="color: #707183;">[</span>+<span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>head<span style="color: #0000FF;">:</span><span style="color: #6434A3;">X</span>, tail<span style="color: #0000FF;">:</span><span style="color: #6434A3;">MyList</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">extends</span> <span style="color: #6434A3;">MyList</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span>
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">length</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">MyList</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Int</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  xs <span style="color: #0000FF;">match</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">MyNil</span> <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">0</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">MyCons</span> <span style="color: #909183;">(</span><span style="color: #0000FF;">_</span>, <span style="color: #BA36A5;">ys</span><span style="color: #909183;">)</span> <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">1</span> + length <span style="color: #909183;">(</span>ys<span style="color: #909183;">)</span>
+  <span style="color: #7388D6;">}</span> 
+<span style="color: #707183;">}</span>
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">toList</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">MyList</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">List</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  xs <span style="color: #0000FF;">match</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">MyNil</span> <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Nil</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">MyCons</span> <span style="color: #909183;">(</span><span style="color: #BA36A5;">y</span>, <span style="color: #BA36A5;">ys</span><span style="color: #909183;">)</span> <span style="color: #0000FF;">=&gt;</span> y::toList<span style="color: #909183;">(</span>ys<span style="color: #909183;">)</span>
+  <span style="color: #7388D6;">}</span> 
+<span style="color: #707183;">}</span>
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">fromList</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">List</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">MyList</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  xs <span style="color: #0000FF;">match</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">Nil</span> <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">MyNil</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #BA36A5;">y</span><span style="color: #6434A3;">::</span><span style="color: #BA36A5;">ys</span> <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">MyCons</span> <span style="color: #909183;">(</span>y, fromList <span style="color: #709870;">(</span>ys<span style="color: #709870;">)</span><span style="color: #909183;">)</span> 
+  <span style="color: #7388D6;">}</span> 
+<span style="color: #707183;">}</span>
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">append</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">MyList</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span>, ys<span style="color: #0000FF;">:</span><span style="color: #6434A3;">MyList</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">MyList</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  xs <span style="color: #0000FF;">match</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">MyNil</span> <span style="color: #0000FF;">=&gt;</span> ys
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">MyCons</span> <span style="color: #909183;">(</span><span style="color: #BA36A5;">z</span>, <span style="color: #BA36A5;">zs</span><span style="color: #909183;">)</span> <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">MyCons</span> <span style="color: #909183;">(</span>z, append <span style="color: #709870;">(</span>zs, ys<span style="color: #709870;">)</span><span style="color: #909183;">)</span> 
+  <span style="color: #7388D6;">}</span> 
+<span style="color: #707183;">}</span>
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">map</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span>,<span style="color: #D0372D;">Y</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>xs<span style="color: #0000FF;">:</span><span style="color: #6434A3;">MyList</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span>, f<span style="color: #0000FF;">:</span><span style="color: #6434A3;">X</span><span style="color: #0000FF;">=&gt;</span><span style="color: #D0372D;">Y</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">MyList</span><span style="color: #707183;">[</span><span style="color: #D0372D;">Y</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  xs <span style="color: #0000FF;">match</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">MyNil</span> <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">MyNil</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">MyCons</span> <span style="color: #909183;">(</span><span style="color: #BA36A5;">y</span>, <span style="color: #BA36A5;">ys</span><span style="color: #909183;">)</span> <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">MyCons</span> <span style="color: #909183;">(</span>f <span style="color: #709870;">(</span>y<span style="color: #709870;">)</span>, map <span style="color: #709870;">(</span>ys, f<span style="color: #709870;">)</span><span style="color: #909183;">)</span> 
+  <span style="color: #7388D6;">}</span> 
+<span style="color: #707183;">}</span>
+</pre>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-binary-tree-case-class" class="outline-3">
+<h3 id="binary-tree-case-class"><a id="sec-7-13" name="sec-7-13"></a><span class="section-number-3">7.13</span> Solution: Binary Tree Case Class</h3>
+<div class="outline-text-3" id="text-binary-tree-case-class">
+
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF;">trait</span> <span style="color: #6434A3;">Tree</span><span style="color: #707183;">[</span>+<span style="color: #D0372D;">X</span><span style="color: #707183;">]</span>
+<span style="color: #0000FF;">case</span> <span style="color: #0000FF;">object</span> <span style="color: #D0372D;">Leaf</span>                                 <span style="color: #0000FF;">extends</span> <span style="color: #6434A3;">Tree</span><span style="color: #707183;">[</span><span style="color: #D0372D;">Nothing</span><span style="color: #707183;">]</span>
+<span style="color: #0000FF;">case</span> <span style="color: #0000FF;">class</span>  <span style="color: #6434A3;">Node</span><span style="color: #707183;">[</span>+<span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>l<span style="color: #0000FF;">:</span><span style="color: #6434A3;">Tree</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span>, c<span style="color: #0000FF;">:</span><span style="color: #6434A3;">X</span>, r<span style="color: #0000FF;">:</span><span style="color: #6434A3;">Tree</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">extends</span> <span style="color: #6434A3;">Tree</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span>
+
+<span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">tree1</span><span style="color: #0000FF;">:</span><span style="color: #6434A3;">Tree</span><span style="color: #707183;">[</span><span style="color: #D0372D;">Int</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #D0372D;">Leaf</span>
+
+<span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">tree2</span><span style="color: #0000FF;">:</span><span style="color: #6434A3;">Tree</span><span style="color: #707183;">[</span><span style="color: #D0372D;">Int</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #D0372D;">Node</span> <span style="color: #707183;">(</span><span style="color: #D0372D;">Leaf</span>, <span style="color: #D0372D;">5</span>, <span style="color: #D0372D;">Leaf</span><span style="color: #707183;">)</span>
+
+<span style="color: #0000FF;">val</span> <span style="color: #BA36A5;">tree3</span><span style="color: #0000FF;">:</span><span style="color: #6434A3;">Tree</span><span style="color: #707183;">[</span><span style="color: #D0372D;">Int</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #D0372D;">Node</span> <span style="color: #707183;">(</span><span style="color: #D0372D;">Node</span> <span style="color: #7388D6;">(</span><span style="color: #D0372D;">Leaf</span>, <span style="color: #D0372D;">2</span>, <span style="color: #D0372D;">Leaf</span><span style="color: #7388D6;">)</span>, <span style="color: #D0372D;">3</span>, <span style="color: #D0372D;">Node</span> <span style="color: #7388D6;">(</span><span style="color: #D0372D;">Leaf</span>, <span style="color: #D0372D;">4</span>, <span style="color: #D0372D;">Leaf</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+
+<span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Find the size of a binary tree.  Leaves have size zero here.</span>
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">size</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>t<span style="color: #0000FF;">:</span><span style="color: #6434A3;">Tree</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Int</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  t <span style="color: #0000FF;">match</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">Leaf</span> <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">0</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">Node</span> <span style="color: #909183;">(</span><span style="color: #BA36A5;">t1</span>, <span style="color: #0000FF;">_</span>, <span style="color: #BA36A5;">t2</span><span style="color: #909183;">)</span> <span style="color: #0000FF;">=&gt;</span> size <span style="color: #909183;">(</span>t1<span style="color: #909183;">)</span> + <span style="color: #D0372D;">1</span> + size <span style="color: #909183;">(</span>t2<span style="color: #909183;">)</span>
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>
+
+<span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Insert a number into a sorted binary tree.</span>
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">insert</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>x<span style="color: #0000FF;">:</span><span style="color: #6434A3;">X</span>, t<span style="color: #0000FF;">:</span><span style="color: #6434A3;">Tree</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span>, lt<span style="color: #0000FF;">:</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">X</span>,<span style="color: #D0372D;">X</span><span style="color: #7388D6;">)</span><span style="color: #0000FF;">=&gt;</span><span style="color: #D0372D;">Boolean</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">Tree</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  t <span style="color: #0000FF;">match</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">Leaf</span> <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Node</span> <span style="color: #909183;">(</span><span style="color: #D0372D;">Leaf</span>, x, <span style="color: #D0372D;">Leaf</span><span style="color: #909183;">)</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">Node</span> <span style="color: #909183;">(</span><span style="color: #BA36A5;">t1</span>, <span style="color: #BA36A5;">c</span>, <span style="color: #BA36A5;">t2</span><span style="color: #909183;">)</span> <span style="color: #0000FF;">if</span> <span style="color: #909183;">(</span>lt <span style="color: #709870;">(</span>x, c<span style="color: #709870;">)</span><span style="color: #909183;">)</span> <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Node</span> <span style="color: #909183;">(</span>insert <span style="color: #709870;">(</span>x, t1, lt<span style="color: #709870;">)</span>, c, t2<span style="color: #909183;">)</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">Node</span> <span style="color: #909183;">(</span><span style="color: #BA36A5;">t1</span>, <span style="color: #BA36A5;">c</span>, <span style="color: #BA36A5;">t2</span><span style="color: #909183;">)</span> <span style="color: #0000FF;">if</span> <span style="color: #909183;">(</span>lt <span style="color: #709870;">(</span>c, x<span style="color: #709870;">)</span><span style="color: #909183;">)</span> <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Node</span> <span style="color: #909183;">(</span>t1, c, insert <span style="color: #709870;">(</span>x, t2, lt<span style="color: #709870;">)</span><span style="color: #909183;">)</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">Node</span> <span style="color: #909183;">(</span><span style="color: #BA36A5;">t1</span>, <span style="color: #BA36A5;">c</span>, <span style="color: #BA36A5;">t2</span><span style="color: #909183;">)</span> <span style="color: #0000FF;">if</span> <span style="color: #909183;">(</span>x == c<span style="color: #909183;">)</span>    <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Node</span> <span style="color: #909183;">(</span>t1, c, t2<span style="color: #909183;">)</span>
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>
+
+<span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Put the elements of the tree into a list using an in-order traversal.</span>
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">inorder</span> <span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #707183;">(</span>t<span style="color: #0000FF;">:</span><span style="color: #6434A3;">Tree</span><span style="color: #7388D6;">[</span><span style="color: #D0372D;">X</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span> <span style="color: #0000FF;">:</span> <span style="color: #6434A3;">List</span><span style="color: #707183;">[</span><span style="color: #D0372D;">X</span><span style="color: #707183;">]</span> <span style="color: #0000FF;">=</span> <span style="color: #707183;">{</span>
+  t <span style="color: #0000FF;">match</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">Leaf</span> <span style="color: #0000FF;">=&gt;</span> <span style="color: #D0372D;">Nil</span>
+    <span style="color: #0000FF;">case</span> <span style="color: #D0372D;">Node</span> <span style="color: #909183;">(</span><span style="color: #BA36A5;">t1</span>, <span style="color: #BA36A5;">c</span>, <span style="color: #BA36A5;">t2</span><span style="color: #909183;">)</span> <span style="color: #0000FF;">=&gt;</span> inorder <span style="color: #909183;">(</span>t1<span style="color: #909183;">)</span> ::: <span style="color: #D0372D;">List</span> <span style="color: #909183;">(</span>c<span style="color: #909183;">)</span> ::: inorder <span style="color: #909183;">(</span>t2<span style="color: #909183;">)</span>
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>
+</pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: James Riely</p>
+<p class="date">Created: 2017-10-10 Tue 05:36</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.50.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

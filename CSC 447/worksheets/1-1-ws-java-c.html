@@ -1,0 +1,1107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Worksheet Java and C Prerequisites</title>
+<!-- 2018-04-02 Mon 18:37 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="James Riely" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Worksheet Java and C Prerequisites</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Worksheets</a></li>
+<li><a href="#sec-2">2. Questions and Completion</a></li>
+<li><a href="#sec-3">3. Prerequisite: Basics</a>
+<ul>
+<li><a href="#sec-3-1">3.1. Text Editor</a></li>
+<li><a href="#sec-3-2">3.2. Console / Terminal</a></li>
+<li><a href="#sec-3-3">3.3. Press TAB to Autocomplete</a></li>
+<li><a href="#sec-3-4">3.4. Environmental Variables</a></li>
+<li><a href="#sec-3-5">3.5. Setting an Environmental Variable</a></li>
+<li><a href="#sec-3-6">3.6. Home Directory</a></li>
+<li><a href="#sec-3-7">3.7. Spaces in Environmental Variables</a></li>
+<li><a href="#sec-3-8">3.8. PATH environmental variable</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4. Prerequisite: Java</a>
+<ul>
+<li><a href="#sec-4-1">4.1. Java SDK</a></li>
+<li><a href="#sec-4-2">4.2. Hello World</a></li>
+</ul>
+</li>
+<li><a href="#sec-5">5. Prerequisite: C</a>
+<ul>
+<li><a href="#sec-5-1">5.1. C or C++ Compiler</a></li>
+<li><a href="#sec-5-2">5.2. Hello World</a></li>
+<li><a href="#sec-5-3">5.3. Pointers</a></li>
+<li><a href="#sec-5-4">5.4. Allocation Location</a></li>
+<li><a href="#sec-5-5">5.5. Call-Stack Allocation</a></li>
+<li><a href="#sec-5-6">5.6. Dangling Pointer</a></li>
+</ul>
+</li>
+<li><a href="#sec-6">6. Solutions</a>
+<ul>
+<li><a href="#helloworld-java">6.1. Solution: Hello World in Java</a></li>
+<li><a href="#helloworld-c">6.2. Solution: Hello World in C</a></li>
+<li><a href="#pointers-c">6.3. Solution: Pointers</a></li>
+<li><a href="#allocation-location">6.4. Solution: Allocation Location</a></li>
+<li><a href="#call-stack-allocation">6.5. Solution: Call-Stack Allocation</a></li>
+<li><a href="#dangling-pointer">6.6. Solution: Dangling Pointer</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Worksheets</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+This course requires worksheets to be completed each week.  
+</p>
+
+<p>
+The purpose is to provide support structure for your study and to provide better coverage of routine introductory exercises prior to completing more challenging homework assignments.  
+Much of the text comes from questions that arise during the course.
+The worksheets should make the class <i>easier</i>.
+You are welcome to ask questions about the worksheets on the class forum.
+</p>
+
+<p>
+This initial worksheet covers a few elements of Java and C that will be used in this course, along with some background information on the console / terminal environment for different operating systems.  
+With the exception of Command Prompt / terminal information, you should have seen this material in the introductory classes (or from the classes that were used to waive the introductory classes).
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Questions and Completion</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+To receive credit for completing the worksheet, you must complete the corresponding quiz (it is just a checkbox) on D2L when you have finished the worksheet.
+</p>
+
+<p>
+If you have questions as you go through this worksheet, please feel free to post them on the Google group.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Prerequisite: Basics</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Text Editor</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+If you do not already have one, get a text editor for your computer and try it out.  If you are comfortable with using an
+Integrated Development Environment (IDE) such as Eclipse or IntelliJ IDEA, that will do, but you may want to look at a standalone
+text editor also, since they tend to be much more lightweight.
+</p>
+
+<p>
+No matter what, do not use a word processor such as Microsoft Word to edit code.  Yes, this does happen sometimes.
+</p>
+
+<p>
+Suggested text editors to try:
+</p>
+
+<ul class="org-ul">
+<li>Notepad++ for Windows
+</li>
+<li>jEdit for Windows
+</li>
+<li>TextPad for Windows
+</li>
+<li>Sublime Text for OS X, Windows, and Linux
+</li>
+</ul>
+
+<p>
+Old school text editors with a longer learning curve:
+</p>
+
+<ul class="org-ul">
+<li>Emacs
+</li>
+<li>VIM
+</li>
+</ul>
+
+<p>
+If you have another good text editor, feel free to share on the forum.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Console / Terminal</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Open a console / terminal on your computer.  
+</p>
+
+<ul class="org-ul">
+<li>For Windows, use the builtin "Command Prompt" (<code>cmd.exe</code>).  The more adventurous might try the <code>bash</code> shell from Cygwin, or
+Windows PowerShell.
+</li>
+
+<li>For Linux, open whichever terminal program came with your system.  That terminal program will probably run the <code>bash</code> shell,
+unless you have configured it to use a different shell program.
+</li>
+
+<li>For OS X, use the builtin "Terminal".  It will run the <code>bash</code> shell by default.
+</li>
+</ul>
+
+<p>
+Verify that you can change directories (with <code>cd</code>), create directories (with <code>mkdir</code>), list directories (with <code>ls</code> or <code>dir</code>), etc.
+</p>
+
+<p>
+Terminology: Windows uses the term "console".  
+Linux, OS X, and others more typically use "terminal"; moreover, a shell program such as <code>bash</code> reads commands from the terminal, so we might say "open a shell" or "get a shell window" rather than "open a terminal".
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> Press TAB to Autocomplete</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+In the Command Prompt and terminal, you can often press TAB to autocomplete.  
+</p>
+
+<p>
+There are different behaviors when autocompletion is used with multiple entries, e.g., multiple files/directories with the same prefix
+</p>
+
+<ul class="org-ul">
+<li>Autocompletion in Command Prompt (Windows) cycles through the entries.
+</li>
+
+<li>Autocompletion in bash (Linux and OS X) does a partial completion; if you press TAB a second time, it will show you the possible completions.
+Type some more of the name you want, and then press TAB a third time.
+</li>
+</ul>
+
+<p>
+Using TAB liberally will make your command-line interactions significantly faster.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4" class="outline-3">
+<h3 id="sec-3-4"><span class="section-number-3">3.4</span> Environmental Variables</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+Environmental variables ("env var" for short) are supported on Windows, Linux, and OS X.
+</p>
+
+<p>
+Each process has a collection of environmental variables that you can think of as a map from variable name (a string) to a variable value (also a string).
+</p>
+
+<p>
+Examine the environmental variables on your system by running one of the following commands.
+</p>
+
+<ul class="org-ul">
+<li>For Windows, run <code>set</code> in a Command Prompt.  For example:
+
+<pre class="example">
+&gt; set
+ALLUSERSPROFILE=C:\ProgramData
+APPDATA=C:\Users\bob\AppData\Roaming
+CommonProgramFiles=C:\Program Files\Common Files
+COMPUTERNAME=MSDOS
+ComSpec=C:\Windows\system32\cmd.exe
+FP_NO_HOST_CHECK=NO
+HOMEDRIVE=C:
+HOMEPATH=\Users\bob
+LOCALAPPDATA=C:\Users\bob\AppData\Local
+LOGONSERVER=\\MSDOS
+NUMBER_OF_PROCESSORS=1
+OS=Windows_NT
+Path=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\
+PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+PROCESSOR_ARCHITECTURE=x86
+ProgramData=C:\ProgramData
+ProgramFiles=C:\Program Files
+PROMPT=&gt; 
+PSModulePath=C:\Windows\system32\WindowsPowerShell\v1.0\Modules\
+PUBLIC=C:\Users\Public
+SESSIONNAME=Console
+SystemDrive=C:
+SystemRoot=C:\Windows
+TEMP=C:\Users\bob\AppData\Local\Temp
+TMP=C:\Users\bob\AppData\Local\Temp
+USERDOMAIN=msdos
+USERDOMAIN_ROAMINGPROFILE=msdos
+USERNAME=bob
+USERPROFILE=C:\Users\bob
+windir=C:\Windows
+</pre>
+
+<p>
+Note: The standard last character in prompts for the Windows Command Prompt program is <code>&gt;</code>.
+You should not type the <code>&gt;</code>; just the <code>set</code>
+</p>
+
+<p>
+Note: These instructions are for the windows Command Prompt, not the
+Powershell or Linux subsystem for windows (<code>bash</code>).  Powershell uses
+different syntax. <code>bash</code> is the same shell that is used on macOS and Linux;
+see below for how to use it.
+</p>
+</li>
+
+<li>For Linux and OS X, run <code>env</code> or <code>env | sort</code> in a terminal.  The latter form sorts the output by variable name.  For example:
+
+<pre class="example">
+$ env | sort
+BROWSER=/usr/bin/chrome
+DISPLAY=:0
+EDITOR=/usr/bin/vim
+HOME=/home/bob
+HUSHLOGIN=TRUE
+LANG=en_US.UTF-8
+LESSCLOSE=/usr/bin/lesspipe %s %s
+LESSOPEN=| /usr/bin/lesspipe %s
+LOGNAME=bob
+MAIL=/var/mail/bob
+PAGER=/usr/bin/less
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+PWD=/home/bob
+SHELL=/bin/bash
+SHLVL=3
+TERM=xterm
+USER=bob
+_=/usr/bin/env
+XAUTHORITY=/home/bob/.Xauthority
+</pre>
+
+<p>
+Note: The <code>$</code> character is the standard last character in prompts for shell programs.
+You should not type the <code>$</code>; just the <code>env | sort</code>
+</p>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-3-5" class="outline-3">
+<h3 id="sec-3-5"><span class="section-number-3">3.5</span> Setting an Environmental Variable</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+Show that the environmental variable <code>FOO</code> is initially not set, then set it to have value <code>bar</code>, show that it is set, update its value to <code>baz</code>, then unset it.
+</p>
+
+<ul class="org-ul">
+<li>For Windows, run the following in a Command Prompt:
+
+<pre class="example">
+&gt; echo %FOO%
+%FOO%
+
+&gt; set FOO=bar
+
+&gt; echo %FOO%
+bar
+
+&gt; set FOO=baz
+
+&gt; echo %FOO%
+baz
+
+&gt; set FOO
+FOO=baz
+
+&gt; echo %FOO%
+baz
+
+&gt; set FOO=
+
+&gt; echo %FOO%
+%FOO%
+</pre>
+</li>
+
+<li>For Linux and OS X, run the following in a terminal:
+
+<pre class="example">
+$ echo ${FOO}
+
+$ export FOO=bar
+
+$ echo ${FOO}
+bar
+
+$ FOO=baz
+
+$ echo ${FOO}
+baz
+
+$ unset FOO
+
+$ echo ${FOO}
+</pre>
+</li>
+</ul>
+
+<p>
+Now (for all operating systems) repeat this, but do not unset <code>FOO</code> at the end.
+Close the Command Prompt / terminal and then open a new one.
+Is <code>FOO</code> set in the new terminal?
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-6" class="outline-3">
+<h3 id="sec-3-6"><span class="section-number-3">3.6</span> Home Directory</h3>
+<div class="outline-text-3" id="text-3-6">
+<p>
+On Linux and OS X, your home directory probably has the form <code>/home/bob</code> or <code>/Users/bob</code>; this is stored in the <code>HOME</code> environmental variable.
+The home directory has some special support:
+</p>
+
+<ul class="org-ul">
+<li>You can change to your home directory quickly by just running <code>cd</code> with no directory specified.
+</li>
+
+<li>You can refer to your home directory by <code>~</code>.  For example, <code>mkdir -p ~/doc/mynotes</code> creates a <code>doc/mynotes</code> hierarchy of directories in your home directory.
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-3-7" class="outline-3">
+<h3 id="sec-3-7"><span class="section-number-3">3.7</span> Spaces in Environmental Variables</h3>
+<div class="outline-text-3" id="text-3-7">
+<p>
+Spaces in environmental variable values can cause problems if they are not surrounded by quotes properly.
+A single value <code>hello world</code> with a space in it can end up being treated as two distinct values <code>hello</code> and <code>world</code>.
+</p>
+
+<p>
+This often arises with paths that contain spaces.
+For this reason, try to avoid spaces in path names.
+</p>
+
+<p>
+Try these illustrative examples:
+</p>
+
+<ul class="org-ul">
+<li>For Windows:
+
+<pre class="example">
+&gt; mkdir "hello world"
+
+&gt; set FOO=hello world
+
+&gt; echo %FOO%
+hello world
+
+&gt; rmdir %FOO%
+The system cannot find the file specified.
+The system cannot find the file specified.
+
+&gt; rmdir "%FOO%"
+</pre>
+</li>
+
+<li>For Linux and OS X:
+
+<pre class="example">
+$ mkdir "hello world"
+
+$ export FOO=hello world
+
+$ echo ${FOO}
+hello
+
+$ export FOO="hello world"
+
+$ echo ${FOO}
+hello world
+
+$ rmdir ${FOO}
+rmdir: failed to remove ‘hello’: No such file or directory
+rmdir: failed to remove ‘world’: No such file or directory
+
+$ rmdir "${FOO}"
+</pre>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-3-8" class="outline-3">
+<h3 id="sec-3-8"><span class="section-number-3">3.8</span> PATH environmental variable</h3>
+<div class="outline-text-3" id="text-3-8">
+<p>
+Some environmental variables contain a single <i>path</i>, e.g., <code>C:\Users\bob</code> or <code>/home/bob</code>.
+</p>
+
+<p>
+Other environmental variables contain a <i>sequence of paths</i>, e.g., <code>C:\Users\alice;C:\Users\bob;C:\Users\charlie</code> or <code>/home/alice:/home/bob:/home/charlie</code>.
+The character between paths is called the <i>path delimiter</i>.
+The path delimiter character for Windows is the semicolon <code>;</code>.
+The path delimiter character for Linux and OS X is the colon <code>:</code>.
+</p>
+
+<p>
+The <code>PATH</code> environmental variable contains a sequence of paths.
+This sequence is used to determine which executable is invoked when you enter a command.
+When you enter a command, the Command Prompt / shell looks for an executable with that name in the directory specified by the first path in <code>PATH</code>.
+If no such executable is found, it continues to the second path in <code>PATH</code>, etc.
+If no executable is found, and all of the paths in <code>PATH</code> have been tried, the Command Prompt / shell reports that the command cannot be found.
+</p>
+
+<p>
+Aside: there are also builtin commands that do not rely on searching for an executable in <code>PATH</code>.
+</p>
+
+<p>
+Check the contents of your <code>PATH</code> environmental variable.
+</p>
+
+<ul class="org-ul">
+<li>On Windows, run either <code>echo %PATH%</code> or simply <code>PATH</code>.
+</li>
+
+<li>On Linux and OS X, run <code>echo ${PATH}</code>.
+</li>
+</ul>
+
+<p>
+When installing new development software, it may be necessary to add an entry to your <code>PATH</code> environmental variable.
+You can add a new entry before the other paths using:
+</p>
+
+<ul class="org-ul">
+<li>On Windows, run, e.g., <code>PATH=c:\some\new\software;%PATH%</code>
+</li>
+
+<li>On Linux and OS X, run, e.g., <code>PATH=/some/new/software:${PATH}</code>
+</li>
+</ul>
+
+<p>
+If there are executables in the <code>software</code> directory with the same name as others in <code>PATH</code>, the ones in <code>software</code> will take precedence.
+</p>
+
+<p>
+<b>IMPORTANT:</b> making changes to <code>PATH</code> in the Command Prompt / terminal will not persist, i.e., they do not affect other Command Prompt / terminal windows that you open in the future.
+This is useful because any mistakes are forgotten when you close the window.
+</p>
+
+<p>
+There are a number of ways to make the changes persistent, but we will instead describe how to record the changes in a file, and then apply them quickly.
+</p>
+
+<ul class="org-ul">
+<li>On Windows, use your text editor to create a file named <code>setup.bat</code> (a <i>batch file</i>) and fill it with:
+
+<pre class="example">
+PATH=c:\some\new\software;%PATH%
+</pre>
+
+<p>
+Then when you want to use the new <code>PATH</code>, open a Command Prompt, change directory to the directory containing <code>setup.bat</code>, and then run <code>setup.bat</code>.
+This will execute the commands in the batch file, changing the value of <code>PATH</code> in your current Command Prompt window.
+</p>
+
+<p>
+Note: it is not useful to double-click <code>setup.bat</code> from Windows Explorer, because it will open a new Command Prompt, run your batch file in the new Command Prompt, then exit the Command Prompt and so discard the changes!
+</p>
+</li>
+
+<li>On Linux and OS X, use your text editor to create a file named <code>setup.sh</code> (a <i>shellscript file</i>) and fill it with:
+
+<pre class="example">
+PATH=/some/new/software:${PATH}
+</pre>
+
+<p>
+Then when you want to use the new <code>PATH</code>, open a terminal, change directory to the directory containing <code>setup.sh</code>, and then run <code>source ./setup.sh</code>.
+This will execute the commands in the shellscript file, changing the value of <code>PATH</code> in your current terminal window.
+</p>
+
+<p>
+Note: you can also use the synonymous <code>. ./setup.sh</code>.  But you cannot use <code>./setup.sh</code> because that creates a second shell process to run your shellscript, and changes to <code>PATH</code> in that second shell process are discarded when it has finished processing the shellscript file.
+</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Prerequisite: Java</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> Java SDK</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Check that you have the Java Standard Edition (SE) Development Kit (SDK) by opening a console / terminal and running the following
+command.  You should see something beginning with "1.8".  The minor version is not important for this class, although it is
+advisable to use a recent version for security reasons.
+</p>
+
+<pre class="example">
+$ javac -version
+javac 1.8.0_60
+</pre>
+
+<p>
+Java 8 is still the best version to use with Scala.  If you have multiple
+versions of Java installed, you can switch between them using the Java
+console.  On MacOS, this is found in the System Preferences.
+</p>
+
+<p>
+In bash on MacOS and linux, you can change the version seen in the current
+shell by executing
+</p>
+
+<pre class="example">
+$ export JAVA_HOME=`/usr/libexec/java_home -v 1.8` # java 8
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> Hello World</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Write a hello world program in Java.
+Your program should print "Hello world!" to the console / terminal, and then exit.  
+</p>
+
+<p>
+<a href="#helloworld-java">Solution: Hello World in Java</a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Prerequisite: C</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> C or C++ Compiler</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+Install a free C / C++ compiler to try.  For example, one of:
+</p>
+
+<ul class="org-ul">
+<li>GNU C compiler (GCC) for Linux and OS X
+</li>
+<li>Visual Studio Express for Windows
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-5-2" class="outline-3">
+<h3 id="sec-5-2"><span class="section-number-3">5.2</span> Hello World</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+Write a hello world program in C.  Your program should print "Hello world!" to the console / terminal, and then exit.
+</p>
+
+<p>
+Compile your program with a C compiler, then run it from the console / terminal.
+</p>
+
+<p>
+<a href="#helloworld-c">Solution: Hello World in C</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-5-3" class="outline-3">
+<h3 id="sec-5-3"><span class="section-number-3">5.3</span> Pointers</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+Consider the following C program.  
+Replace the comments with code, so that the value of <code>x</code> is <code>10</code> when it is printed.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #808080; font-size: 11.620000000000001pt;">#include</span> <span style="color: #707183; font-size: 13.502440000000004pt;">&lt;</span><span style="color: #008000; font-size: 11.620000000000001pt;">stdio.h</span><span style="color: #707183; font-size: 13.502440000000004pt;">&gt;</span>
+<span style="color: #808080; font-size: 11.620000000000001pt;">#include</span> <span style="color: #707183; font-size: 13.502440000000004pt;">&lt;</span><span style="color: #008000; font-size: 11.620000000000001pt;">stdlib.h</span><span style="color: #707183; font-size: 13.502440000000004pt;">&gt;</span>
+
+<span style="color: #6434A3; font-size: 11.620000000000001pt;">void</span> <span style="color: #006699; font-size: 11.620000000000001pt;">update</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span>* <span style="color: #BA36A5; font-size: 11.620000000000001pt;">p</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span> <span style="color: #707183; font-size: 11.620000000000001pt;">{</span>
+  <span style="color: #8D8D84; font-size: 11.620000000000001pt;">/* </span><span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;">TODO </span><span style="color: #8D8D84; font-size: 11.620000000000001pt;">*/</span>
+<span style="color: #707183; font-size: 11.620000000000001pt;">}</span>
+
+<span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #006699; font-size: 11.620000000000001pt;">main</span> <span style="color: #707183; font-size: 11.620000000000001pt;">()</span> <span style="color: #707183; font-size: 11.620000000000001pt;">{</span>
+  <span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">x</span> = 5;
+  update <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span><span style="color: #8D8D84; font-size: 11.620000000000001pt;">/* </span><span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;">TODO </span><span style="color: #8D8D84; font-size: 11.620000000000001pt;">*/</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span>;
+  printf <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span><span style="color: #008000; font-size: 11.620000000000001pt;">"%d\n"</span>, x<span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span>;
+<span style="color: #707183; font-size: 11.620000000000001pt;">}</span>
+</pre>
+</pre>
+</div>
+
+<p>
+<a href="#pointers-c">Solution: Pointers</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-5-4" class="outline-3">
+<h3 id="sec-5-4"><span class="section-number-3">5.4</span> Allocation Location</h3>
+<div class="outline-text-3" id="text-5-4">
+<p>
+Consider the following C program.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #808080; font-size: 11.620000000000001pt;">#include</span> <span style="color: #707183; font-size: 13.502440000000004pt;">&lt;</span><span style="color: #008000; font-size: 11.620000000000001pt;">stdio.h</span><span style="color: #707183; font-size: 13.502440000000004pt;">&gt;</span>
+<span style="color: #808080; font-size: 11.620000000000001pt;">#include</span> <span style="color: #707183; font-size: 13.502440000000004pt;">&lt;</span><span style="color: #008000; font-size: 11.620000000000001pt;">stdlib.h</span><span style="color: #707183; font-size: 13.502440000000004pt;">&gt;</span>
+
+<span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">x</span> = 5;
+
+<span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #006699; font-size: 11.620000000000001pt;">main</span> <span style="color: #707183; font-size: 11.620000000000001pt;">()</span> <span style="color: #707183; font-size: 11.620000000000001pt;">{</span>
+  <span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">y</span> = 10;
+  <span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span>* <span style="color: #BA36A5; font-size: 11.620000000000001pt;">p</span> = <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span>*<span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span> malloc <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span><span style="color: #0000FF; font-size: 11.620000000000001pt;">sizeof</span> <span style="color: #909183; font-size: 11.620000000000001pt;">(</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span><span style="color: #909183; font-size: 11.620000000000001pt;">)</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span>;
+<span style="color: #707183; font-size: 11.620000000000001pt;">}</span>
+</pre>
+</pre>
+</div>
+
+<p>
+Answer the following questions:
+</p>
+
+<ol class="org-ol">
+<li>Where in memory is <code>x</code> allocated?
+</li>
+
+<li>Where in memory is <code>y</code> allocated?
+</li>
+
+<li>Where in memory is <code>p</code> allocated?
+</li>
+
+<li>Where in memory is <code>p</code> pointing to?
+</li>
+</ol>
+
+<p>
+<a href="#allocation-location">Solution: Allocation Location</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-5-5" class="outline-3">
+<h3 id="sec-5-5"><span class="section-number-3">5.5</span> Call-Stack Allocation</h3>
+<div class="outline-text-3" id="text-5-5">
+<p>
+Consider the following C program.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #808080; font-size: 11.620000000000001pt;">#include</span> <span style="color: #707183; font-size: 13.502440000000004pt;">&lt;</span><span style="color: #008000; font-size: 11.620000000000001pt;">stdio.h</span><span style="color: #707183; font-size: 13.502440000000004pt;">&gt;</span>
+<span style="color: #808080; font-size: 11.620000000000001pt;">#include</span> <span style="color: #707183; font-size: 13.502440000000004pt;">&lt;</span><span style="color: #008000; font-size: 11.620000000000001pt;">stdlib.h</span><span style="color: #707183; font-size: 13.502440000000004pt;">&gt;</span>
+
+<span style="color: #6434A3; font-size: 11.620000000000001pt;">void</span> <span style="color: #006699; font-size: 11.620000000000001pt;">countdown</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">n</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span> <span style="color: #707183; font-size: 11.620000000000001pt;">{</span>
+  <span style="color: #0000FF; font-size: 11.620000000000001pt;">if</span> <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span>n &lt;= 0<span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span> <span style="color: #7388D6; font-size: 11.620000000000001pt;">{</span>
+    printf <span style="color: #909183; font-size: 11.620000000000001pt;">(</span><span style="color: #008000; font-size: 11.620000000000001pt;">"done\n"</span><span style="color: #909183; font-size: 11.620000000000001pt;">)</span>;
+  <span style="color: #7388D6; font-size: 11.620000000000001pt;">}</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">else</span> <span style="color: #7388D6; font-size: 11.620000000000001pt;">{</span>
+    printf <span style="color: #909183; font-size: 11.620000000000001pt;">(</span><span style="color: #008000; font-size: 11.620000000000001pt;">"counting down\n"</span><span style="color: #909183; font-size: 11.620000000000001pt;">)</span>;
+    countdown <span style="color: #909183; font-size: 11.620000000000001pt;">(</span>n - 1<span style="color: #909183; font-size: 11.620000000000001pt;">)</span>;
+  <span style="color: #7388D6; font-size: 11.620000000000001pt;">}</span>
+<span style="color: #707183; font-size: 11.620000000000001pt;">}</span>
+
+<span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #006699; font-size: 11.620000000000001pt;">main</span> <span style="color: #707183; font-size: 11.620000000000001pt;">()</span> <span style="color: #707183; font-size: 11.620000000000001pt;">{</span>
+  countdown <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span>5<span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span>;
+<span style="color: #707183; font-size: 11.620000000000001pt;">}</span>
+</pre>
+</pre>
+</div>
+
+<p>
+When it is executed:
+</p>
+
+<ol class="org-ol">
+<li>What will be printed?
+</li>
+
+<li>What is the maximum number of activation records (also known as stack frames) on the call stack at one point during execution?
+</li>
+</ol>
+
+<p>
+<a href="#call-stack-allocation">Solution: Call-Stack Allocation</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-5-6" class="outline-3">
+<h3 id="sec-5-6"><span class="section-number-3">5.6</span> Dangling Pointer</h3>
+<div class="outline-text-3" id="text-5-6">
+<p>
+Consider the following two C programs.
+Which one of these programs is problematic and why?
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #808080; font-size: 11.620000000000001pt;">#include</span> <span style="color: #707183; font-size: 13.502440000000004pt;">&lt;</span><span style="color: #008000; font-size: 11.620000000000001pt;">stdio.h</span><span style="color: #707183; font-size: 13.502440000000004pt;">&gt;</span>
+<span style="color: #808080; font-size: 11.620000000000001pt;">#include</span> <span style="color: #707183; font-size: 13.502440000000004pt;">&lt;</span><span style="color: #008000; font-size: 11.620000000000001pt;">stdlib.h</span><span style="color: #707183; font-size: 13.502440000000004pt;">&gt;</span>
+
+<span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #006699; font-size: 11.620000000000001pt;">foo</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">n</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span> <span style="color: #707183; font-size: 11.620000000000001pt;">{</span>
+  <span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">result</span> = 2 * n;
+  <span style="color: #0000FF; font-size: 11.620000000000001pt;">return</span> result;
+<span style="color: #707183; font-size: 11.620000000000001pt;">}</span>
+
+<span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #006699; font-size: 11.620000000000001pt;">main</span> <span style="color: #707183; font-size: 11.620000000000001pt;">()</span> <span style="color: #707183; font-size: 11.620000000000001pt;">{</span>
+  <span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">x</span> = foo <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span>5<span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span>;
+  <span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">y</span> = foo <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span>7<span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span>;
+  printf <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span><span style="color: #008000; font-size: 11.620000000000001pt;">"%d\n"</span>, x<span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span>;
+  printf <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span><span style="color: #008000; font-size: 11.620000000000001pt;">"%d\n"</span>, y<span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span>;
+<span style="color: #707183; font-size: 11.620000000000001pt;">}</span>
+</pre>
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #808080; font-size: 11.620000000000001pt;">#include</span> <span style="color: #707183; font-size: 13.502440000000004pt;">&lt;</span><span style="color: #008000; font-size: 11.620000000000001pt;">stdio.h</span><span style="color: #707183; font-size: 13.502440000000004pt;">&gt;</span>
+<span style="color: #808080; font-size: 11.620000000000001pt;">#include</span> <span style="color: #707183; font-size: 13.502440000000004pt;">&lt;</span><span style="color: #008000; font-size: 11.620000000000001pt;">stdlib.h</span><span style="color: #707183; font-size: 13.502440000000004pt;">&gt;</span>
+
+<span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span>* <span style="color: #006699; font-size: 11.620000000000001pt;">foo</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">n</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span> <span style="color: #707183; font-size: 11.620000000000001pt;">{</span>
+  <span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">result</span> = 2 * n;
+  <span style="color: #0000FF; font-size: 11.620000000000001pt;">return</span> &amp;result;
+<span style="color: #707183; font-size: 11.620000000000001pt;">}</span>
+
+<span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #006699; font-size: 11.620000000000001pt;">main</span> <span style="color: #707183; font-size: 11.620000000000001pt;">()</span> <span style="color: #707183; font-size: 11.620000000000001pt;">{</span>
+  <span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span>* <span style="color: #BA36A5; font-size: 11.620000000000001pt;">p</span> = foo <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span>5<span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span>;
+  <span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span>* <span style="color: #BA36A5; font-size: 11.620000000000001pt;">q</span> = foo <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span>7<span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span>;
+  printf <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span><span style="color: #008000; font-size: 11.620000000000001pt;">"%x %d\n"</span>, p, *p<span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span>;
+  printf <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span><span style="color: #008000; font-size: 11.620000000000001pt;">"%x %d\n"</span>, q, *q<span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span>;  
+<span style="color: #707183; font-size: 11.620000000000001pt;">}</span>
+</pre>
+</pre>
+</div>
+
+<p>
+<a href="#dangling-pointer">Solution: Dangling Pointer</a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Solutions</h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-helloworld-java" class="outline-3">
+<h3 id="helloworld-java"><a id="sec-6-1" name="sec-6-1"></a><span class="section-number-3">6.1</span> Solution: Hello World in Java</h3>
+<div class="outline-text-3" id="text-helloworld-java">
+
+<div class="org-src-container">
+
+<pre class="src src-Java">public class Hello {
+  public static void main (String[] args) {
+    System.out.println ("Hello world");
+  }
+}
+</pre>
+</div>
+
+<pre class="example">
+$ javac Hello.java
+$ java Hello
+Hello world
+</pre>
+</div>
+</div>
+
+<div id="outline-container-helloworld-c" class="outline-3">
+<h3 id="helloworld-c"><a id="sec-6-2" name="sec-6-2"></a><span class="section-number-3">6.2</span> Solution: Hello World in C</h3>
+<div class="outline-text-3" id="text-helloworld-c">
+
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #808080; font-size: 11.620000000000001pt;">#include</span> <span style="color: #707183; font-size: 13.502440000000004pt;">&lt;</span><span style="color: #008000; font-size: 11.620000000000001pt;">stdio.h</span><span style="color: #707183; font-size: 13.502440000000004pt;">&gt;</span>
+<span style="color: #808080; font-size: 11.620000000000001pt;">#include</span> <span style="color: #707183; font-size: 13.502440000000004pt;">&lt;</span><span style="color: #008000; font-size: 11.620000000000001pt;">stdlib.h</span><span style="color: #707183; font-size: 13.502440000000004pt;">&gt;</span>
+
+<span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #006699; font-size: 11.620000000000001pt;">main</span> <span style="color: #707183; font-size: 11.620000000000001pt;">()</span> <span style="color: #707183; font-size: 11.620000000000001pt;">{</span>
+  printf <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span><span style="color: #008000; font-size: 11.620000000000001pt;">"Hello world!\n"</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span>;
+  <span style="color: #0000FF; font-size: 11.620000000000001pt;">return</span> 0;
+<span style="color: #707183; font-size: 11.620000000000001pt;">}</span>
+</pre>
+</pre>
+</div>
+
+<pre class="example">
+$ gcc -o hello hello.c
+$ ./hello 
+Hello world!
+</pre>
+</div>
+</div>
+
+<div id="outline-container-pointers-c" class="outline-3">
+<h3 id="pointers-c"><a id="sec-6-3" name="sec-6-3"></a><span class="section-number-3">6.3</span> Solution: Pointers</h3>
+<div class="outline-text-3" id="text-pointers-c">
+
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #808080; font-size: 11.620000000000001pt;">#include</span> <span style="color: #707183; font-size: 13.502440000000004pt;">&lt;</span><span style="color: #008000; font-size: 11.620000000000001pt;">stdio.h</span><span style="color: #707183; font-size: 13.502440000000004pt;">&gt;</span>
+<span style="color: #808080; font-size: 11.620000000000001pt;">#include</span> <span style="color: #707183; font-size: 13.502440000000004pt;">&lt;</span><span style="color: #008000; font-size: 11.620000000000001pt;">stdlib.h</span><span style="color: #707183; font-size: 13.502440000000004pt;">&gt;</span>
+
+<span style="color: #6434A3; font-size: 11.620000000000001pt;">void</span> <span style="color: #006699; font-size: 11.620000000000001pt;">update</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span>* <span style="color: #BA36A5; font-size: 11.620000000000001pt;">p</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span> <span style="color: #707183; font-size: 11.620000000000001pt;">{</span>
+  *p = 10;
+<span style="color: #707183; font-size: 11.620000000000001pt;">}</span>
+
+<span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #006699; font-size: 11.620000000000001pt;">main</span> <span style="color: #707183; font-size: 11.620000000000001pt;">()</span> <span style="color: #707183; font-size: 11.620000000000001pt;">{</span>
+  <span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">x</span> = 5;
+  update <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span>&amp;x<span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span>;
+  printf <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span><span style="color: #008000; font-size: 11.620000000000001pt;">"%d\n"</span>, x<span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span>;
+<span style="color: #707183; font-size: 11.620000000000001pt;">}</span>
+</pre>
+</pre>
+</div>
+
+<pre class="example">
+$ gcc -o pointers-01-solution pointers-01-solution.c
+$ ./pointers-01-solution 
+10
+</pre>
+</div>
+</div>
+
+<div id="outline-container-allocation-location" class="outline-3">
+<h3 id="allocation-location"><a id="sec-6-4" name="sec-6-4"></a><span class="section-number-3">6.4</span> Solution: Allocation Location</h3>
+<div class="outline-text-3" id="text-allocation-location">
+
+<ol class="org-ol">
+<li>Global memory.
+</li>
+
+<li>In an <i>activation record</i> for <code>main</code> (also known as <i>stack frame</i>) stored on the <i>call stack</i>.
+</li>
+
+<li>In an <i>activation record</i> for <code>main</code> (also known as <i>stack frame</i>) stored on the <i>call stack</i>.
+</li>
+
+<li>On the heap.
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-call-stack-allocation" class="outline-3">
+<h3 id="call-stack-allocation"><a id="sec-6-5" name="sec-6-5"></a><span class="section-number-3">6.5</span> Solution: Call-Stack Allocation</h3>
+<div class="outline-text-3" id="text-call-stack-allocation">
+
+<ol class="org-ol">
+<li>This is printed.
+
+<pre class="example">
+counting down
+counting down
+counting down
+counting down
+counting down
+done
+</pre>
+</li>
+
+<li>There are at least 8 activation records on the call stack when <code>done</code> is printed by <code>printf</code>.
+There may be more since we do not know the implementation of <code>printf</code>.
+
+<ul class="org-ul">
+<li><code>main</code>
+</li>
+<li><code>count</code> with <code>n</code> = 5
+</li>
+<li><code>count</code> with <code>n</code> = 4
+</li>
+<li><code>count</code> with <code>n</code> = 3
+</li>
+<li><code>count</code> with <code>n</code> = 2
+</li>
+<li><code>count</code> with <code>n</code> = 1
+</li>
+<li><code>count</code> with <code>n</code> = 0
+</li>
+<li><code>printf</code>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-dangling-pointer" class="outline-3">
+<h3 id="dangling-pointer"><a id="sec-6-6" name="sec-6-6"></a><span class="section-number-3">6.6</span> Solution: Dangling Pointer</h3>
+<div class="outline-text-3" id="text-dangling-pointer">
+
+<p>
+The first program is fine.
+</p>
+
+<p>
+The second program is problematic because <code>p</code> is a <i>dangling pointer</i> after <code>foo</code> returns.
+That is, <code>p</code> contains a pointer to an area of memory that is not defined, and when it is dereferenced (using <code>*p</code>) the behavior is not guaranteed: it might be 10, some other value, or crash the program.
+This happens because the <code>result</code> variable is allocated in the activation record for <code>foo</code>, and the address of <code>result</code> is returned from <code>foo</code>, but the activation record for <code>foo</code> is deallocated (hence the memory storing <code>result</code> is also deallocated) when <code>foo</code> returns.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: James Riely</p>
+<p class="date">Created: 2018-04-02 Mon 18:37</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.50.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

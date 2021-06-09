@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>CSC447 - Concepts of Programming Languages - Scala Classes</title>
+
+    <meta name="description" content="CSC447 - Concepts of Programming Languages - Scala Classes">
+    <meta name="author" content="James Riely">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/github.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>CSC447</h1>
+          <h3>Concepts of Programming Languages</h3>
+          <h3>Scala Classes</h3>
+          <p>
+            <small>Instructor: <a href="http://fpl.cs.depaul.edu/jriely/">James Riely</a></small>
+          </p>
+        </section>
+
+        <!-- content starts here -->
+
+        <section>
+          <h2>Scala FP and OOP</h2>
+          <ul>
+            <li>
+              Scala supports both FP and OOP
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+(0 to 9).toList.partition ((x:Int) => x%3 == 0)
+          </code></pre>
+          <pre><code class="scala" data-trim="">
+class Counter {
+  var n = 0
+  def get () : Int = { val tmp = n; n = n + 1; tmp }
+}
+
+val c = new Counter
+c.get
+c.get
+          </code></pre>
+        </section>
+        <section>
+          <h2>Scala OOP</h2>
+          <ul>
+            <li>
+              Brief overview of Scala OOP
+            </li>
+            <li class="nofragment">
+              Class definitions, fields, methods
+            </li>
+            <li class="nofragment">
+              Companion objects
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Class Parameters</h2>
+          <div>
+            Define a class C
+          </div>
+          <pre><code class="scala" data-trim="">
+class C (f1:Int, val f2:Int, var f3:Int) {
+  ...
+}
+          </code></pre>
+          <div class="nofragment">
+            Only one constructor; has parameters
+            <code>f1</code>, 
+            <code>f2</code>, 
+            <code>f3</code>
+            <pre><code class="scala" data-trim="">
+val x : C = new C (2, 3, 5)
+            </code></pre>
+          </div>
+          <ul class="nofragment">
+            <li>
+              Instance of <code>C</code> is heap allocated
+            </li>
+            <li class="nofragment">
+              <code>x</code> is a reference to instance
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Class Parameters</h2>
+          <pre><code class="scala" data-trim="">
+class C (f1:Int, val f2:Int, var f3:Int) {
+  ...
+}
+          </code></pre>
+          <div class="nofragment">
+            <code>f1</code> private and immutable;
+            <code>f2</code> immutable
+            <pre><code class="scala" data-trim="">
+scala> val c = new C (2, 3, 5)
+c: C = C@8bd1b6a
+
+scala> c.f1
+&lt;console>:10: error: value f1 is not a member of C
+
+scala> c.f2
+res1: Int = 3
+
+scala> c.f3
+res2: Int = 5
+
+scala> c.f2 = 10
+&lt;console>:9: error: reassignment to val
+
+scala> c.f3 = 10
+c.f3: Int = 10
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          <h2>Class Parameter Details</h2>
+          <pre><code class="scala" data-trim="">
+scala> class C1(x:Int) { def double() = x+x }
+defined class C1
+
+scala> :javap -p -c -filter C1
+Compiled from "&lt;console>"
+public class C1 {
+  private final int x;
+
+  public int double();
+    Code:
+       0: aload_0
+       1: getfield      #19                 // Field x:I
+       4: aload_0
+       5: getfield      #19                 // Field x:I
+       8: iadd
+       9: ireturn
+
+  public C1(int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #19                 // Field x:I
+       5: aload_0
+       6: invokespecial #26                 // Method java/lang/Object."&lt;init>":()V
+       9: return
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Class Parameter Details</h2>
+          <pre><code class="scala" data-trim="">
+scala> class C2(val x:Int) { def double() = x+x }
+defined class C2
+
+scala> :javap -p -c -filter C2
+Compiled from "&lt;console>"
+public class C2 {
+  private final int x;
+
+  public int x();
+    Code:
+       0: aload_0
+       1: getfield      #18                 // Field x:I
+       4: ireturn
+
+  public int double();
+    Code:
+       0: aload_0
+       1: invokevirtual #23                 // Method x:()I
+       4: aload_0
+       5: invokevirtual #23                 // Method x:()I
+       8: iadd
+       9: ireturn
+
+  public C2(int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #18                 // Field x:I
+       5: aload_0
+       6: invokespecial #28                 // Method java/lang/Object."&lt;init>":()V
+       9: return
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Class Parameter Details</h2>
+          <pre><code class="scala" data-trim="">
+scala> class C3(var x:Int) { def double() = x+x }
+defined class C3
+
+scala> :javap -p -c -filter C3
+Compiled from "&lt;console>"
+public class C3 {
+  private int x;
+
+  public int x();
+    Code:
+       0: aload_0
+       1: getfield      #18                 // Field x:I
+       4: ireturn
+
+  public void x_$eq(int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #18                 // Field x:I
+       5: return
+
+  public int double();
+    Code:
+       0: aload_0
+       1: invokevirtual #26                 // Method x:()I
+       4: aload_0
+       5: invokevirtual #26                 // Method x:()I
+       8: iadd
+       9: ireturn
+
+  public C3(int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #18                 // Field x:I
+       5: aload_0
+       6: invokespecial #30                 // Method java/lang/Object."&lt;init>":()V
+       9: return
+}          </code></pre>
+        </section>
+        <section>
+          <h2>Class Body</h2>
+          <ul>
+            <li>
+              Class body contains
+              <ul>
+                <li class="nofragment">
+                  <code>val</code> or <code>var</code> field declarations
+                </li>
+                <li class="nofragment">
+                  constructor code                  
+                </li>              
+                <li class="nofragment">
+                  method definitions
+                </li>              
+              </ul>
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+class C (f1:Int, val f2:Int, var f3:Int) {
+  val f4 = f1 * f2
+  var f5 = f2 * f3
+
+  println ("Constructing instance of C")
+ 
+  def m (x:Int) : Int = {
+    // cannot reassign to f1, f2, f4
+    f3 = f3 + 1
+    f5 = f5 + 1
+    f1 * f3 * x
+  }
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Omitting Parts</h2>
+          <div>
+            Can omit empty body
+          </div>
+          <pre><code class="scala" data-trim="">
+class D (f1:Int)
+          </code></pre>
+          <div class="fragment">
+            Can omit empty parentheses 
+            <pre><code class="scala" data-trim="">
+class E { 
+  private var n:Int = 0
+  def get () : Int = { val tmp = n; n = n + 1; tmp }
+}
+
+val o : E = new E
+o.get
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          <h2>Companion Objects</h2>
+          <ul>
+            <li>
+              Companion objects replace <code>static</code>
+              components
+            </li>
+          </ul>
+          <div>
+            Java
+            <pre><code class="java" data-trim="">
+class C {
+  int f1;
+  int m1 () { return f1; }
+  static int f2;
+  static int m2 () { return f2; }
+}
+            </code></pre>
+          </div>
+          <div>
+            Scala
+            <pre><code class="scala" data-trim="">
+class C {
+  var f1:Int
+  def m1 () : Int = f1
+}
+
+object C {
+  var f2:Int
+  def m2 () : Int = f2
+}
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          <h2>Companion Objects</h2>
+          <ul>
+            <li>
+              Only one instance of <code>object</code> declarations
+            </li>
+            <li class="nofragment">
+              Language support for singleton design pattern
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+object C {
+  var count:Int = 0
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Program Startup</h2>
+          <div>
+            Java
+            <pre><code class="java" data-trim="">
+public class C {
+  public static void main (String[] args) {
+    ...
+  }
+}
+            </code></pre>
+          </div>
+          <div>
+            Scala
+            <pre><code class="scala" data-trim="">
+object C {
+  def main (args:Array[String]) : Unit = {
+    ...
+  }
+}
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          <h2>Construction via Companion</h2>
+          <ul>
+            <li>
+              Companion objects used to construct object
+            </li>
+            <li class="nofragment">
+              Companion can invoke <code>private</code> constructor
+              <ul>
+                <li class="nofragment">
+                  but paste together using <code>:paste</code>!
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+class Point private (private var x:Int, private var y:Int) {
+  def translate (xDisp:Int, yDisp:Int) : Unit = {
+    x = x + xDisp
+    y = y + yDisp
+  }
+}
+
+object Point {
+  def apply (x:Int, y:Int) : Point = {
+    if (0 <= x && x <= 10 && 0 <= y && y <= 10) {
+      new Point (x, y)
+    } else {
+      throw new RuntimeException ("invalid params")
+    }
+  }
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Construction via Companion</h2>
+          <pre><code class="nohighlight" data-trim="">
+:paste
+// Entering paste mode (ctrl-D to finish)
+[...snip class and object definitions here...]
+// Exiting paste mode, now interpreting.
+
+defined class Point
+defined object Point
+
+scala> Point.apply (1, 100)
+java.lang.RuntimeException: invalid params
+
+scala> Point.apply (1, 10)
+res5: Point = Point@49e202ad
+
+scala> new Point (1, 100)
+&lt;console>:10: error: constructor Point in class Point cannot be accessed in object $iw
+          </code></pre>
+        </section>
+        <section>
+          <h2>Construction via Companion</h2>
+          <div>
+            <code>apply</code> method is the default
+          </div>
+          <pre><code class="nohighlight" data-trim="">
+scala> Point (1, 100)   // means Point.apply (1, 100)
+java.lang.RuntimeException: invalid params
+
+scala> Point (1, 10)    // means Point.apply (1, 10)
+res5: Point = Point@49e202ad
+          </code></pre>
+        </section>
+        <section>
+          <h2>Construction via Companion</h2>
+          <ul>
+            <li>
+              <code>List</code> class has a companion object
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+object List extends SeqFactory[List] with Serializable {
+  def apply[A](xs: A*): List[A] = ...
+  ...other methods...
+}
+
+List (1, 2, 3)        // means List.apply (1, 2, 3)
+          </code></pre>
+        </section>
+
+        <!-- content ends here -->
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="../assets/js/slides.js"></script>
+  </body>
+</html>

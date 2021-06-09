@@ -1,0 +1,7 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mstoragetests:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- EX01 - constant5[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- EX02 - constant[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- EX03 - counter0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- EX04 - counter[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- EX05 - getAndSet[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- EX06 - getAndSetSpy[0m[0m

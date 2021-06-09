@@ -1,0 +1,1218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Worksheet Scala</title>
+<!-- 2018-04-04 Wed 19:31 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="James Riely" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Worksheet Scala</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Questions and Completion</a></li>
+<li><a href="#sec-2">2. Scheme</a>
+<ul>
+<li><a href="#sec-2-1">2.1. Scheme Type Checking</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. Java</a>
+<ul>
+<li><a href="#sec-3-1">3.1. Java Type Checking 1</a></li>
+<li><a href="#sec-3-2">3.2. Java Type Checking 2</a></li>
+<li><a href="#sec-3-3">3.3. Java Upcasting</a></li>
+<li><a href="#sec-3-4">3.4. Java Upcasting Disassembly</a></li>
+<li><a href="#sec-3-5">3.5. Java Downcasting</a></li>
+<li><a href="#sec-3-6">3.6. Java Downcasting Disassembly</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4. Scala</a>
+<ul>
+<li><a href="#sec-4-1">4.1. Install SBT</a></li>
+<li><a href="#sec-4-2">4.2. Get the code from D2L</a></li>
+<li><a href="#sec-4-3">4.3. Read Repository Instructions</a></li>
+<li><a href="#sec-4-4">4.4. Run SBT / Start Scala REPL</a></li>
+<li><a href="#sec-4-5">4.5. Literals and Arithmetic</a></li>
+<li><a href="#sec-4-6">4.6. REPL Tips</a></li>
+<li><a href="#sec-4-7">4.7. Val And Var</a></li>
+<li><a href="#sec-4-8">4.8. Tuples</a></li>
+<li><a href="#sec-4-9">4.9. Lists</a></li>
+<li><a href="#sec-4-10">4.10. Equality Testing</a></li>
+<li><a href="#sec-4-11">4.11. Factorial</a></li>
+<li><a href="#sec-4-12">4.12. Upto</a></li>
+<li><a href="#sec-4-13">4.13. Repeat</a></li>
+<li><a href="#sec-4-14">4.14. Recursive List Traversal</a></li>
+<li><a href="#sec-4-15">4.15. Analyzing Functions</a></li>
+</ul>
+</li>
+<li><a href="#sec-5">5. Solutions</a>
+<ul>
+<li><a href="#scheme-type-checking">5.1. Solution: Scheme Type Checking</a></li>
+<li><a href="#java-upcasting">5.2. Solution: Java Upcasting</a></li>
+<li><a href="#java-downcasting">5.3. Solution: Java Downcasting</a></li>
+<li><a href="#scala-literals-arithmetic">5.4. Solution: Scala Literals and Arithmetic</a></li>
+<li><a href="#scala-tuples">5.5. Solution: Tuples</a></li>
+<li><a href="#scala-lists">5.6. Solution: Lists</a></li>
+<li><a href="#scala-equality-testing">5.7. Solution: Equality Testing</a></li>
+<li><a href="#scala-factorial">5.8. Solution: Factorial</a></li>
+<li><a href="#scala-upto">5.9. Solution: Upto</a></li>
+<li><a href="#scala-repeat">5.10. Solution: Repeat</a></li>
+<li><a href="#scala-list-traversal">5.11. Recursive List Traversal</a></li>
+<li><a href="#scala-analyzing-functions">5.12. Analyzing Functions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Questions and Completion</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+To receive credit for completing the worksheet, you must complete the corresponding quiz (it is just a checkbox) on D2L when you have finished the worksheet.
+</p>
+
+<p>
+If you have questions as you go through this worksheet, please feel free to post them on the Google group.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Scheme</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Scheme Type Checking</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Write and test a simple Scheme program to demonstrate that Scheme type checking is dynamic, i.e., does not occur until runtime.
+</p>
+
+<p>
+<a href="#scheme-type-checking">Solution: Scheme Type Checking</a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Java</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Java Type Checking 1</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Does the Java compiler <code>javac</code> type checker allow assigning an <code>int</code> variable to a <code>char</code> variable?
+</p>
+
+<p>
+Write a small program to test.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Java Type Checking 2</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Does the Java compiler <code>javac</code> type checker allow assigning an <code>int</code> variable to a <code>String</code> variable?
+</p>
+
+<p>
+Write a small program to test.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> Java Upcasting</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+Does the Java compiler <code>javac</code> type checker allow <i>upcasting</i>, e.g., allowing a reference of type <code>B</code> to be used as a reference of type <code>A</code> (given the class declarations below)?
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-Java">class A           { int x; }
+class B extends A { int y; }
+</pre>
+</div>
+
+<p>
+Write a small program to test.
+</p>
+
+<p>
+<a href="#java-upcasting">Solution: Java Upcasting</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4" class="outline-3">
+<h3 id="sec-3-4"><span class="section-number-3">3.4</span> Java Upcasting Disassembly</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+Look at the Java Virtual Machine (JVM) bytecode for your program from the previous upcasting subsection.
+</p>
+
+<p>
+Do this by running <code>javap</code> (see <a href="http://docs.oracle.com/javase/8/docs/technotes/tools/windows/javap.html">javap manual page</a>) with the <code>-c</code> option and the name of your class 
+(you must have run <code>javac</code> to compile the Java source and produce the <code>.class</code> file already).
+</p>
+
+<p>
+For example, for the code from <a href="#java-upcasting">Solution: Java Upcasting</a>:
+</p>
+<pre class="example">
+$ javap -c Upcast
+Compiled from "Upcast.java"
+public class Upcast {
+  public Upcast();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."&lt;init&gt;":()V
+       4: return
+
+  void f(Upcast$B);
+    Code:
+       0: aload_1
+       1: astore_2
+       2: return
+}
+</pre>
+
+<p>
+<b>Note</b>: the code for method <code>f</code> does not show any dynamic checks
+(<code>aload</code> and <code>astore</code> are like the <code>mov</code> instructions in Intel assembly language).
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-5" class="outline-3">
+<h3 id="sec-3-5"><span class="section-number-3">3.5</span> Java Downcasting</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+Does the Java compiler <code>javac</code> type checker allow <i>downcasting</i>, e.g., allowing a reference of type <code>A</code> to be used as a reference of type <code>B</code> (given the class declarations below)?
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-Java">class A           { int x; }
+class B extends A { int y; }
+</pre>
+</div>
+
+<p>
+Write a small program to test.
+</p>
+
+<p>
+<a href="#java-downcasting">Solution: Java Downcasting</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-6" class="outline-3">
+<h3 id="sec-3-6"><span class="section-number-3">3.6</span> Java Downcasting Disassembly</h3>
+<div class="outline-text-3" id="text-3-6">
+<p>
+Look at the Java Virtual Machine (JVM) bytecode for your program from the previous downcasting subsection.
+</p>
+
+<p>
+Do this by running <code>javap</code> (see <a href="http://docs.oracle.com/javase/8/docs/technotes/tools/windows/javap.html">javap manual page</a>) with the <code>-c</code> option and the name of your class 
+(you must have run <code>javac</code> to compile the Java source and produce the <code>.class</code> file already).
+</p>
+
+<p>
+For example, for the code from <a href="#java-downcasting">Solution: Java Downcasting</a>:
+</p>
+<pre class="example">
+$ javap -c Downcast
+Compiled from "Downcast.java"
+public class Downcast {
+  public Downcast();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."&lt;init&gt;":()V
+       4: return
+
+  void g(Downcast$A);
+    Code:
+       0: aload_1
+       1: checkcast     #2                  // class Downcast$B
+       4: astore_2
+       5: return
+}
+</pre>
+
+<p>
+<b>Note</b>: the code for method <code>g</code> does show a dynamic check this time!
+</p>
+
+<p>
+The <code>checkcast</code> instruction is the one that dynamically checks whether the argument is an instance of <code>B</code> or not.
+It is generated by the compiler when we use the cast <code>(B)</code>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Scala</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> Install SBT</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li><a href="http://www.scala-sbt.org/">SBT</a> compiles and invokes tests on Java/Scala code
+</li>
+<li>On windows, install the <code>msi</code> installer for sbt from <a href="http://www.scala-sbt.org/download.html">here</a>
+Do not attempt to use sbt inside of the linux subsystem for windows.  As of
+March 2017, it does not work.
+</li>
+<li>Alternatively, on windows you can also use a package manager such as <a href="http://scoop.sh">scoop</a>.
+</li>
+</ul>
+<pre class="example">
+$ scoop install sbt
+</pre>
+<ul class="org-ul">
+<li>On Mac or Linux, use a package manager to do the install.  On a mac, use
+<a href="http://brew.sh/">homebrew</a>.  On Ubuntu, use  <a href="https://help.ubuntu.com/community/AptGet/Howto">apt-get</a>.
+</li>
+</ul>
+<pre class="example">
+$ brew install sbt
+</pre>
+<ul class="org-ul">
+<li>Change directory to your repository
+<ul class="org-ul">
+<li>Use <code>dir</code> or <code>ls</code> to check <code>build.sbt</code> is in current directory
+</li>
+</ul>
+</li>
+<li>Run: <code>sbt</code>
+</li>
+<li>The first time you do this, you will need to be connected to the internet
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> Get the code from D2L</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+If you have not yet unzipped the code from D2L, do so now. 
+</p>
+<p>
+You will not be able to verify that your code compiles and passes tests without 
+the tests contained in this zip file.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> Read Repository Instructions</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+Browse the instructions in the <code>README.html</code> file in the top-level directory of the code you unzipped from D2L.
+You will need to refer to these instructions when you complete the assignment later.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> Run SBT / Start Scala REPL</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+Open a command prompt or terminal, then change directory to the top-level directory of your cloned Git repository.
+</p>
+
+<p>
+Verify that you have the file <code>build.sbt</code> in the current working directory.
+On a Linux or OS X system, it should look like this when you run <code>ls</code>.
+</p>
+<pre class="example">
+$ ls
+build.sbt  deploy.sh  project  README.md  src
+</pre>
+<p>
+Use <code>dir</code> for a command prompt on Windows; you should see the same files and directories.
+</p>
+
+<p>
+The file <code>build.sbt</code> contains instructions about how to build a project and other configuration information.
+When you start SBT, it uses the <code>build.sbt</code> file in the current working directory.
+This is very common for command-line build tools, but differs from GUI development systems.
+</p>
+
+<p>
+When you first run SBT, it will attempt to download the version of the Scala compiler specified in <code>build.sbt</code> and various other libraries.
+For this reason, you will need a network connection on the first run.
+</p>
+
+<p>
+Now run SBT by entering <code>sbt</code> at the command / shell prompt.
+You should see something like the following (the <code>/tmp/assignments</code> directory will be different for you).
+</p>
+<pre class="example">
+$ sbt
+[info] Loading project definition from /tmp/assignments/project
+...lots of output from downloading files...
+[info] Set current project to CSC447 Assignments (in build file:/tmp/assignments/)
+&gt;
+</pre>
+
+<p>
+The SBT prompt is <code>&gt;</code>.
+You can enter SBT commands there, e.g., <code>compile</code>.
+See <code>README.md</code> for more examples.
+</p>
+
+<p>
+The only SBT command that we need at present is <code>console</code>.
+Enter the <code>console</code> command at the SBT prompt to start the Scala REPL.
+You should see something like the following.
+</p>
+<pre class="example">
+&gt; console
+[info] Updating {file:/tmp/assignments/}assignments...
+[info] Resolving jline#jline;2.12 ...
+[info] Done updating.
+[info] Compiling 4 Scala sources to /tmp/assignments/target/scala-2.11/classes...
+[info] Starting scala interpreter...
+[info] 
+Welcome to Scala version 2.11.2 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_60).
+Type in expressions to have them evaluated.
+Type :help for more information.
+
+scala&gt;
+</pre>
+
+<p>
+The Scala REPL prompt is <code>scala&gt;</code>.
+You can enter Scala expressions and definitions at the Scala REPL prompt.
+Try this out by entering <code>1 + 2</code>.
+You should see something like the following.
+</p>
+<pre class="example">
+scala&gt; 1 + 2
+res0: Int = 3
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-4-5" class="outline-3">
+<h3 id="sec-4-5"><span class="section-number-3">4.5</span> Literals and Arithmetic</h3>
+<div class="outline-text-3" id="text-4-5">
+<p>
+Write some Scala expressions for Boolean, integer, character, and String literals.
+Write some Scala expressions involving arithmetic.
+Try them in the Scala REPL.
+</p>
+
+<p>
+You can bind the expressions to variables:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">x</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">true</span>
+</pre>
+</pre>
+</div>
+<p>
+or just type them in directly:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #D0372D; font-size: 11.620000000000001pt;">true</span>
+</pre>
+</pre>
+</div>
+
+<p>
+<a href="#scala-literals-arithmetic">Solution: Scala Literals and Arithmetic</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-6" class="outline-3">
+<h3 id="sec-4-6"><span class="section-number-3">4.6</span> REPL Tips</h3>
+<div class="outline-text-3" id="text-4-6">
+<p>
+Tips to improve REPL interaction:
+</p>
+
+<ol class="org-ol">
+<li>Try referring to one of the previous values in a new expression for the Scala REPL.
+E.g., 
+
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #D0372D; font-size: 11.620000000000001pt;">1</span> + <span style="color: #707183; font-size: 11.620000000000001pt;">(</span>res0 * <span style="color: #D0372D; font-size: 11.620000000000001pt;">2</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span>
+</pre>
+</pre>
+</div>
+</li>
+
+<li>Use command-line editing to pull up previous expressions and edit them in the REPL.
+Support varies between systems.
+Press the Up/Down arrow keys to scroll through REPL history.
+Press the Left/Right arrow keys to move through current expression (to edit).
+</li>
+
+<li>If you write Scala code in a text editor and then paste it into the REPL, you may end up with parsing ending too early.
+Either add curly braces to prevent parsing ending too early, or enter <code>:paste</code> into the REPL, paste, then press Control D to end pasting mode.
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-4-7" class="outline-3">
+<h3 id="sec-4-7"><span class="section-number-3">4.7</span> Val And Var</h3>
+<div class="outline-text-3" id="text-4-7">
+<ol class="org-ol">
+<li>In the REPL, define a variable <code>x</code> using <code>val</code> and try to assign to it.  
+What happens and why?
+</li>
+
+<li>In the REPL, define a variable <code>x</code> using <code>var</code> and try to assign to it.  
+What happens and why?
+</li>
+
+<li>In the REPL, define a variable <code>x</code> using <code>val</code> without an initializing expression.
+Why does the REPL reject that?
+</li>
+
+<li>In the REPL, define a variable <code>x</code> using <code>val</code>.
+Then define another variable <code>x</code> using <code>val</code> with a different value.
+Why does the REPL accept that?
+Which value is returned when you enter <code>x</code> into the REPL now?
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-4-8" class="outline-3">
+<h3 id="sec-4-8"><span class="section-number-3">4.8</span> Tuples</h3>
+<div class="outline-text-3" id="text-4-8">
+<p>
+Write some Scala expressions for tuples.
+Try them in the Scala REPL.
+</p>
+
+<p>
+<a href="#scala-tuples">Solution: Tuples</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-9" class="outline-3">
+<h3 id="sec-4-9"><span class="section-number-3">4.9</span> Lists</h3>
+<div class="outline-text-3" id="text-4-9">
+<p>
+Write some Scala expressions to build lists (the builtin Scala <code>List</code> type).
+Use the <code>::</code> (cons) operator for some, and the <code>List (...)</code> form for others.
+Try your expressions in the Scala REPL.
+</p>
+
+<p>
+<a href="#scala-lists">Solution: Lists</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-10" class="outline-3">
+<h3 id="sec-4-10"><span class="section-number-3">4.10</span> Equality Testing</h3>
+<div class="outline-text-3" id="text-4-10">
+<p>
+<b>Warning</b>: Scala equality testing syntax conflicts with Java:
+</p>
+
+<ol class="org-ol">
+<li>Use <code>==</code> in Scala where you would use the <code>equals</code> method in Java, e.g., to test if two String instances contain the same characters.
+</li>
+
+<li>Use <code>eq</code> in Scala where you would use the <code>==</code> operator in Java, i.e., to test reference equality (that two references are pointing to the same instance).
+</li>
+</ol>
+
+<p>
+Run Scala expressions in the REPL to convince yourself that this is correct.
+</p>
+
+<p>
+<a href="#scala-equality-testing">Solution: Equality Testing</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-11" class="outline-3">
+<h3 id="sec-4-11"><span class="section-number-3">4.11</span> Factorial</h3>
+<div class="outline-text-3" id="text-4-11">
+<p>
+Write the factorial function in Scala and try it in the REPL.
+</p>
+
+<p>
+Then change your factorial function so that it prints out information about each recursive call as it happens.
+</p>
+
+<p>
+<a href="#scala-factorial">Solution: Factorial</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-12" class="outline-3">
+<h3 id="sec-4-12"><span class="section-number-3">4.12</span> Upto</h3>
+<div class="outline-text-3" id="text-4-12">
+<p>
+Try the following expression in the Scala REPL.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">10</span> to <span style="color: #D0372D; font-size: 11.620000000000001pt;">20</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span>.toList
+</pre>
+</pre>
+</div>
+
+<p>
+Write a Scala function <code>upto</code> that takes <code>start</code> and an <code>end</code> parameters (both of type <code>Int</code>), then returns a <code>List[Int]</code> of all <code>Int</code> between <code>start</code> and <code>end</code> (inclusive).
+That is, <code>upto (start, end)</code> should have the same result as <code>(start to end).toList</code>.
+</p>
+
+<p>
+<a href="#scala-upto">Solution: Upto</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-13" class="outline-3">
+<h3 id="sec-4-13"><span class="section-number-3">4.13</span> Repeat</h3>
+<div class="outline-text-3" id="text-4-13">
+<p>
+Write a Scala function that takes an element and repeats it a given number of times.
+</p>
+
+<p>
+It should work as follows:
+</p>
+<pre class="example">
+scala&gt; repeat ("hello", 5)
+res0: List[String] = List(hello, hello, hello, hello, hello)
+
+scala&gt; repeat (13, 5)
+res1: List[Int] = List(13, 13, 13, 13, 13)
+</pre>
+
+<p>
+<a href="#scala-repeat">Solution: Repeat</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-14" class="outline-3">
+<h3 id="sec-4-14"><span class="section-number-3">4.14</span> Recursive List Traversal</h3>
+<div class="outline-text-3" id="text-4-14">
+<p>
+Define a Scala function <code>printCounter</code> that prints out each element of a list on its own line with a counter.
+The function must be written using recursion.  
+You can create additional auxiliary functions if you like.
+</p>
+
+<p>
+The output should resemble:
+</p>
+<pre class="example">
+scala&gt; printCounter (List ("the", "rain", "in", "spain"))
+[001] the
+[002] rain
+[003] in
+[004] spain
+</pre>
+
+<p>
+<a href="#scala-list-traversal">Recursive List Traversal</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-15" class="outline-3">
+<h3 id="sec-4-15"><span class="section-number-3">4.15</span> Analyzing Functions</h3>
+<div class="outline-text-3" id="text-4-15">
+<p>
+Consider the following Scala code:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF; font-size: 11.620000000000001pt;">def</span> <span style="color: #006699; font-size: 11.620000000000001pt;">f</span> <span style="color: #707183; font-size: 11.620000000000001pt;">[</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">X</span><span style="color: #707183; font-size: 11.620000000000001pt;">]</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span>xs<span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">List</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">[</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">X</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">]</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">List</span><span style="color: #707183; font-size: 11.620000000000001pt;">[</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">X</span><span style="color: #707183; font-size: 11.620000000000001pt;">]</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #707183; font-size: 11.620000000000001pt;">{</span>
+  xs <span style="color: #0000FF; font-size: 11.620000000000001pt;">match</span> <span style="color: #7388D6; font-size: 11.620000000000001pt;">{</span>
+    <span style="color: #0000FF; font-size: 11.620000000000001pt;">case</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">Nil</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=&gt;</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">Nil</span>
+    <span style="color: #0000FF; font-size: 11.620000000000001pt;">case</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">y</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">::</span><span style="color: #BA36A5; font-size: 11.620000000000001pt;">ys</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=&gt;</span> y::<span style="color: #909183; font-size: 11.620000000000001pt;">(</span>y::<span style="color: #709870; font-size: 11.620000000000001pt;">(</span>f <span style="color: #907373; font-size: 11.620000000000001pt;">(</span>ys<span style="color: #907373; font-size: 11.620000000000001pt;">)</span><span style="color: #709870; font-size: 11.620000000000001pt;">)</span><span style="color: #909183; font-size: 11.620000000000001pt;">)</span>
+  <span style="color: #7388D6; font-size: 11.620000000000001pt;">}</span>
+<span style="color: #707183; font-size: 11.620000000000001pt;">}</span>
+</pre>
+</pre>
+</div>
+
+<p>
+Our goal is to describe the effect of this function in words.
+</p>
+
+<p>
+Develop some intuition for its effect by working out on paper:
+</p>
+
+<ul class="org-ul">
+<li>the result of running <code>f</code> on a list of length 0 (there are not many!)
+</li>
+
+<li>the result of running <code>f</code> on a list of length 1
+</li>
+
+<li>the result of running <code>f</code> on a list of length 2
+</li>
+
+<li>the result of running <code>f</code> on a list of length 3
+</li>
+</ul>
+
+<p>
+Confirm your results using the Scala REPL.
+</p>
+
+<p>
+Notice that if your choice of a list of length 1 is <code>List (5)</code> (say), then you can use that result when working out the result of running <code>f</code> on <code>List (4, 5)</code>, because it recursively calls to <code>f (List (5))</code>.
+This breaks your analysis into smaller, simpler pieces.
+</p>
+
+<p>
+With these results, and the intuition you have developed, what do you think the function does?
+Look at the code again to confirm your intuition.
+</p>
+
+<p>
+<a href="#scala-analyzing-functions">Analyzing Functions</a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Solutions</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-scheme-type-checking" class="outline-3">
+<h3 id="scheme-type-checking"><a id="sec-5-1" name="sec-5-1"></a><span class="section-number-3">5.1</span> Solution: Scheme Type Checking</h3>
+<div class="outline-text-3" id="text-scheme-type-checking">
+
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #0000FF; font-size: 11.620000000000001pt;">define</span> <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span><span style="color: #006699; font-size: 11.620000000000001pt;">f</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span> <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span>- 5 <span style="color: #008000; font-size: 11.620000000000001pt;">"hello"</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span>
+</pre>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-java-upcasting" class="outline-3">
+<h3 id="java-upcasting"><a id="sec-5-2" name="sec-5-2"></a><span class="section-number-3">5.2</span> Solution: Java Upcasting</h3>
+<div class="outline-text-3" id="text-java-upcasting">
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #0000FF; font-size: 11.620000000000001pt;">public</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">class</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">Upcast</span> <span style="color: #707183; font-size: 11.620000000000001pt;">{</span>
+  <span style="color: #0000FF; font-size: 11.620000000000001pt;">static</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">class</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">A</span>           <span style="color: #7388D6; font-size: 11.620000000000001pt;">{</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">x</span>; <span style="color: #7388D6; font-size: 11.620000000000001pt;">}</span>
+  <span style="color: #0000FF; font-size: 11.620000000000001pt;">static</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">class</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">B</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">extends</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">A</span> <span style="color: #7388D6; font-size: 11.620000000000001pt;">{</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">y</span>; <span style="color: #7388D6; font-size: 11.620000000000001pt;">}</span>
+
+  <span style="color: #6434A3; font-size: 11.620000000000001pt;">void</span> <span style="color: #006699; font-size: 11.620000000000001pt;">f</span> <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">B</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">p</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span> <span style="color: #7388D6; font-size: 11.620000000000001pt;">{</span>
+    <span style="color: #6434A3; font-size: 11.620000000000001pt;">A</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">q</span> = p;
+  <span style="color: #7388D6; font-size: 11.620000000000001pt;">}</span>
+<span style="color: #707183; font-size: 11.620000000000001pt;">}</span>
+</pre>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-java-downcasting" class="outline-3">
+<h3 id="java-downcasting"><a id="sec-5-3" name="sec-5-3"></a><span class="section-number-3">5.3</span> Solution: Java Downcasting</h3>
+<div class="outline-text-3" id="text-java-downcasting">
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #0000FF; font-size: 11.620000000000001pt;">public</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">class</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">Downcast</span> <span style="color: #707183; font-size: 11.620000000000001pt;">{</span>
+  <span style="color: #0000FF; font-size: 11.620000000000001pt;">static</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">class</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">A</span>           <span style="color: #7388D6; font-size: 11.620000000000001pt;">{</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">x</span>; <span style="color: #7388D6; font-size: 11.620000000000001pt;">}</span>
+  <span style="color: #0000FF; font-size: 11.620000000000001pt;">static</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">class</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">B</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">extends</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">A</span> <span style="color: #7388D6; font-size: 11.620000000000001pt;">{</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">int</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">y</span>; <span style="color: #7388D6; font-size: 11.620000000000001pt;">}</span>
+
+  <span style="color: #0000FF; font-size: 11.620000000000001pt;">static</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">B</span> <span style="color: #006699; font-size: 11.620000000000001pt;">convert</span> <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">A</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">p</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span> <span style="color: #7388D6; font-size: 11.620000000000001pt;">{</span>
+    <span style="color: #6434A3; font-size: 11.620000000000001pt;">B</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">result</span> = <span style="color: #909183; font-size: 11.620000000000001pt;">(</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">B</span><span style="color: #909183; font-size: 11.620000000000001pt;">)</span> p;
+    <span style="color: #0000FF; font-size: 11.620000000000001pt;">return</span> result;
+  <span style="color: #7388D6; font-size: 11.620000000000001pt;">}</span>
+
+  <span style="color: #0000FF; font-size: 11.620000000000001pt;">public</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">static</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">void</span> <span style="color: #006699; font-size: 11.620000000000001pt;">main</span> <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">String</span><span style="color: #909183; font-size: 11.620000000000001pt;">[]</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">args</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span> <span style="color: #7388D6; font-size: 11.620000000000001pt;">{</span>
+    <span style="color: #6434A3; font-size: 11.620000000000001pt;">A</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">r</span> = <span style="color: #0000FF; font-size: 11.620000000000001pt;">new</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">A</span> <span style="color: #909183; font-size: 11.620000000000001pt;">()</span>;
+    r.x = 5;
+    <span style="color: #6434A3; font-size: 11.620000000000001pt;">B</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">s</span> = convert <span style="color: #909183; font-size: 11.620000000000001pt;">(</span>r<span style="color: #909183; font-size: 11.620000000000001pt;">)</span>;
+    System.out.println <span style="color: #909183; font-size: 11.620000000000001pt;">(</span>s<span style="color: #909183; font-size: 11.620000000000001pt;">)</span>;
+  <span style="color: #7388D6; font-size: 11.620000000000001pt;">}</span>
+<span style="color: #707183; font-size: 11.620000000000001pt;">}</span>
+</pre>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-scala-literals-arithmetic" class="outline-3">
+<h3 id="scala-literals-arithmetic"><a id="sec-5-4" name="sec-5-4"></a><span class="section-number-3">5.4</span> Solution: Scala Literals and Arithmetic</h3>
+<div class="outline-text-3" id="text-scala-literals-arithmetic">
+
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">b1</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">true</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">b2</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">false</span>
+
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">b3</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> !b2
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">b4</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> b1 &amp;&amp; b2 
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">b5</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> b1 || b2 
+
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">n1</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">2</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">n2</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">3</span>
+
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">n3</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> n1 + n2
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">n4</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> n1 - n2
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">n5</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> n1 * n2
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">n6</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> n1 / n2
+
+<span style="color: #8D8D84; font-size: 11.620000000000001pt;">/* </span><span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;">Character literals are delimited by an apostrophe. */</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">c1</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #008000; font-size: 11.620000000000001pt;">'h'</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">c2</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #008000; font-size: 11.620000000000001pt;">'e'</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">c3</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #008000; font-size: 11.620000000000001pt;">'e'</span>
+
+<span style="color: #8D8D84; font-size: 11.620000000000001pt;">/* </span><span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;">String literals are delimited by double quotes. */</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">s1</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #008000; font-size: 11.620000000000001pt;">"hello"</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">s2</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #008000; font-size: 11.620000000000001pt;">"world"</span>
+
+<span style="color: #8D8D84; font-size: 11.620000000000001pt;">/* </span><span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;">The string concatenation function is written infix as "+". */</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">s3</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> s1 + <span style="color: #008000; font-size: 11.620000000000001pt;">" "</span> + s2
+</pre>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-scala-tuples" class="outline-3">
+<h3 id="scala-tuples"><a id="sec-5-5" name="sec-5-5"></a><span class="section-number-3">5.5</span> Solution: Tuples</h3>
+<div class="outline-text-3" id="text-scala-tuples">
+
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #8D8D84; font-size: 11.620000000000001pt;">/* </span><span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;">Pairs are created using parentheses. */</span>
+
+<span style="color: #8D8D84; font-size: 11.620000000000001pt;">/* </span><span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;">They may have the same type. */</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">pair1</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">3</span>, <span style="color: #D0372D; font-size: 11.620000000000001pt;">5</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">pair2</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #008000; font-size: 11.620000000000001pt;">"hello"</span>, <span style="color: #008000; font-size: 11.620000000000001pt;">"world"</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span>
+
+<span style="color: #8D8D84; font-size: 11.620000000000001pt;">/* </span><span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;">Or different types. */</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">pair3</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">3</span>, <span style="color: #008000; font-size: 11.620000000000001pt;">"hello"</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">pair4</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #008000; font-size: 11.620000000000001pt;">"hello"</span>, <span style="color: #D0372D; font-size: 11.620000000000001pt;">3</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span>
+
+<span style="color: #8D8D84; font-size: 11.620000000000001pt;">/* </span><span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;">More generally, we can create tuples using the same syntax. */</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">tuple1</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> pair1
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">tuple2</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">3</span>, <span style="color: #D0372D; font-size: 11.620000000000001pt;">5</span>, <span style="color: #D0372D; font-size: 11.620000000000001pt;">3</span>, <span style="color: #008000; font-size: 11.620000000000001pt;">"hello"</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span>
+
+<span style="color: #8D8D84; font-size: 11.620000000000001pt;">/* </span><span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;">Tuples can nest. */</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">nested1</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">3</span>, <span style="color: #D0372D; font-size: 11.620000000000001pt;">5</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span>, <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span><span style="color: #008000; font-size: 11.620000000000001pt;">"hello"</span>, <span style="color: #008000; font-size: 11.620000000000001pt;">"world"</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">nested2</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span>pair1, pair2<span style="color: #707183; font-size: 11.620000000000001pt;">)</span>
+
+<span style="color: #8D8D84; font-size: 11.620000000000001pt;">/* </span><span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;">Now test equality of nested1 and nested2. */</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">equal12</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> nested1 == nested2
+
+<span style="color: #8D8D84; font-size: 11.620000000000001pt;">/* </span><span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;">The nesting is significant.  tuple2 has a different type to nested1</span>
+<span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;"> * and nested2.  Try running "tuple2 == nested1" at the </span>
+<span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;"> * command line to see that they are distinct values.</span>
+<span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;"> */</span>
+</pre>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-scala-lists" class="outline-3">
+<h3 id="scala-lists"><a id="sec-5-6" name="sec-5-6"></a><span class="section-number-3">5.6</span> Solution: Lists</h3>
+<div class="outline-text-3" id="text-scala-lists">
+
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">emptylist</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">Nil</span>
+<span style="color: #8D8D84; font-size: 11.620000000000001pt;">/* </span><span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;">The following yields the same result as emptylist. */</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">emptylist2</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">List</span> <span style="color: #707183; font-size: 11.620000000000001pt;">()</span>  
+
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">singletonlist1</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">List</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">5</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">singletonlist2</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">List</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #008000; font-size: 11.620000000000001pt;">'a'</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">singletonlist3</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">List</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #008000; font-size: 11.620000000000001pt;">"hello"</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">singletonlist4</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">5</span> :: <span style="color: #D0372D; font-size: 11.620000000000001pt;">Nil</span>
+
+<span style="color: #8D8D84; font-size: 11.620000000000001pt;">/* </span><span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;">Every object in a list must have the same type. */</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">list1</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">List</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">5</span>, <span style="color: #D0372D; font-size: 11.620000000000001pt;">4</span>, <span style="color: #D0372D; font-size: 11.620000000000001pt;">3</span>, <span style="color: #D0372D; font-size: 11.620000000000001pt;">2</span>, <span style="color: #D0372D; font-size: 11.620000000000001pt;">1</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">list1a</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">5</span> :: <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">4</span> :: <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">3</span> :: <span style="color: #909183; font-size: 11.620000000000001pt;">(</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">2</span> :: <span style="color: #709870; font-size: 11.620000000000001pt;">(</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">1</span> :: <span style="color: #D0372D; font-size: 11.620000000000001pt;">Nil</span><span style="color: #709870; font-size: 11.620000000000001pt;">)</span><span style="color: #909183; font-size: 11.620000000000001pt;">)</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">list2</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">List</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">1</span>, <span style="color: #D0372D; font-size: 11.620000000000001pt;">2</span>, <span style="color: #D0372D; font-size: 11.620000000000001pt;">3</span>, <span style="color: #D0372D; font-size: 11.620000000000001pt;">4</span>, <span style="color: #D0372D; font-size: 11.620000000000001pt;">5</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span>
+
+<span style="color: #8D8D84; font-size: 11.620000000000001pt;">/* </span><span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;">Creates a List[Char] from a String */</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">characters</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #008000; font-size: 11.620000000000001pt;">"hello"</span>.toList
+
+<span style="color: #8D8D84; font-size: 11.620000000000001pt;">/* </span><span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;">Functions/methods such as "reverse", concatenation/append ":::", and cons "::" can operate on</span>
+<span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;"> * lists.</span>
+<span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;"> */</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">list3</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> list2.reverse
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">list4</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> list1 ::: list2 <span style="color: #8D8D84; font-size: 11.620000000000001pt;">/* </span><span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;">::: - joins two lists */</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">list5</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">29</span> :: list2     <span style="color: #8D8D84; font-size: 11.620000000000001pt;">/* </span><span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;">::  - joins a list element and a list */</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">list6</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">1</span> :: <span style="color: #D0372D; font-size: 11.620000000000001pt;">2</span> :: <span style="color: #D0372D; font-size: 11.620000000000001pt;">3</span> :: <span style="color: #D0372D; font-size: 11.620000000000001pt;">4</span> :: <span style="color: #D0372D; font-size: 11.620000000000001pt;">5</span> :: <span style="color: #D0372D; font-size: 11.620000000000001pt;">Nil</span>
+
+<span style="color: #8D8D84; font-size: 11.620000000000001pt;">/* </span><span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;">Lists can be compared for equality, and equality is based upon</span>
+<span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;"> * having the same elements.  It is not possible to create</span>
+<span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;"> * (observably) distinct lists with the same elements.</span>
+<span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;"> */</span>
+
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">equal12a</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> list1 == list2
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">equal12b</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> list1 == list3
+
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">val</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">equal</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> list2 == <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">1</span> to <span style="color: #D0372D; font-size: 11.620000000000001pt;">5</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span>.toList
+
+<span style="color: #8D8D84; font-size: 11.620000000000001pt;">/* </span><span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;">SUMMARY:</span>
+<span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;"> * * TUPLES: the type specifies the length, and individual components</span>
+<span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;"> *   may have different types.</span>
+<span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;"> *</span>
+<span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;"> * * LISTS: the length is unbounded (and may even be infinite!), and</span>
+<span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;"> *   individual components must have the same type.</span>
+<span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;"> *</span>
+<span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;"> * Tuples, lists, strings, etc., are all immutable.  You cannot</span>
+<span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;"> * change them at all.</span>
+<span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;"> */</span>
+</pre>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-scala-equality-testing" class="outline-3">
+<h3 id="scala-equality-testing"><a id="sec-5-7" name="sec-5-7"></a><span class="section-number-3">5.7</span> Solution: Equality Testing</h3>
+<div class="outline-text-3" id="text-scala-equality-testing">
+
+<p>
+These are straightforward:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scala">scala&gt; <span style="color: #D0372D; font-size: 11.620000000000001pt;">List</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">1</span>, <span style="color: #D0372D; font-size: 11.620000000000001pt;">2</span>, <span style="color: #D0372D; font-size: 11.620000000000001pt;">3</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span> == <span style="color: #D0372D; font-size: 11.620000000000001pt;">List</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">1</span>, <span style="color: #D0372D; font-size: 11.620000000000001pt;">2</span>, <span style="color: #D0372D; font-size: 11.620000000000001pt;">3</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span>
+res1<span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">Boolean</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">true</span>
+
+scala&gt; <span style="color: #D0372D; font-size: 11.620000000000001pt;">List</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">1</span>, <span style="color: #D0372D; font-size: 11.620000000000001pt;">2</span>, <span style="color: #D0372D; font-size: 11.620000000000001pt;">3</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span> eq <span style="color: #D0372D; font-size: 11.620000000000001pt;">List</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">1</span>, <span style="color: #D0372D; font-size: 11.620000000000001pt;">2</span>, <span style="color: #D0372D; font-size: 11.620000000000001pt;">3</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span>
+res2<span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">Boolean</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">false</span>
+</pre>
+</pre>
+</div>
+
+<p>
+These are more tricky.  
+The REPL happens to return the same <code>String</code> instance for <code>hello</code> so <code>eq</code> does not return <code>false</code> as we expect.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scala">scala&gt; <span style="color: #008000; font-size: 11.620000000000001pt;">"hello"</span> == <span style="color: #008000; font-size: 11.620000000000001pt;">"hello"</span>
+res3<span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">Boolean</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">true</span>
+
+scala&gt; <span style="color: #008000; font-size: 11.620000000000001pt;">"hello"</span> eq <span style="color: #008000; font-size: 11.620000000000001pt;">"hello"</span>
+res4<span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">Boolean</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">true</span>
+</pre>
+</pre>
+</div>
+
+<p>
+But we can use a different expression to create a fresh instance of a <code>hello</code> <code>String</code>.
+This works as expected (returns <code>false</code> for <code>eq</code>).
+</p>
+<div class="org-src-container">
+
+<pre class="src src-scala">scala&gt; <span style="color: #008000; font-size: 11.620000000000001pt;">"hello"</span> == <span style="color: #008000; font-size: 11.620000000000001pt;">"olleh"</span>.reverse
+res5<span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">Boolean</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">true</span>
+
+scala&gt; <span style="color: #008000; font-size: 11.620000000000001pt;">"hello"</span> eq <span style="color: #008000; font-size: 11.620000000000001pt;">"olleh"</span>.reverse
+res6<span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">Boolean</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">false</span>
+</pre>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-scala-factorial" class="outline-3">
+<h3 id="scala-factorial"><a id="sec-5-8" name="sec-5-8"></a><span class="section-number-3">5.8</span> Solution: Factorial</h3>
+<div class="outline-text-3" id="text-scala-factorial">
+
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF; font-size: 11.620000000000001pt;">def</span> <span style="color: #006699; font-size: 11.620000000000001pt;">fact</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span>n<span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">Int</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">Int</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">if</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span>n &lt;= <span style="color: #D0372D; font-size: 11.620000000000001pt;">1</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">1</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">else</span> n * fact <span style="color: #707183; font-size: 11.620000000000001pt;">(</span>n - <span style="color: #D0372D; font-size: 11.620000000000001pt;">1</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span>
+</pre>
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF; font-size: 11.620000000000001pt;">def</span> <span style="color: #006699; font-size: 11.620000000000001pt;">fact</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span>n<span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">Int</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">Int</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #707183; font-size: 11.620000000000001pt;">{</span>
+  println <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span><span style="color: #008000; font-size: 11.620000000000001pt;">"called with n = %d"</span>.format <span style="color: #909183; font-size: 11.620000000000001pt;">(</span>n<span style="color: #909183; font-size: 11.620000000000001pt;">)</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span>
+  <span style="color: #0000FF; font-size: 11.620000000000001pt;">if</span> <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span>n &lt;= <span style="color: #D0372D; font-size: 11.620000000000001pt;">1</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span> <span style="color: #7388D6; font-size: 11.620000000000001pt;">{</span>
+    println <span style="color: #909183; font-size: 11.620000000000001pt;">(</span><span style="color: #008000; font-size: 11.620000000000001pt;">"no recursive call"</span><span style="color: #909183; font-size: 11.620000000000001pt;">)</span>
+    <span style="color: #D0372D; font-size: 11.620000000000001pt;">1</span> 
+  <span style="color: #7388D6; font-size: 11.620000000000001pt;">}</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">else</span> <span style="color: #7388D6; font-size: 11.620000000000001pt;">{</span>
+    println <span style="color: #909183; font-size: 11.620000000000001pt;">(</span><span style="color: #008000; font-size: 11.620000000000001pt;">"making recursive call"</span><span style="color: #909183; font-size: 11.620000000000001pt;">)</span>
+    n * fact <span style="color: #909183; font-size: 11.620000000000001pt;">(</span>n - <span style="color: #D0372D; font-size: 11.620000000000001pt;">1</span><span style="color: #909183; font-size: 11.620000000000001pt;">)</span>
+  <span style="color: #7388D6; font-size: 11.620000000000001pt;">}</span>
+<span style="color: #707183; font-size: 11.620000000000001pt;">}</span>
+</pre>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-scala-upto" class="outline-3">
+<h3 id="scala-upto"><a id="sec-5-9" name="sec-5-9"></a><span class="section-number-3">5.9</span> Solution: Upto</h3>
+<div class="outline-text-3" id="text-scala-upto">
+
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF; font-size: 11.620000000000001pt;">def</span> <span style="color: #006699; font-size: 11.620000000000001pt;">upto</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span>start<span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">Int</span>, end<span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">Int</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">List</span><span style="color: #707183; font-size: 11.620000000000001pt;">[</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">Int</span><span style="color: #707183; font-size: 11.620000000000001pt;">]</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #707183; font-size: 11.620000000000001pt;">{</span>
+  <span style="color: #0000FF; font-size: 11.620000000000001pt;">if</span> <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span>start &gt; end<span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span> 
+    <span style="color: #D0372D; font-size: 11.620000000000001pt;">Nil</span>
+  <span style="color: #0000FF; font-size: 11.620000000000001pt;">else</span> 
+    start :: upto <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span>start + <span style="color: #D0372D; font-size: 11.620000000000001pt;">1</span>, end<span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span>
+<span style="color: #707183; font-size: 11.620000000000001pt;">}</span>
+</pre>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-scala-repeat" class="outline-3">
+<h3 id="scala-repeat"><a id="sec-5-10" name="sec-5-10"></a><span class="section-number-3">5.10</span> Solution: Repeat</h3>
+<div class="outline-text-3" id="text-scala-repeat">
+
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #0000FF; font-size: 11.620000000000001pt;">def</span> <span style="color: #006699; font-size: 11.620000000000001pt;">repeat</span> <span style="color: #707183; font-size: 11.620000000000001pt;">[</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">X</span><span style="color: #707183; font-size: 11.620000000000001pt;">]</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span>element<span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">X</span>, repetitions<span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">Int</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">List</span><span style="color: #707183; font-size: 11.620000000000001pt;">[</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">X</span><span style="color: #707183; font-size: 11.620000000000001pt;">]</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #707183; font-size: 11.620000000000001pt;">{</span>
+  <span style="color: #0000FF; font-size: 11.620000000000001pt;">if</span> <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span>repetitions == <span style="color: #D0372D; font-size: 11.620000000000001pt;">0</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span> 
+    <span style="color: #D0372D; font-size: 11.620000000000001pt;">Nil</span>
+  <span style="color: #0000FF; font-size: 11.620000000000001pt;">else</span> 
+    element :: repeat <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span>element, repetitions - <span style="color: #D0372D; font-size: 11.620000000000001pt;">1</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span>
+<span style="color: #707183; font-size: 11.620000000000001pt;">}</span>
+</pre>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-scala-list-traversal" class="outline-3">
+<h3 id="scala-list-traversal"><a id="sec-5-11" name="sec-5-11"></a><span class="section-number-3">5.11</span> Recursive List Traversal</h3>
+<div class="outline-text-3" id="text-scala-list-traversal">
+
+<div class="org-src-container">
+
+<pre class="src src-scala"><span style="color: #8D8D84; font-size: 11.620000000000001pt;">// </span><span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;">Unit is the equivalent of the C/Java void type</span>
+<span style="color: #8D8D84; font-size: 11.620000000000001pt;">// </span><span style="color: #8D8D84; font-size: 11.620000000000001pt; font-style: italic;">The dummy value of type Unit is ().</span>
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">def</span> <span style="color: #006699; font-size: 11.620000000000001pt;">printCounterAux</span> <span style="color: #707183; font-size: 11.620000000000001pt;">[</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">X</span><span style="color: #707183; font-size: 11.620000000000001pt;">]</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span>xs<span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">List</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">[</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">X</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">]</span>, count<span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">Int</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">Unit</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #707183; font-size: 11.620000000000001pt;">{</span>
+  xs <span style="color: #0000FF; font-size: 11.620000000000001pt;">match</span> <span style="color: #7388D6; font-size: 11.620000000000001pt;">{</span>
+    <span style="color: #0000FF; font-size: 11.620000000000001pt;">case</span> <span style="color: #D0372D; font-size: 11.620000000000001pt;">Nil</span>   <span style="color: #0000FF; font-size: 11.620000000000001pt;">=&gt;</span> <span style="color: #909183; font-size: 11.620000000000001pt;">()</span>
+    <span style="color: #0000FF; font-size: 11.620000000000001pt;">case</span> <span style="color: #BA36A5; font-size: 11.620000000000001pt;">y</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">::</span><span style="color: #BA36A5; font-size: 11.620000000000001pt;">ys</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=&gt;</span> <span style="color: #909183; font-size: 11.620000000000001pt;">{</span>
+      println <span style="color: #709870; font-size: 11.620000000000001pt;">(</span><span style="color: #008000; font-size: 11.620000000000001pt;">"[%03d] %s"</span>.format <span style="color: #907373; font-size: 11.620000000000001pt;">(</span>count, y<span style="color: #907373; font-size: 11.620000000000001pt;">)</span><span style="color: #709870; font-size: 11.620000000000001pt;">)</span>
+      printCounterAux <span style="color: #709870; font-size: 11.620000000000001pt;">(</span>ys, count + <span style="color: #D0372D; font-size: 11.620000000000001pt;">1</span><span style="color: #709870; font-size: 11.620000000000001pt;">)</span>
+    <span style="color: #909183; font-size: 11.620000000000001pt;">}</span>
+  <span style="color: #7388D6; font-size: 11.620000000000001pt;">}</span>
+<span style="color: #707183; font-size: 11.620000000000001pt;">}</span>
+
+<span style="color: #0000FF; font-size: 11.620000000000001pt;">def</span> <span style="color: #006699; font-size: 11.620000000000001pt;">printCounter</span> <span style="color: #707183; font-size: 11.620000000000001pt;">[</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">X</span><span style="color: #707183; font-size: 11.620000000000001pt;">]</span> <span style="color: #707183; font-size: 11.620000000000001pt;">(</span>xs<span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span><span style="color: #6434A3; font-size: 11.620000000000001pt;">List</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">[</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">X</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">]</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">:</span> <span style="color: #6434A3; font-size: 11.620000000000001pt;">Unit</span> <span style="color: #0000FF; font-size: 11.620000000000001pt;">=</span> <span style="color: #707183; font-size: 11.620000000000001pt;">{</span>
+  printCounterAux <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span>xs, <span style="color: #D0372D; font-size: 11.620000000000001pt;">1</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span>
+<span style="color: #707183; font-size: 11.620000000000001pt;">}</span>
+
+printCounter <span style="color: #707183; font-size: 11.620000000000001pt;">(</span><span style="color: #D0372D; font-size: 11.620000000000001pt;">List</span> <span style="color: #7388D6; font-size: 11.620000000000001pt;">(</span><span style="color: #008000; font-size: 11.620000000000001pt;">"the"</span>, <span style="color: #008000; font-size: 11.620000000000001pt;">"rain"</span>, <span style="color: #008000; font-size: 11.620000000000001pt;">"in"</span>, <span style="color: #008000; font-size: 11.620000000000001pt;">"spain"</span><span style="color: #7388D6; font-size: 11.620000000000001pt;">)</span><span style="color: #707183; font-size: 11.620000000000001pt;">)</span>
+</pre>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-scala-analyzing-functions" class="outline-3">
+<h3 id="scala-analyzing-functions"><a id="sec-5-12" name="sec-5-12"></a><span class="section-number-3">5.12</span> Analyzing Functions</h3>
+<div class="outline-text-3" id="text-scala-analyzing-functions">
+
+<pre class="example">
+f (Nil)
+--&gt; Nil
+</pre>
+
+<pre class="example">
+f (5::Nil)
+--&gt; 5::(5::(f (Nil)))
+--&gt; 5::(5::(Nil))
+</pre>
+
+<pre class="example">
+f (4::(5::Nil))
+--&gt; 4::(4::(f (5::Nil)))
+--&gt; 4::(4::(5::(5::(Nil))))
+</pre>
+
+<pre class="example">
+f (3::(4::(5::Nil)))
+--&gt; 3::(3::(f (4::(5::Nil))))
+--&gt; 3::(3::(4::(4::(5::(5::(Nil))))))
+</pre>
+
+<p>
+The function doubles each occurrence of elements in a list.
+The resulting list is twice as long as the input list.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: James Riely</p>
+<p class="date">Created: 2018-04-04 Wed 19:31</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.50.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

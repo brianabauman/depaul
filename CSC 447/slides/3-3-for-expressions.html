@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>CSC447 - Concepts of Programming Languages - For Expressions</title>
+
+    <meta name="description" content="CSC447 - Concepts of Programming Languages - For Expressions">
+    <meta name="author" content="James Riely">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <!--
+         <link rel="stylesheet" href="lib/css/zenburn.css">
+         <link rel="stylesheet" href="lib/css/default.css">
+         <link rel="stylesheet" href="lib/css/mono-blue.css">
+         <link rel="stylesheet" href="lib/css/tomorrow.css">
+         <link rel="stylesheet" href="lib/css/color-brewer.css">
+         <link rel="stylesheet" href="lib/css/solarized-light.css">
+       -->
+    <link rel="stylesheet" href="lib/css/github.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+     var link = document.createElement( 'link' );
+     link.rel = 'stylesheet';
+     link.type = 'text/css';
+     link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+     document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+      <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>CSC447</h1>
+          <h3>Concepts of Programming Languages</h3>
+          <h3>For Expressions</h3>
+          <p>
+            <small>Instructor: <a href="http://fpl.cs.depaul.edu/jriely/">James Riely</a></small>
+          </p>
+        </section>
+
+        <!-- content starts here -->
+        <section>
+          <h2>Set/List Comprehensions</h2>
+          <ul>
+            <li>
+              <i>Set comprehensions</i>
+              <ul>
+                <li>
+                  <span style="font-size: 80%;">{ (m, n) | m &isin; { 0, ..., 10 } &and; n &isin; { 0, ..., 10 } &and; m &le; n }</span>
+                </li>
+              </ul>
+            </li>
+            <li class="fragment">
+              <i>List comprehensions</i> in <a href="https://en.wikipedia.org/wiki/List_comprehension">many PLs</a>
+              <ul>
+                <li class="fragment">
+                  <a href="https://en.wikipedia.org/wiki/SETL">SETL</a> (1960s)
+                </li>
+                <li class="fragment">
+                  <a href="https://en.wikipedia.org/wiki/Haskell_%28programming_language%29">Haskell</a>
+                </li>
+                <li class="fragment">
+                  Scala (<i><code>for</code> expressions</i>)
+                </li>
+                <li class="fragment">
+                  JavaScript 1.7!
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>For Expressions</h2>
+          <span>
+            Java <code>foreach</code> statement:
+            <pre><code class="scala" data-trim="">
+int[] a = new int[]{1,2,3};
+int sum = 0;
+for (int x : xs) sum = sum + x;
+            </code></pre>
+          </span>
+          <span class="fragment">
+            Scala <code>foreach</code> expression:
+            <pre><code class="scala" data-trim="">
+val xs : List[Int] = List(1,2,3)
+var sum = 0
+for (x <- xs) sum = sum + x
+            </code></pre>
+          </span>
+          <span class="fragment">
+            Scala infers type:
+            If <code>xs:List[T]</code>
+            <span class="fragment">
+              then <code>x:T</code>
+            </span>
+          </span>
+          <span class="fragment">
+            <pre><code class="scala" data-trim="">
+for (x <- xs) e   ===   xs.foreach ((x)=>e)
+            </code></pre>
+          </span>
+        </section>
+        <section>
+          <h2>Scala: For Expressions as Map</h2>
+          <pre><code class="scala" data-trim="">
+val xs : List[Int] = List(1,2,3)
+for (x <- xs) yield x*10
+          </code></pre>
+          <span class="fragment">
+            <pre><code class="scala" data-trim="">
+for (x <- xs) yield e   ===   xs.map ((x)=>e)
+            </code></pre>
+          </span>
+          <ul class="fragment">
+            <li>
+              Result type determined by expression
+            </li>
+            <li>
+              If <code>xs:List[T]</code>
+              <span>
+                then <code>x:T</code>
+              </span>                
+            </li>
+            <li class="fragment">
+              Assuming <code>x:T</code>, if <code>e:U</code>
+              <span>
+                then <code>result:List[U]</code>
+              </span>
+            </li>
+          </ul>
+        </section>
+        <!-- <section>
+             <h2>For Expressions vs Map</h2>
+             <div>
+             <code>for</code> expressions and map equivalence
+             </div>
+             <pre><code class="scala" data-trim="">
+             (for (x <- xs) yield e) == xs.map ((x) => e)
+             </code></pre>
+             <div class="fragment">
+             <div>
+             For example
+             </div> 
+             <pre><code class="scala" data-trim="">
+             (for (x <- xs) yield (2*x)) == xs.map ((x) => (2*x))
+             </code></pre>
+             </div>          
+             </section> -->
+        <section>
+          <h2>Conditionals</h2>
+          <ul>
+            <li>
+              Conditionals <i>filter</i> elements from result
+            </li>
+            <li class="fragment">
+              map/filter equivalence
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+for (x <- (0 to 10).toList; if (x % 3 != 0)) yield (2 * x)
+          </code></pre>
+          <div class="fragment">
+            <div>
+              equivalent to
+            </div>
+            <pre><code class="scala" data-trim="">
+(0 to 10).toList.filter ((x:Int) => x % 3 != 0).map ((x:Int) => 2 * x)
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          <h2>Flatten</h2>
+          <div>
+            Flattening lists of lists
+          </div>
+          <pre><code class="scala" data-trim="">
+def identity [X] (xs:List[List[X]]) : List[List[X]] = xs match {
+  case Nil   => Nil
+  case y::ys => y :: identity(ys)
+}
+          </code></pre>
+          <pre class="fragment"><code class="scala" data-trim="">
+def flatten [X] (xs:List[List[X]]) : List[X] = xs match {
+  case Nil   => Nil
+  case y::ys => y ::: flatten(ys)
+}
+          </code></pre>
+          <pre class="fragment"><code class="scala" data-trim="">
+val xss = List(List(1,2,3),List(4,5,6,7),List(8,9),List(10))
+flatten (xss) == (1 to 10).toList
+xss.flatten == (1 to 10).toList // builtin method
+          </code></pre>
+          <div class="fragment">
+            <div>
+              And with <code>for</code> expressions using nested iterations
+            </div>
+            <pre><code class="scala" data-trim="">
+(for (xs <- xss; x <- xs) yield x) == (1 to 10).toList
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>Flatten</h2>
+          <pre><code class="scala" data-trim="">
+identity(List(List(1,2), List(3,4,5)))
+--> List(1,2) :: identity(List(List(3,4,5)))
+--> List(1,2) :: (List(3,4,5) :: identity(List()))
+--> List(1,2) :: (List(3,4,5) :: List())
+          </code></pre>
+          <pre class="fragment"><code class="scala" data-trim="">
+flatten(List(List(1,2), List(3,4,5)))
+--> List(1,2) ::: flatten(List(List(3,4,5)))
+--> List(1,2) ::: (List(3,4,5) ::: flatten(List()))
+--> List(1,2) ::: (List(3,4,5) ::: List())
+--> List(1,2) ::: List(3,4,5)
+--> List(1,2,3,4,5)
+          </code></pre>
+        </section>
+        
+        <section>
+          <h2>Map and flatMap</h2>
+          <pre><code class="scala" data-trim="">
+def map [X,Y] (xs:List[X], f:X=>Y) : List[Y] = {
+  xs match {
+    case Nil   => Nil
+    case y::ys => f (y) :: map (ys, f)
+  }
+}
+def flatMap [X,Y] (xs:List[X], f:X=>List[Y]) : List[Y] = {
+  xs match {
+    case Nil   => Nil
+    case y::ys => f (y) ::: flatMap (ys, f)
+  }
+}
+val xs = (0 to 5).toList
+val xsmap = map (xs, ((x:Int)=>(1 to x).toList))
+val xsflatmap = flatMap (xs, ((x:Int)=>(1 to x).toList))
+          </code></pre>
+          <pre><code class="scala" data-trim="">
+xsmap: List[List[Int]] = List(List(), List(1), List(1, 2), List(1, 2, 3), List(1, 2, 3, 4), List(1, 2, 3, 4, 5))
+xsflatmap: List[Int] = List(1, 1, 2, 1, 2, 3, 1, 2, 3, 4, 1, 2, 3, 4, 5)
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Map and flatMap</h2>
+          <pre><code class="scala" data-trim="">
+val xs = (0 to 5).toList
+val xsmap = map (xs, ((x:Int)=>(1 to x).toList))
+val xsflatmap = flatMap (xs, ((x:Int)=>(1 to x).toList))
+          </code></pre>
+          <pre><code class="scala" data-trim="">
+val xsmap = for (x <- xs) yield (1 to x).toList
+val xsflatmap = for (x <- xs; y <- (1 to x).toList) yield y
+          </code></pre>
+          <pre><code class="scala" data-trim="">
+xsmap: List[List[Int]] = List(List(), List(1), List(1, 2), List(1, 2, 3), List(1, 2, 3, 4), List(1, 2, 3, 4, 5))
+xsflatmap: List[Int] = List(1, 1, 2, 1, 2, 3, 1, 2, 3, 4, 1, 2, 3, 4, 5)
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Map and flatMap</h2>
+          If iterators are independent, the result has size given by product
+          <pre><code class="scala" data-trim="">
+val xs = (1 to 7).toList
+val ys = (1 to 11).toList
+val prod = for (x <- xs; y <- ys) yield ()
+val size = prod.length
+          </code></pre>
+          <pre><code class="scala" data-trim="">
+size: Int = 77
+          </code></pre>
+        </section>
+        <!-- content ends here -->
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="../assets/js/slides.js"></script>
+  </body>
+</html>

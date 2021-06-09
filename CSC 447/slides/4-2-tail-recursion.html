@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>CSC447 - Concepts of Programming Languages - Tail Recursion</title>
+
+    <meta name="description" content="CSC447 - Concepts of Programming Languages - Tail Recursion">
+    <meta name="author" content="James Riely">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/github.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>CSC447</h1>
+          <h3>Concepts of Programming Languages</h3>
+          <h3>Tail Recursion</h3>
+          <p>
+            <small>Instructor: <a href="http://fpl.cs.depaul.edu/jriely/">James Riely</a></small>
+          </p>
+        </section>
+
+        <!-- content starts here -->
+
+        <section>
+          <h2>Call Stack</h2>
+          <ul>
+            <li>
+              Contains <i>activation records</i> (AR) for active calls
+              <ul>
+                <li class="nofragment">
+                  also known as <i>stack frames</i>
+                </li>
+              </ul>
+            </li>
+            <li class="nofragment">
+              Changes to call stack
+              <ul>
+                <li class="nofragment">
+                  AR pushed when a function/method call is made
+                </li>
+                <li class="nofragment">
+                  AR popped when a function/method returns
+                </li>
+              </ul>
+            </li>
+            <li class="nofragment">
+              Runtime environments limit size of call stacks?
+              <ul>
+                <li class="nofragment">
+                  Can cause problems with deep recursion
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Stack Limits - C</h2>
+          <pre><code class="c" data-trim="">
+int count_down (int x) {
+  if (x == 0) {
+    return 0;
+  } else {
+    return 1 + count_down (x - 1);
+  }
+}
+
+int main (int argc, char **argv) {
+  long num = strtol (argv[1], NULL, 10);
+  count_down (num);
+  return 0;
+}
+          </code></pre>
+          <pre class="fragment"><code class="nohighlight" data-trim="">
+$ ./recursion 272001
+$ ./recursion 272002
+Segmentation fault
+$ ./recursion 272001
+$ ./recursion 272001
+Segmentation fault
+$ for x in `seq 261700 261960`; do echo $x; ./recursion $x; done
+          </code></pre>
+        </section>
+        <section>
+          <h2>Stack Limits - OS</h2>
+          <ul>
+            <li>
+              OS specific
+            </li>
+            <li class="nofragment">
+              E.g., Linux kernel limits set via shell's <code>ulimit</code>
+            </li>
+          </ul>
+          <pre><code class="nohighlight" data-trim="">
+$ ulimit -a
+...
+stack size              (kbytes, -s) 8192
+...
+
+$ ulimit -S -s
+8192
+
+$ ulimit -H -s
+unlimited
+
+$ ulimit -s 65536
+$ ./recursion 2000000
+$ ./recursion 3000000
+Segmentation fault
+          </code></pre>
+
+        </section>
+        <section>
+          <h2>Stack Limits - Scheme</h2>
+          <pre><code class="scheme" data-trim="">
+(define (count-down x) 
+  (if (= x 0) 
+      0
+      (+ 1 (count-down (- x 1)))))
+          </code></pre>
+          <pre class="fragment"><code class="nohighlight" data-trim="">
+$ csi
+
+CHICKEN
+(c)2008-2011 The Chicken Team
+(c)2000-2007 Felix L. Winkelmann
+Version 4.7.0 
+linux-unix-gnu-x86-64 [ 64bit manyargs dload ptables ]
+compiled 2011-10-17 on allspice (Linux)
+
+#;1> (define (count-down x) 
+  (if (= x 0) 
+      0
+      (+ 1 (count-down (- x 1)))))
+#;2> (count-down 73000)
+73000
+#;3> (count-down 75000)
+Segmentation fault
+          </code></pre>
+        </section>
+        <section>
+          <h2>Stack Limits - Java</h2>
+          <pre><code class="java" data-trim="">
+static int countDown (int x) {
+  if (x == 0) {
+    return 0;
+  } else {
+    return 1 + countDown (x - 1);
+  }
+}
+          </code></pre>
+          <pre class="fragment"><code class="nohighlight" data-trim="">
+$ java Recursion 18053
+
+$ java Recursion 18054
+Exception in thread "main" java.lang.StackOverflowError
+  at Recursion.countDown(Recursion.java:6)
+  at Recursion.countDown(Recursion.java:6)
+  at Recursion.countDown(Recursion.java:6)
+  at Recursion.countDown(Recursion.java:6)
+  ...
+          </code></pre>
+        </section>
+        <section>
+          <h2>Stack Limits - Scala</h2>
+          <pre><code class="scala" data-trim="">
+def countDown (x:Int) : Int = if (x == 0) 0 else 1 + countDown (x - 1)
+          </code></pre>
+          <pre class="fragment"><code class="nohighlight" data-trim="">
+scala> countDown (59085)
+res40: Int = 59085
+
+scala> countDown (59086)
+java.lang.StackOverflowError
+  at .countDown(&gt;console>:7)
+  at .countDown(&gt;console>:7)
+  at .countDown(&gt;console>:7)
+  at .countDown(&gt;console>:7)
+  ...
+          </code></pre>
+        </section>
+        <section>
+          <h2>Intuitively</h2>
+          <pre><code class="scala" data-trim="">
+def countDown (x:Int) : Int = if (x == 0) 0 else 1 + countDown (x - 1)
+          </code></pre>
+          <div>
+            <div class="fragment">
+              Each <code>(1 + ...)</code> represents a new AR 
+            </div>
+            <pre><code class="nohighlight" data-trim="">
+countDown (5)
+--> 1 + countDown (4)
+--> 1 + (1 + countDown (3))
+--> 1 + (1 + (1 + countDown (2)))
+--> 1 + (1 + (1 + (1 + countDown (1))))
+--> 1 + (1 + (1 + (1 + (1 + countDown (0))))) 
+--> 1 + (1 + (1 + (1 + (1 + 0))))
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          <h2>Why A Call Stack?</h2>
+          <div>
+            More precisely...
+          </div>
+          <pre><code class="c" data-trim="">
+int count_down (int x) {
+  if (x == 0) {
+    return 0;
+  } else {
+    return 1 + count_down (x - 1);
+  }
+}
+          </code></pre>
+          <div class="fragment">
+            <div>
+              ...look at assembly language
+            </div>
+            <pre><code class="nohighlight" data-trim="">
+gcc -std=c99 -S recursion.c
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          <h2>Assembly Language View</h2>
+          <pre><code class="x86asm" data-trim="">
+count_down:
+        pushq   %rbp
+        movq    %rsp, %rbp
+        subq    $16, %rsp
+        movl    %edi, -4(%rbp)
+        cmpl    $0, -4(%rbp)
+        jne     .L2
+        movl    $0, %eax
+        jmp     .L3
+.L2:
+        movl    -4(%rbp), %eax
+        subl    $1, %eax
+        movl    %eax, %edi
+        call    count_down
+        addl    $1, %eax        ; work *after* recursive call
+.L3:
+        leave
+        ret
+          </code></pre>
+        </section>
+        <section>
+          <h2>Assembly Language View</h2>
+          <pre><code class="c" data-trim="">
+int count_down (int x) {
+  ...
+  return 1 + count_down (x - 1); // work *after* recursive call
+  ...
+}
+          </code></pre>
+          <pre><code class="x86asm" data-trim="">
+count_down:
+        pushq   %rbp
+        movq    %rsp, %rbp
+        ...
+        call    count_down
+        addl    $1, %eax        ; work *after* recursive call
+        ...
+        leave
+        ret
+          </code></pre>
+        </section>
+        <section>
+          <h2>Tail Recursive Call - C</h2>
+          <pre><code class="c" data-trim="">
+// *tail-recursive functions* because all
+// recursive calls are tail-recursive
+int count_down_aux (int x, int result) {
+  if (x == 0) {
+    return result;
+  } else {
+    return count_down_aux (x-1, 1+result); // *tail-recursive call*
+  }
+}
+
+int count_down (int x) {
+  return count_down_aux (x, 0);
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Assembly Language View</h2>
+          <pre><code class="x86asm" data-trim="">
+count_down_aux:
+        pushq   %rbp
+        movq    %rsp, %rbp
+        subq    $16, %rsp
+        movl    %edi, -4(%rbp)
+        movl    %esi, -8(%rbp)
+        cmpl    $0, -4(%rbp)
+        jne     .L2
+        movl    -8(%rbp), %eax
+        jmp     .L3
+.L2:
+        movl    -8(%rbp), %eax
+        leal    1(%rax), %edx
+        movl    -4(%rbp), %eax
+        subl    $1, %eax
+        movl    %edx, %esi
+        movl    %eax, %edi
+        call    count_down_aux     ; nothing afterwards
+.L3:
+        leave
+        ret
+          </code></pre>
+        </section>
+        <section>
+          <h2>Optimize Loop Away!</h2>
+          <pre><code class="nohighlight" data-trim="">
+$ gcc -std=c99 -O2 -S recursion.c
+          </code></pre>
+          <pre><code class="x86asm" data-trim="">
+count_down:
+        movl    %edi, %eax
+        ret
+          </code></pre>
+          <pre><code class="nohighlight" data-trim="">
+$ gcc -std=c99 -O2 -S tail-recursion.c
+          </code></pre>
+          <pre><code class="x86asm" data-trim="">
+count_down_aux:
+        movl    %esi, %eax
+        testl   %edi, %edi
+        leal    (%rdi,%rax), %edx
+        cmovne  %edx, %eax
+        ret
+count_down:
+        movl    %edi, %eax
+        ret
+          </code></pre>
+          <div class="fragment">
+            Need more complex examples!
+          </div>
+        </section>
+        <section>
+          <h2>Tail Call Optimization</h2>
+          <ul>
+            <li>
+              Many compilers implement <i>tail-call optimization</i>
+            </li>
+            <li class="nofragment">
+              Recursive calls must be <i>tail-recursive</i>
+            </li>
+            <li class="nofragment">
+              Includes <i>mutual recursion</i>
+              <ul>
+                <li class="nofragment">
+                  <code>f</code> calls to <code>g</code>, which calls back to <code>f</code>
+                </li>
+              </ul>
+            </li>
+            <li class="nofragment">
+              Previous C program too simple to show this
+              <ul>
+                <li class="nofragment">
+                  sum linked lists instead
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Tail Recursive Call - C</h2>
+          <ul>
+            <li>
+              Refactor work and accumulate result
+            </li>
+          </ul>
+          <pre><code class="c" data-trim="">
+typedef struct node node;
+struct node { int item; node *next; };
+
+int sum_aux (node *data, int result) {
+  if (!data) {
+    return result;
+  } else {
+    return sum_aux (data->next, result + data->item);
+  }
+}
+
+int sum (node *data) {
+  return sum_aux (data, 0);
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Optimize to Loop</h2>
+          <pre><code class="nohighlight" data-trim="">
+$ gcc -std=c99 -O2 -S tail-recursion2.c
+          </code></pre>
+          <pre><code class="x86asm" data-trim="">
+sum_aux:
+        testq   %rdi, %rdi
+        movl    %esi, %eax
+        je      .L7
+.L9:
+        addl    (%rdi), %eax
+        movq    8(%rdi), %rdi
+        testq   %rdi, %rdi
+        jne     .L9
+.L7:
+        rep
+        ret
+          </code></pre>
+        </section>
+        <section>
+          <h2>Tail Recursion - Scheme</h2>
+          <ul>
+            <li>
+              Implementations perform <i>tail-call optimization</i>
+            </li>
+            <li class="nofragment">
+              For <i>tail-recursive</i> functions
+            </li>
+            <li class="nofragment">
+              More generally, for <i>tail-calls</i>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Exponential Growth - Scheme</h2>
+          <ul>
+            <li>
+              Need very long linked lists; avoid stack overflow!
+            </li>
+            <li class="nofragment">
+              <span>Is it tail recursive?</span>
+              <span class="fragment"><code>sublist</code> necessary?</span>
+            </li>
+          </ul>
+          <pre><code class="scheme" data-trim="">
+(define (long-list n)
+  (if (= n 0) 
+      '(1)
+      (let ([sublist (long-list (- n 1))])
+        (append sublist sublist))))
+          </code></pre>
+          <pre><code class="nohighlight" data-trim="">
+$ csi
+
+#;1> (long-list 0)
+(1)
+#;2> (long-list 1)
+(1 1)
+#;3> (long-list 2)
+(1 1 1 1)
+#;4> (long-list 4)
+(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)
+#;6> (length (long-list 20))
+1048576
+          </code></pre>
+        </section>
+        <section>
+          <h2>Tail Recursion - Scheme</h2>
+          <ul>
+            <li>
+              Tail recursive, then recursive summation
+            </li>
+          </ul>
+          <pre><code class="scheme" data-trim="">
+(define (sum-tail-recursive xs) 
+  (let loop ([xs xs] [result 0])
+    (if (eq? xs '()) 
+        result
+        (loop (cdr xs) (+ (car xs) result)))))
+
+(define (sum xs) 
+  (if (eq? xs '()) 
+      0
+      (+ (car xs) (sum (cdr xs)))))
+          </code></pre>
+          <pre class="fragment"><code class="nohighlight" data-trim="">
+$ csi
+
+#;8> (sum-tail-recursive (long-list 20))
+1048576
+
+#;10> (sum (long-list 20))    
+Segmentation fault
+          </code></pre>
+        </section>
+        <section>
+          <h2>Exponential Growth - Scala</h2>
+          <ul>
+            <li>
+              As in Scheme
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+def longList (n:Int) : List[Int] = {
+  if (n == 0) {
+    List (1)
+  } else {
+    val sublist = longList (n - 1)
+    sublist ::: sublist
+  }
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Tail Recursion - Scala</h2>
+          <div>
+            <code>tailrec</code> annotation
+          </div>
+          <pre><code class="scala" data-trim="">
+import scala.annotation.tailrec
+
+def sumTailRecursive (xs:List[Int]) : Int = {
+  @tailrec 
+  def aux (xs:List[Int], result:Int) : Int = {
+    xs match {
+      case Nil   => result
+      case y::ys => aux (ys, y + result)
+    }
+  }
+  aux (xs, 0)
+}
+          </code></pre>
+          <pre class="fragment"><code class="nohighlight" data-trim="">
+scala> longList (20).length
+res0: Int = 1048576
+
+scala> sumTailRecursive (longList (20))
+res1: Int = 1048576
+          </code></pre>
+        </section>
+        <section>
+          <h2>Tail Recursion - Scala</h2>
+          <div>
+            <code>tailrec</code> annotation fails if not optimized
+          </div>
+          <pre><code class="scala" data-trim="">
+import scala.annotation.tailrec
+
+def sumTailRecursive (xs:List[Int]) : Int = {
+  @tailrec 
+  def aux (xs:List[Int], result:Int) : Int = {
+    xs match {
+      case Nil   => result
+      case y::ys => 1 + aux (ys, y + result)   // bogus "1 + ..."
+    }
+  }
+  aux (xs, 0)
+}
+          </code></pre>
+          <div class="fragment">
+            Scala compiler rejects the code
+            <pre><code class="nohighlight" data-trim="">
+error: could not optimize @tailrec annotated method aux: 
+  it contains a recursive call not in tail position
+            </code></pre>
+          </div>
+        </section>
+
+        <!-- content ends here -->
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="../assets/js/slides.js"></script>
+  </body>
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>CSC447 - Concepts of Programming Languages - Algebraic Data Types and Pattern Matching</title>
+
+    <meta name="description" content="CSC447 - Concepts of Programming Languages - Algebraic Data Types and Pattern Matching">
+    <meta name="author" content="James Riely">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <!--
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="lib/css/default.css">
+    <link rel="stylesheet" href="lib/css/mono-blue.css">
+    <link rel="stylesheet" href="lib/css/tomorrow.css">
+    <link rel="stylesheet" href="lib/css/color-brewer.css">
+    <link rel="stylesheet" href="lib/css/solarized-light.css">
+    -->
+    <link rel="stylesheet" href="lib/css/github.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>CSC447</h1>
+          <h3>Concepts of Programming Languages</h3>
+          <h3>Algebraic Data Types</h3>
+          <h3>and Pattern Matching</h3>
+          <p>
+            <small>Instructor: <a href="http://fpl.cs.depaul.edu/jriely/">James Riely</a></small>
+          </p>
+        </section>
+
+        <!-- content starts here -->
+
+        <section>
+          <h2>Algebraic Data Types</h2>
+          <ul>
+            <li>
+              Product types: tuples
+            </li>
+            <li>
+              Sum types: discriminated/tagged union, variants
+            </li>
+            <li class="nofragment">
+              <i>Algebraic data types</i>: sum of products
+            </li>
+            <li class="nofragment">
+              Examples seen so far
+              <ul>
+                <li>
+                  <code>Option</code> type
+                </li>
+                <li>
+                  <code>List</code> type
+                </li>
+              </ul>
+            </li>
+            <li class="nofragment">
+              Decompose values of algebraic data types with pattern matching
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Algebraic Data Types</h2>
+          <ul>
+            <li>
+              <a href="https://en.wikipedia.org/wiki/Algebraic_data_type">Algebraic Data Types (wikipedia)</a>
+              in PLs
+              <ul>
+                <li>
+                  D
+                </li>
+                <li>
+                  F#
+                </li>
+                <li>
+                  Haskell
+                </li>
+                <li>
+                  Julia
+                </li>
+                <li>
+                  Hope (1970s, first PL with this feature)
+                </li>
+                <li>
+                  ML
+                </li>
+                <li>
+                  OCaml
+                </li>
+                <li>
+                  Rust
+                </li>
+                <li>
+                  Scala
+                </li>
+                <li>
+                  Swift
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+        </section>
+
+        <section>
+          <h2>Product Types</h2>
+          <ul>
+            <li>
+              Named for <i>Cartesian product</i> of sets 
+              <ul>
+                <li>
+                  <span style="font-size: 80%;">X * Y = { (x, y) | x &isin; X &and; y &isin; Y }</span>
+                </li>
+              </ul>
+            </li>
+            <li class="fragment">
+              Case class definition for product of <code>Int</code> and <code>String</code>
+              <pre><code class="scala" data-trim="">
+case class C (x:Int, y:String)
+              </code></pre>
+            </li>
+            <li class="fragment">
+              <code>new</code> unnecessary for constructing instances
+              <pre><code class="scala" data-trim="">
+val c:C = C (5, "hello")
+              </code></pre>
+            </li>
+            <li class="fragment">
+              Extract elements with pattern matching
+              <pre><code class="scala" data-trim="">
+val n:Int = c match { 
+  case C (a, b) => a
+}
+              </code></pre>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Case Classes</h2>
+          <ul>
+            <li>
+              Compiler treatment for
+              <code>case</code> classes
+            </li>
+            <li class="fragment">
+              Constructor arguments are visible and immutable
+              <pre><code class="scala" data-trim="">
+case class C (x:Int, y:String)
+val c:C = C (5, "hello")
+val a:Int = c.x
+c.x = 6 // error: reassignment to val
+              </code></pre>
+            </li>
+            <li class="fragment">
+              Generate sensible <code>toString</code> implementation
+            </li>
+            <li class="fragment">
+              Generate companion object with <code>apply</code> method
+              <ul>
+                <li>
+                  used to construct instances
+                </li>
+              </ul>
+            </li>
+            <li class="fragment">
+              Generate pattern matching support
+              <ul>
+                <li>
+                  see <code>unapply</code> method / extractors in textbook
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Tuples are Case Classes</h2>
+          <ul>
+            <li>
+              Pairs / tuples are <i>syntactic sugar</i> for case classes
+            </li>
+            <li class="fragment">
+              See <a href="https://github.com/scala/scala/blob/v2.11.7/src/library/scala/Tuple3.scala"><code>Tuple3.scala</code></a> source
+              <pre><code class="scala" data-trim="">
+case class Tuple3[+T1, +T2, +T3](_1: T1, _2: T2, _3: T3)
+  extends Product3[T1, T2, T3]
+{
+  override def toString() = "(" + _1 + "," + _2 + "," + _3 + ")"
+}
+              </code></pre>
+            </li>
+            <li class="fragment">
+              Examine runtime type without syntactic sugar
+              <pre><code class="nohighlight" data-trim="">
+scala> (5, "hello", true).getClass
+res0: Class[_ <: (Int, String, Boolean)] = class scala.Tuple3
+              </code></pre>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Set Union</h2>
+          <ul>
+            <li>
+              Cartesian product of sets
+              <ul>
+                <li>
+                  <span style="font-size: 80%;">X * Y = { (x, y) | x &isin; X &and; y &isin; Y }</span>
+                </li>
+              </ul>
+            </li>
+            <li class="fragment">
+              <i>Union</i> of sets
+              <ul>
+                <li>
+                  <span style="font-size: 80%;">X &cup; Y = { z | z &isin; X &or; z &isin; Y }</span>
+                </li>
+              </ul>
+            </li>
+            <li class="fragment">
+              <i>Coproduct</i> or <i>disjoint union</i> of sets
+              <ul>
+                <li>
+                  <span style="font-size: 80%;">
+                    X &oplus; Y = X &#8845; Y = 
+                    { (0, x) | x &isin; X } &cup; { (1, y) | y &isin; Y }
+                  </span>
+                </li>
+              </ul>
+            </li>
+            <li class="fragment">
+              Elements are tagged to indicate their source
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Disjoint Union - Case Classes</h2>
+          <ul>
+            <li>
+              Disjoint union of 3 ints and 1 int
+            </li>
+            <li class="fragment">
+              <code>trait</code> similar to Java interface
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+trait DateSpecifier
+case class Absolute (year:Int,mon:Int,day:Int) extends DateSpecifier
+case class Relative (daysOffset:Int)    extends DateSpecifier
+          </code></pre>
+        </section>
+        <section>
+          <h2>Disjoint Union - Case Classes</h2>
+          <ul>
+            <li>
+              Create instances
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+val ds = new Array[DateSpecifier] (2)
+ds (0) = Absolute (2030, 0, 1) // Months are 0.11
+ds (1) = Relative (-5)
+          </code></pre>
+        </section>
+        <section>
+          <h2>Disjoint Union - Case Classes</h2>
+          <ul>
+            <li>
+              Pattern match to decompose
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+import java.util.{Calendar,Date}
+
+def resolveDate (d:DateSpecifier) : Calendar = {
+  val b = new Calendar.Builder
+  d match {
+    case Absolute (y, m, d) => b.setDate (y, m, d).build
+    case Relative (o)       => { 
+      val c = b.build                 // Jan 1 1970, Gregorian calendar
+      c.setTime (new Date)            // Today, Gregorian calendar
+      c.add (Calendar.DAY_OF_YEAR, o) // Add days offset
+      c                               // Return updated calendar object
+    }
+  }
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Disjoint Union - C</h2>
+          <ul>
+            <li>
+              Union types in C must be tagged manually
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+struct s_absolute_t {
+  int year;
+  int mon;
+  int day;
+};
+
+struct s_relative_t {
+  int days_offset;
+};
+
+union u_ds_t {
+  struct s_absolute_t u_absolute;
+  struct s_relative_t u_relative;
+};
+
+enum e_ds_t {
+  e_absolute,
+  e_relative,
+};
+
+struct ds_t {
+  enum e_ds_t tag;
+  union u_ds_t content;
+};
+          </code></pre>
+        </section>
+        <section>
+          <h2>Disjoint Union - C</h2>
+          <ul>
+            <li>
+              Create instances
+            </li>
+            <li class="fragment">
+              tag / union selector must match!
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+struct ds_t ds[2];
+ds[0].tag = e_absolute;
+ds[0].content.u_absolute.year = 2030;
+ds[0].content.u_absolute.mon  = 0;
+ds[0].content.u_absolute.day  = 1;
+ds[1].tag = e_relative; 
+ds[1].content.u_relative.days_offset = -5;
+          </code></pre>
+        </section>
+        <section>
+          <h2>Disjoint Union - C</h2>
+          <ul>
+            <li>
+              Examine tag to decompose
+            </li>
+            <li class="fragment">
+              Only access union selector matching tag!
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+void print_ds (struct ds_t *dsp) {
+  switch (dsp->tag) {
+  case e_absolute:
+    printf ("absolute (%d, %d, %d)\n", dsp->content.u_absolute.year, 
+                                       dsp->content.u_absolute.mon, 
+                                       dsp->content.u_absolute.day);
+    break;
+  case e_relative:
+    printf ("relative (%d)\n", dsp->content.u_relative.days_offset);
+    break;
+  default:
+    fprintf (stderr, "Unknown tag\n");
+    exit (1);
+  }
+}
+          </code></pre>
+        </section>
+<!--
+        <section>
+          <h2>Monomorphic Option</h2>
+          <ul>
+            <li>
+              Case class for monomorphic <code>Option</code> type  
+            </li>
+            <li class="fragment">
+              Only one instance of <code>case object</code>
+            </li>
+          </ul>
+          <div>
+            <pre><code class="scala" data-trim="">
+trait OptionInt
+case object NoneInt         extends OptionInt
+case class  SomeInt (x:Int) extends OptionInt
+            </code></pre>
+          </div>
+          <div class="fragment">
+            Another one
+            <pre><code class="scala" data-trim="">
+trait OptionString
+case object NoneString            extends OptionString
+case class  SomeString (x:String) extends OptionString
+            </code></pre>
+          </div>
+          <div class="fragment">
+            An Option type for every other type is unappealing
+          </div>
+       </section>
+        <section>
+          <h2>Subtype Option</h2>
+          <div>
+            Rely on <code>Object</code> a subtype of every reference type
+            <pre><code class="scala" data-trim="">
+trait OptionObject
+case object NoneObject            extends OptionObject
+case class  SomeObject (x:Object) extends OptionObject
+            </code></pre>
+          </div>
+          <div class="fragment">
+            Building <code>SomeObject</code> is OK
+            <pre><code class="scala" data-trim="">
+val o:OptionObject = SomeObject ("hello")
+            </code></pre>
+          </div>
+          <div class="fragment">
+            But decomposition only yields <code>Object</code> statically
+            <pre><code class="scala" data-trim="">
+o match {
+  case NoneObject     => ...
+  case SomeObject (x) => /* x:Object not x:String */
+}
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          <h2>Parameterized Option Types</h2>
+          <ul>
+            <li>
+              Define Option with parameterized type
+            </li>
+            <li class="fragment">
+              But what type should <code>None</code> extend?
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+trait Option[+X]
+case object None           extends Option[...]
+case class  Some[+X] (x:X) extends Option[X]
+          </code></pre>
+          <div class="fragment">
+            Want
+            <pre><code class="scala" data-trim="">
+None : Option[Int]
+None : Option[String]
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          <h2>Parameterized Option Types</h2>
+          <ul>
+            <li>
+              <code>Nothing</code> is a subtype of every other type
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+trait Option[+X]
+case object None           extends Option[Nothing]
+case class  Some[+X] (x:X) extends Option[X]
+          </code></pre>
+          <div class="fragment">
+            We have
+            <pre><code class="scala" data-trim="">
+None : Option[Nothing]
+            </code></pre>
+          </div>
+          <ul class="fragment">
+            <li>
+              <code>Option[Nothing]</code> a <i>subtype</i> of all <code>Option[...]</code> types
+            </li>
+            <li class="fragment">
+              subtyping and <code>+X</code> later on in the course
+            </li>
+          </ul>
+        </section>
+-->
+        <section>
+          <h2>Recursive Types</h2>
+          <ul>
+            <li>
+              Classes can be recursive
+            </li>
+            <li class="fragment">
+              Peano natural numbers
+            </li>
+            <li class="fragment">
+              Define functions between <code>PeanoNat</code> and <code>Int</code>
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+trait PeanoNat
+case object Zero              extends PeanoNat
+case class  Succ (n:PeanoNat) extends PeanoNat
+          </code></pre>
+        </section>
+        <section>
+          <h2>Linked Lists</h2>
+          <ul>
+            <li>
+              Case object/class for <code>Nil</code> and <code>Cons</code>
+            </li>
+            <li class="nofragment">
+              Corresponds to cases for pattern matching
+            </li>
+            <li class="nofragment">
+              <code>Cons</code> is a pair of <code>head</code> and <code>tail</code>
+            </li>
+            <li class="nofragment">
+              <code>Nil</code> used at any <code>List</code> type
+              <ul>
+                <li class="nofragment">
+                  cf. <code>None:Option[Nothing]</code>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+trait List[+X]
+case object Nil                             extends List[Nothing]
+case class  Cons[+X] (head:X, tail:List[X]) extends List[X]
+
+def length [X] (xs:List[X]): Int = xs match {
+  case Nil => 0
+  case Cons(a,as) => 1 + length(as)
+}
+length (Cons (1, Cons(2, Nil)))
+          </code></pre>
+        </section>
+        <section>
+          <h2>Binary Trees</h2>
+          <ul>
+            <li>
+              Binary trees with
+              <ul>
+                <li class="fragment">
+                  no data stored at leaves
+                </li>
+                <li class="fragment">
+                  elements stored at internal nodes
+                </li>
+                <li class="fragment">
+                  internal nodes have left and right subtrees
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <pre><code class="scala" data-trim="">
+trait Tree[+X]
+case object Leaf                                 extends Tree[Nothing]
+case class  Node[+X] (l:Tree[X], c:X, r:Tree[X]) extends Tree[X]
+          </code></pre>
+        </section>
+        <section>
+          <h2>Red-Black Trees</h2>
+          <pre><code class="scala" data-trim="">
+trait Color
+object Red   extends Color
+object Black extends Color
+
+trait Tree[+K,+V]
+case object Leaf extends Tree[Nothing,Nothing]
+case class  Node[+K,+V] (k:K, v:V, c:Color, l:Tree[K,V], r:Tree[K,V]) 
+  extends Tree[K,V]
+
+def rotateLeft  [K,V] (t:Node[K,V]) : Node[K,V] = {
+  t match {
+    case Node (k1, v1, c, l, Node (k2, v2, Red, m, r)) =>
+      Node (k2, v2, c, Node (k1, v1, Red, l, m), r)
+    case _ => 
+      throw new RuntimeException ("does not match: " + t)
+  }
+}
+          </code></pre>
+        </section>
+
+
+        <!-- content ends here -->
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="../assets/js/slides.js"></script>
+  </body>
+</html>
