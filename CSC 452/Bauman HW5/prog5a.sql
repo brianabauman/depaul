@@ -1,0 +1,24 @@
+CREATE TABLE dept
+( 
+    DEPTNO NUMBER(3) PRIMARY KEY,
+    DNAME VARCHAR2(16),
+    LOC VARCHAR2(16)
+);
+
+--Note: "USER" was an invalid identifier
+CREATE TABLE dept_shadow
+( 
+    DEPTNO NUMBER(3) PRIMARY KEY,
+    DNAME VARCHAR2(16),
+    LOC VARCHAR2(16),
+    USERNAME VARCHAR2(32),
+    MODTIME CHAR(17)
+);
+
+CREATE OR REPLACE TRIGGER dept_tracking
+AFTER INSERT ON dept
+FOR EACH ROW
+BEGIN
+    INSERT INTO dept_shadow
+    VALUES (:new.DEPTNO, :new.DNAME, :new.LOC, USER, TO_CHAR(SYSDATE, 'MM/DD/YY hh:mm:ss'));
+END;

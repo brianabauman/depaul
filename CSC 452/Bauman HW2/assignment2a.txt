@@ -1,0 +1,15 @@
+v_empno NUMBER(4); 
+
+This declaration is legal.
+
+v_a, v_b, v_c VARCHAR2(10); 
+
+This declaration is illegal -- you can't declare multiple variables at once like this.
+
+v_address VARCHAR2(30) NOT NULL; 
+
+This declaration is illegal -- the variable must be given an initial value if it is decalred NOT NULL.
+
+v_in_stock BOOLEAN := 1;
+
+This declaration is illegal -- the variable is of type BOOLEAN and must be initialized to TRUE, FALSE, or NULL.

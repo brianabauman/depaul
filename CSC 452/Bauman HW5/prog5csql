@@ -1,0 +1,22 @@
+SET SERVEROUTPUT ON;
+SET VERIFY OFF;
+
+DECLARE
+    TYPE dept_tabtype IS TABLE OF dept%ROWTYPE INDEX BY BINARY_INTEGER;
+    dept_table dept_tabtype;
+    
+    CURSOR c_dept IS SELECT * FROM dept;
+    
+    i NUMBER := 0;
+BEGIN
+    FOR r_dept IN c_dept LOOP
+        i := i + 1;
+        dept_table(i) := r_dept;
+    END LOOP;
+    
+    FOR j in 1..i LOOP
+        DBMS_OUTPUT.PUT_LINE('Department numer: ' || dept_table(j).DEPTNO);
+        DBMS_OUTPUT.PUT_LINE('Department name: ' || dept_table(j).DNAME);
+        DBMS_OUTPUT.PUT_LINE('Department location: ' || dept_table(j).LOC);
+    END LOOP;
+END;
