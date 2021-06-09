@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1504.82">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px Monaco}
+  </style>
+</head>
+<body>
+<p class="p1">L 11</p>
+<p class="p1">P 10</p>
+<p class="p1">M 9</p>
+<p class="p1">X 7</p>
+<p class="p1">H 5</p>
+<p class="p1">C 4</p>
+<p class="p1">R 3</p>
+<p class="p1">A 8</p>
+<p class="p1">E 12</p>
+<p class="p1">S 0</p>
+<p class="p1">sizeTest: Correct<span class="Apple-converted-space">  </span>String<span class="Apple-converted-space">  </span>Answer: 0</p>
+<p class="p1">sizeTest: Correct<span class="Apple-converted-space">  </span>String abcde Answer: 5</p>
+<p class="p1">sizeTest: Correct<span class="Apple-converted-space">  </span>String Brian Bauman Answer: 8</p>
+<p class="p1">secondMaxKeyTest: Correct<span class="Apple-converted-space">  </span>String<span class="Apple-converted-space">  </span>Answer: null</p>
+<p class="p1">secondMaxKeyTest: Correct<span class="Apple-converted-space">  </span>String a Answer: null</p>
+<p class="p1">secondMaxKeyTest: Correct<span class="Apple-converted-space">  </span>String abcde Answer: d</p>
+<p class="p1">secondMaxKeyTest: Correct<span class="Apple-converted-space">  </span>String aaabbbccc Answer: b</p>
+<p class="p1">rankTest: Correct<span class="Apple-converted-space">  </span>String , Key: a, Answer: 0</p>
+<p class="p1">rankTest: Correct<span class="Apple-converted-space">  </span>String a, Key: a, Answer: 0</p>
+<p class="p1">rankTest: Correct<span class="Apple-converted-space">  </span>String abcde, Key: e, Answer: 4</p>
+<p class="p1">rankTest: Correct<span class="Apple-converted-space">  </span>String abcde, Key: z, Answer: 5</p>
+<p class="p1">rankTest: Correct<span class="Apple-converted-space">  </span>String abcde, Key: null, Answer: 0</p>
+<p class="p1">floorTest: Correct<span class="Apple-converted-space">  </span>String , Key: a, Answer: null</p>
+<p class="p1">floorTest: Correct<span class="Apple-converted-space">  </span>String abcde, Key: f, Answer: e</p>
+<p class="p1">floorTest: Correct<span class="Apple-converted-space">  </span>String bcdef, Key: a, Answer: null</p>
+<p class="p1">floorTest: Correct<span class="Apple-converted-space">  </span>String abcde, Key: a, Answer: a</p>
+<p class="p1">inverseTest: Correct<span class="Apple-converted-space">  </span>Keys: , Vals: , Answer keys: , Answer vals:<span class="Apple-converted-space"> </span></p>
+<p class="p1">inverseTest: Correct<span class="Apple-converted-space">  </span>Keys: abcde, Vals: 01234, Answer keys: 01234, Answer vals: abcde</p>
+<p class="p1">inverseTest: Correct<span class="Apple-converted-space">  </span>Keys: aaabbbccc, Vals: 012345678, Answer keys: 258, Answer vals: abc</p>
+</body>
+</html>

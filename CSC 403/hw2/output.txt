@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1504.82">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 15.0px; font: 11.0px Monaco; color: #000000; -webkit-text-stroke: #000000}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">testShiftRight: Correct<span class="Apple-converted-space">  </span>Before ABCDE/12345 shiftIndex:0 After:<span class="Apple-converted-space">  </span>ABCDE/ 12345</span></p>
+<p class="p1"><span class="s1">testShiftRight: Correct<span class="Apple-converted-space">  </span>Before ABCDE/12345 shiftIndex:6 After: ABCDE/12345</span></p>
+<p class="p1"><span class="s1">testShiftRight: Correct<span class="Apple-converted-space">  </span>Before ABCDE/12345 shiftIndex:3 After: ABC DE/123 45</span></p>
+<p class="p1"><span class="s1">testShiftLeft: Correct<span class="Apple-converted-space">  </span>Before ABCDE/12345 shiftIndex:0 After: BCDE/2345</span></p>
+<p class="p1"><span class="s1">testShiftLeft: Correct<span class="Apple-converted-space">  </span>Before ABCDE/12345 shiftIndex:6 After: ABCDE/12345</span></p>
+<p class="p1"><span class="s1">testShiftLeft: Correct<span class="Apple-converted-space">  </span>Before ABCDE/12345 shiftIndex:3 After: ABCE/1235</span></p>
+<p class="p1"><span class="s1">rankTest: Correct<span class="Apple-converted-space">  </span>String BDFK Key A rank: 0</span></p>
+<p class="p1"><span class="s1">rankTest: Correct<span class="Apple-converted-space">  </span>String BDFK Key B rank: 0</span></p>
+<p class="p1"><span class="s1">rankTest: Correct<span class="Apple-converted-space">  </span>String BDFK Key C rank: 1</span></p>
+<p class="p1"><span class="s1">rankTest: Correct<span class="Apple-converted-space">  </span>String BDFK Key D rank: 1</span></p>
+<p class="p1"><span class="s1">rankTest: Correct<span class="Apple-converted-space">  </span>String BDFK Key K rank: 3</span></p>
+<p class="p1"><span class="s1">rankTest: Correct<span class="Apple-converted-space">  </span>String BDFK Key Z rank: 4</span></p>
+<p class="p1"><span class="s1">testEquals: Correct<span class="Apple-converted-space">  </span>Array1 ABCDE/12345 Array2: ABCDE/12345 Equals:true<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">testEquals: Correct<span class="Apple-converted-space">  </span>Array1 ABCDE/12345 Array2: ABDEF/12345 Equals:false<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">testEquals: Correct<span class="Apple-converted-space">  </span>Array1 ABC/123 Array2: ABCDE/12345 Equals:false<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">testEquals: Correct<span class="Apple-converted-space">  </span>Array1 / Array2: / Equals:true<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">testFloor: Correct<span class="Apple-converted-space">  </span>Array ABCDE/12345 Key E Floor:E<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">testFloor: Correct<span class="Apple-converted-space">  </span>Array BCDEF/12345 Key A Floor:null<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">testFloor: Correct<span class="Apple-converted-space">  </span>Array ABCDZ/12345 Key E Floor:D<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">testCountRange: Correct<span class="Apple-converted-space">  </span>Array ABCDE/12345 Key1 A Key2 E Count:5</span></p>
+<p class="p1"><span class="s1">testCountRange: Correct<span class="Apple-converted-space">  </span>Array ABCDF/12345 Key1 A Key2 E Count:4</span></p>
+<p class="p1"><span class="s1">testCountRange: Correct<span class="Apple-converted-space">  </span>Array ACEGI/12345 Key1 B Key2 H Count:3</span></p>
+<p class="p1"><span class="s1">testCountRange: Correct<span class="Apple-converted-space">  </span>Array ABC/123 Key1 D Key2 E Count:0</span></p>
+<p class="p1"><span class="s1">testCountRange: Correct<span class="Apple-converted-space">  </span>Array / Key1 A Key2 Z Count:0</span></p>
+<p class="p1"><span class="s1">testDelete: Correct<span class="Apple-converted-space">  </span>Before ABDFK delete:A After: BDFK</span></p>
+<p class="p1"><span class="s1">testDelete: Correct<span class="Apple-converted-space">  </span>Before ABDFK delete:B After: ADFK</span></p>
+<p class="p1"><span class="s1">testDelete: Correct<span class="Apple-converted-space">  </span>Before ABDFK delete:K After: ABDF</span></p>
+<p class="p1"><span class="s1">testDelete: Correct<span class="Apple-converted-space">  </span>Before<span class="Apple-converted-space">  </span>delete:A After:<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">testDelete: Correct<span class="Apple-converted-space">  </span>Before ABCDE delete:Z After: ABCDE</span></p>
+<p class="p1"><span class="s1">testPut: Correct<span class="Apple-converted-space">  </span>Before AEIOU/13456 put:B After: ABEIOU/123456</span></p>
+<p class="p1"><span class="s1">testPut: Correct<span class="Apple-converted-space">  </span>Before AEIOU/13456 put:A After: AEIOU/23456</span></p>
+<p class="p1"><span class="s1">testPut: Correct<span class="Apple-converted-space">  </span>Before AEIOU/13456 put:A After: EIOU/3456</span></p>
+<p class="p1"><span class="s1">testPut: Correct<span class="Apple-converted-space">  </span>Before / put:A After: A/1</span></p>
+</body>
+</html>
