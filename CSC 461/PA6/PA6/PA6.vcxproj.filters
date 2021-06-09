@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="Matrix.h">
+      <Filter>Do Not Modify</Filter>
+    </ClInclude>
+    <ClInclude Include="Vect4D.h">
+      <Filter>Do Not Modify</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix_Row_SIMD.h">
+      <Filter>Refactor These Files\Row_Major</Filter>
+    </ClInclude>
+    <ClInclude Include="Vect_Row_SIMD.h">
+      <Filter>Refactor These Files\Row_Major</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix_Col_SIMD.h">
+      <Filter>Refactor These Files\Col_Major</Filter>
+    </ClInclude>
+    <ClInclude Include="Vect_Col_SIMD.h">
+      <Filter>Refactor These Files\Col_Major</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix_vM_SIMD.h">
+      <Filter>Refactor These Files\Vect_Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Vect_vM_SIMD.h">
+      <Filter>Refactor These Files\Vect_Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix_Mv_SIMD.h">
+      <Filter>Refactor These Files\Matrix_Vect</Filter>
+    </ClInclude>
+    <ClInclude Include="Vect_Mv_SIMD.h">
+      <Filter>Refactor These Files\Matrix_Vect</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix_M_SIMD.h">
+      <Filter>Refactor These Files\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Vect_M_SIMD.h">
+      <Filter>Refactor These Files\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Vect_LERP_SIMD.h">
+      <Filter>Refactor These Files\LERP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Test\_UnitTestConfiguration.h">
+      <Filter>_Test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Framework\Align16.h">
+      <Filter>_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Framework\FileIO.h">
+      <Filter>_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Framework\Framework.h">
+      <Filter>_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Framework\FrameworkVersion.h">
+      <Filter>_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Framework\MemTracker.h">
+      <Filter>_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Framework\MemTrackerMain.h">
+      <Filter>_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Framework\PerformanceTimer.h">
+      <Filter>_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Framework\Trace.h">
+      <Filter>_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Framework\UnitTest.h">
+      <Filter>_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Test\PerformanceTest.h">
+      <Filter>_Test</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="_Framework">
+      <UniqueIdentifier>{2247e4b8-afde-4487-aae8-ed106c51fa0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Test">
+      <UniqueIdentifier>{107099dd-0440-40c2-af8c-fc3c6d6b86d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Do Not Modify">
+      <UniqueIdentifier>{66c08a68-c9a6-49d0-9969-ee3f02b38d8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Refactor These Files">
+      <UniqueIdentifier>{e1f8add4-a349-44af-934f-119c18b41ca6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Refactor These Files\Row_Major">
+      <UniqueIdentifier>{8319777b-9c3d-40a6-9c64-230943c07af4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Refactor These Files\Col_Major">
+      <UniqueIdentifier>{94784c7d-c415-4854-a91a-8bc849de0449}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Refactor These Files\Vect_Matrix">
+      <UniqueIdentifier>{13c18143-c85b-4996-bed5-eebfc0fedfc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Refactor These Files\Matrix_Vect">
+      <UniqueIdentifier>{ffa4025c-0eb1-4e5b-9e3c-1048d3a2db6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Refactor These Files\Matrix">
+      <UniqueIdentifier>{801cd223-3c13-4822-b13c-c7fd82498bfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Refactor These Files\LERP">
+      <UniqueIdentifier>{d70fa4f3-701e-4e1f-b4e1-455d4b113796}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Framework\__DO NOT MODIFY__">
+      <Filter>_Framework</Filter>
+    </None>
+    <None Include="..\Test\__DO NOT MODIFY__">
+      <Filter>_Test</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Do Not Modify</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp">
+      <Filter>Do Not Modify</Filter>
+    </ClCompile>
+    <ClCompile Include="Vect4D.cpp">
+      <Filter>Do Not Modify</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix_Row_SIMD.cpp">
+      <Filter>Refactor These Files\Row_Major</Filter>
+    </ClCompile>
+    <ClCompile Include="Vect_Row_SIMD.cpp">
+      <Filter>Refactor These Files\Row_Major</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix_Col_SIMD.cpp">
+      <Filter>Refactor These Files\Col_Major</Filter>
+    </ClCompile>
+    <ClCompile Include="Vect_Col_SIMD.cpp">
+      <Filter>Refactor These Files\Col_Major</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix_vM_SIMD.cpp">
+      <Filter>Refactor These Files\Vect_Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Vect_vM_SIMD.cpp">
+      <Filter>Refactor These Files\Vect_Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix_Mv_SIMD.cpp">
+      <Filter>Refactor These Files\Matrix_Vect</Filter>
+    </ClCompile>
+    <ClCompile Include="Vect_Mv_SIMD.cpp">
+      <Filter>Refactor These Files\Matrix_Vect</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix_M_SIMD.cpp">
+      <Filter>Refactor These Files\Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Vect_M_SIMD.cpp">
+      <Filter>Refactor These Files\Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Vect_LERP_SIMD.cpp">
+      <Filter>Refactor These Files\LERP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Test\1_Matrix_Test.cpp">
+      <Filter>_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Test\2_VectMatrix_Test.cpp">
+      <Filter>_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Test\3_MatrixVect_Test.cpp">
+      <Filter>_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Test\4_LERP_Test.cpp">
+      <Filter>_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Test\5_RowMajor_Test.cpp">
+      <Filter>_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Test\6_ColMajor_Test.cpp">
+      <Filter>_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Framework\UnitTest.cpp">
+      <Filter>_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Test\Performance_ColMajorCPP.cpp">
+      <Filter>_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Test\Performance_ColMajorSIMD.cpp">
+      <Filter>_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Test\Performance_RowMajorCpp.cpp">
+      <Filter>_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Test\Performance_RowMajorSIMD.cpp">
+      <Filter>_Test</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

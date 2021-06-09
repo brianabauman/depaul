@@ -1,0 +1,74 @@
+RVO - Assignment
+	Need to Build in 2 configurations:
+	DEBUG, RELEASE
+
+Configuration:  DEBUG
+
+
+		****************************************
+		**      Framework: 2.27               **
+		**   C++ Compiler: 191627027          **
+		**    Windows SDK: 10.0.17134.0       **
+		**   Mem Tracking: enabled            **
+		****************************************
+
+		--------------------------------
+			Memory Tracking: start()    
+		--------------------------------
+
+		------------------- Testing DEBUG ------------------------
+
+			A: 35017.105469 131204.656250 
+		AA: 35017.105469 131204.656250 
+
+			No_RVO: 1.300864 s
+		using_RVO: 0.652905 s
+			Ratio: 1.992426 
+
+			(x86 Debug) testPass: 1
+			(x86 Debug) testFail: 0
+
+			testCount: 1
+		indvChecks: 5
+
+		-----------------
+
+		--------------------------------
+			Memory Tracking: passed 
+		--------------------------------
+			Memory Tracking: end()      
+		--------------------------------
+
+
+Configuration:  RELEASE
+
+		--> Don't worry it should around slightly better than ~1.10 ratio
+
+
+		****************************************
+		**      Framework: 2.27               **
+		**   C++ Compiler: 191627027          **
+		**    Windows SDK: 10.0.17134.0       **
+		**   Mem Tracking: enabled            **
+		****************************************
+
+		------------------- Testing RELEASE ----------------------
+
+		 A: 199847.906250 793482.437500 
+		AA: 199847.906250 793482.437500 
+
+		   No_RVO: 1.266694 s
+		using_RVO: 1.004028 s
+			Ratio: 1.261612 
+
+		 (x86 Release) testPass: 1
+		 (x86 Release) testFail: 0
+
+		 testCount: 1
+		indvChecks: 5
+
+		-----------------
+
+
+
+--- End of file ---

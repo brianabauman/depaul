@@ -1,0 +1,80 @@
+Implicit - Assignment
+	Need to Build in 3 configurations:
+	DEBUG, RELEASE, PREVENT
+
+Configuration:  DEBUG
+
+		--> Warning: might not be much of a savings...
+
+			****************************************
+			**      Framework: 2.27               **
+			**   C++ Compiler: 191627027          **
+			**    Windows SDK: 10.0.17134.0       **
+			**   Mem Tracking: enabled            **
+			****************************************
+
+			--------------------------------
+				Memory Tracking: start()    
+			--------------------------------
+
+			------------------- Testing DEBUG ------------------------
+
+			  A: 118065640.000000 95675296.000000 110802000.000000
+			 AA: 118065640.000000 95675296.000000 110802000.000000
+
+			Implicit_With_Conversion: 1.620698 s  (should be slower)
+			  Implicit_No_Conversion: 1.469273 s
+							   Ratio: 1.103061    (faster than implict conversion)
+
+			 (x86 Debug) testPass: 1
+			 (x86 Debug) testFail: 0
+
+			 testCount: 1
+			indvChecks: 7
+
+			-----------------
+
+			--------------------------------
+				Memory Tracking: passed 
+			--------------------------------
+				Memory Tracking: end()      
+			--------------------------------
+
+
+Configuration: RELEASE
+
+		---> Warning: might not be much of a savings...
+
+
+			****************************************
+			**      Framework: 2.27               **
+			**   C++ Compiler: 191627027          **
+			**    Windows SDK: 10.0.17134.0       **
+			**   Mem Tracking: enabled            **
+			****************************************
+
+			------------------- Testing RELEASE ----------------------
+
+			  A: 552208960.000000 345517088.000000 405479808.000000
+			 AA: 552208960.000000 345517088.000000 405479808.000000
+
+			Implicit_With_Conversion: 0.173038 s  (should be slower)
+			  Implicit_No_Conversion: 0.097760 s
+							   Ratio: 1.770021    (faster than implict conversion)
+
+			 (x86 Release) testPass: 1
+			 (x86 Release) testFail: 0
+
+			 testCount: 1
+			indvChecks: 7
+
+			-----------------
+
+
+Configuration:  PREVENT
+
+		Should display Errors that prevent implicit conversions
+		I'm grading the technique and the number and kinds of warnings.
+
+
+--- End of file ---

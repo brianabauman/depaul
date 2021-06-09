@@ -1,0 +1,54 @@
+****************************************
+**      Framework: 2.26               **
+**   C++ Compiler: 191627027          **
+**    Windows SDK: 10.0.17134.0       **
+**   Mem Tracking: enabled            **
+****************************************
+
+--------------------------------
+    Memory Tracking: start()    
+--------------------------------
+
+------------------- Testing DEBUG ------------------------
+
+      Mem Lib: 335.616791 ms 
+Custom Memory: 172.040710 ms 
+ times faster: 1.950799 
+
+ (x86 Debug) testPass: 17
+ (x86 Debug) testFail: 0
+
+ testCount: 17
+indvChecks: 2696
+
+-----------------
+
+--------------------------------
+    Memory Tracking: passed 
+--------------------------------
+    Memory Tracking: end()      
+--------------------------------
+
+
+
+
+****************************************
+**      Framework: 2.26               **
+**   C++ Compiler: 191627027          **
+**    Windows SDK: 10.0.17134.0       **
+**   Mem Tracking: enabled            **
+****************************************
+
+------------------- Testing RELEASE ----------------------
+
+      Mem Lib: 96.067871 ms 
+Custom Memory: 18.982847 ms 
+ times faster: 5.060772 
+
+ (x86 Release) testPass: 17
+ (x86 Release) testFail: 0
+
+ testCount: 17
+indvChecks: 2696
+
+-----------------

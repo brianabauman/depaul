@@ -1,0 +1,27 @@
+
+------------------- 
+
+MR_FAST - Settings
+
+Name: <Your Name>
+
+Compiler Settings
+	- List any changes to the compiler settings here
+	--> Fill in as you improve the tests
+
+example:
+
+Use Unicode For Assembler Listing: orig: <unset>   now:  No
+
+Use Unicode For Assembler Listing: orig: <unset>   now:  No
+Debug Information Format: orig: Program Database now: None
+Whole Program Optimization: orig: No now: Yes
+Favor size or speed: orig: <unset> now: Favor fast code
+Optimization: orig: Maximum, favor speed (/O2), now: /Ox
+Enable intrinsic functions: orig: no now: yes
+Generate debug information: orig: Generate now: No
+Debuggable assembly: orig: <unset> now: no
+Enable string pooling: orig: <unset> now: yes
+
+
+--- End of File

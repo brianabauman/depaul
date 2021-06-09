@@ -1,0 +1,43 @@
+Program Assignment 
+Name: Student_Test_03
+Mode: DEBUG
+
+-------------------------------------------------
+
+Test3: 
+
+ 1) allocate the biggest block          
+ 2) free it                             
+                                        
+     Mem mem;                           
+     mem.initialize();                  
+     void *p = mem.malloc( 0xc7c0 );    
+     mem.dump();                        
+     mem.free( p );                     
+     mem.dump();                        
+
+------- dump -------------
+
+heapStart: 0x0014D050     
+  heapEnd: 0x00159850   
+
+pUsedHead: 0x0014D080     
+pFreeHead: 0x00000000     
+ pNextFit: 0x00000000   
+
+Heap Hdr   s: 0014D050  e: 0014D080 					  size: 0x30 
+USED HDR   s: 0014D080  e: 0014D090  p: 00000000  n: 00000000  size: 0x10    AF: 0 
+USED       s: 0014D090  e: 00159850 					  size: 0xc7c0 
+
+------- dump -------------
+
+heapStart: 0x0014D050     
+  heapEnd: 0x00159850   
+
+pUsedHead: 0x00000000     
+pFreeHead: 0x0014D080     
+ pNextFit: 0x0014D080   
+
+Heap Hdr   s: 0014D050  e: 0014D080 					  size: 0x30 
+FREE HDR   s: 0014D080  e: 0014D090  p: 00000000  n: 00000000  size: 0x10    AF: 0 
+FREE       s: 0014D090  e: 00159850 					  size: 0xc7c0 

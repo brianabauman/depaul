@@ -1,0 +1,82 @@
+
+****************************************
+**      Framework: 2.28               **
+**   C++ Compiler: 191627027          **
+**    Windows SDK: 10.0.17134.0       **
+**   Mem Tracking: enabled            **
+****************************************
+
+------------------- Testing RELEASE ----------------------
+
+Creation of original List: 4.765625 ms
+
+Original linked list---------------------------
+   Finding Key: 0.131785 ms
+ (Proof)   key: 0x7F9E1B10  x:657018931 y:1315507706 z:1847085303 flag:1
+
+       Insertion Time: 1530.447998 ms
+           Merge Time: 6.362241 ms
+
+Merge_Vs_Insert Ratio: 240.551727 faster
+
+           Combo Time: 4.176901 ms   Cutoff length: xx
+
+ Combo_Vs_Merge Ratio: 1.523196 faster
+
+
+--------- NOT USING LOAD IN PLACE (using many news ) ---------------------
+
+    Time to create File: 4.386280 ms  
+  Time to recreate list: 6.592558 ms  
+
+  Verify Time: 0.202399 ms  Result: 1
+
+ (x86 Release) testPass: 5
+ (x86 Release) testFail: 0
+
+ testCount: 5
+indvChecks: 36
+
+-----------------
+
+
+
+****************************************
+**      Framework: 2.28               **
+**   C++ Compiler: 191627027          **
+**    Windows SDK: 10.0.17134.0       **
+**   Mem Tracking: enabled            **
+****************************************
+
+------------------- Testing RELEASE ----------------------
+
+Creation of original List: 4.826797 ms
+
+Original linked list---------------------------
+   Finding Key: 0.112079 ms
+ (Proof)   key: 0x7F9E1B10  x:657018931 y:1315507706 z:1847085303 flag:1
+
+       Insertion Time: 1545.844727 ms
+           Merge Time: 5.568244 ms
+
+Merge_Vs_Insert Ratio: 277.618011 faster
+
+           Combo Time: 4.261884 ms   Cutoff length: 14
+
+ Combo_Vs_Merge Ratio: 1.306522 faster
+
+
+--------- LOAD IN PLACE - Only using one new() ------------------
+
+    Time to create File: 3.754038 ms  
+  Time to recreate list: 0.760743 ms  
+
+  Verify Time: 0.221285 ms  Result: 1
+
+ (x86 Release) testPass: 5
+ (x86 Release) testFail: 0
+
+ testCount: 5
+indvChecks: 36
+
+

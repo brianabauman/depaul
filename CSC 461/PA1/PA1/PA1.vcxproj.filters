@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{17d9b833-bafd-4c9c-861d-492b7fe59cdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Do NOT Modify">
+      <UniqueIdentifier>{df17aa88-1ad2-4e8d-830c-17cb2d26f878}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Refactor here">
+      <UniqueIdentifier>{b7a0fb93-435c-4d86-94f4-338a06186caa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Framework">
+      <UniqueIdentifier>{5f0ee4f2-21ec-43da-91ee-ca3fda0f25a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Test">
+      <UniqueIdentifier>{91271a20-ca07-4406-a0c7-0f178d3fadbc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Main\main.cpp">
+      <Filter>Source Files\Do NOT Modify</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Framework\FileIO.cpp">
+      <Filter>_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Framework\UnitTest.cpp">
+      <Filter>_Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Test\HotDog_Add_Tests.cpp">
+      <Filter>_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Test\HotDog_BigFour_Tests.cpp">
+      <Filter>_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Test\HotDog_Condiments_Tests.cpp">
+      <Filter>_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Test\HotDog_Remove_Tests.cpp">
+      <Filter>_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Test\Order_Add_Tests.cpp">
+      <Filter>_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Test\Order_BigFour_Tests.cpp">
+      <Filter>_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Test\Order_Remove_Tests.cpp">
+      <Filter>_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Test\Stress_Tests.cpp">
+      <Filter>_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="Stand.cpp">
+      <Filter>Source Files\Refactor here</Filter>
+    </ClCompile>
+    <ClCompile Include="Order.cpp">
+      <Filter>Source Files\Refactor here</Filter>
+    </ClCompile>
+    <ClCompile Include="HotDog.cpp">
+      <Filter>Source Files\Refactor here</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Framework\PerformanceTimer.cpp">
+      <Filter>_Framework</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Framework\__DO NOT MODIFY__">
+      <Filter>_Framework</Filter>
+    </None>
+    <None Include="..\Test\__DO NOT MODIFY__">
+      <Filter>_Test</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Framework\FileIO.h">
+      <Filter>_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Framework\Framework.h">
+      <Filter>_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Framework\MemTracker.h">
+      <Filter>_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Framework\MemTrackerMain.h">
+      <Filter>_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Framework\Trace.h">
+      <Filter>_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Framework\UnitTest.h">
+      <Filter>_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Names.h">
+      <Filter>Source Files\Do NOT Modify</Filter>
+    </ClInclude>
+    <ClInclude Include="Condiments.h">
+      <Filter>Source Files\Do NOT Modify</Filter>
+    </ClInclude>
+    <ClInclude Include="Stand.h">
+      <Filter>Source Files\Refactor here</Filter>
+    </ClInclude>
+    <ClInclude Include="Order.h">
+      <Filter>Source Files\Refactor here</Filter>
+    </ClInclude>
+    <ClInclude Include="HotDog.h">
+      <Filter>Source Files\Refactor here</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Framework\FrameworkVersion.h">
+      <Filter>_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Test\_UnitTestConfiguration.h">
+      <Filter>_Test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Framework\Align16.h">
+      <Filter>_Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Framework\PerformanceTimer.h">
+      <Filter>_Framework</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

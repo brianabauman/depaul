@@ -1,0 +1,103 @@
+
+****************************************
+**      Framework: 2.28               **
+**   C++ Compiler: 191627027          **
+**    Windows SDK: 10.0.17134.0       **
+**   Mem Tracking: enabled            **
+****************************************
+
+--------------------------------
+    Memory Tracking: start()    
+--------------------------------
+
+------------------- Testing DEBUG ------------------------
+
+Creation of original List: 28.037048 ms
+
+Original linked list---------------------------
+   Finding Key: 0.472950 ms
+ (Proof)   key: 0x7F9E1B10  x:657018931 y:1315507706 z:1847085303 flag:1
+
+       Insertion Time: 2033.475220 ms
+           Merge Time: 8.824289 ms
+
+Merge_Vs_Insert Ratio: 230.440689 faster
+
+           Combo Time: 6.801526 ms   Cutoff length: xx
+
+ Combo_Vs_Merge Ratio: 1.297398 faster
+
+
+--------- NOT USING LOAD IN PLACE (using many news ) ---------------------
+
+    Time to create File: 7.800386 ms  
+  Time to recreate list: 18.562044 ms  
+
+  Verify Time: 1.034167 ms  Result: 1
+
+ (x86 Debug) testPass: 5
+ (x86 Debug) testFail: 0
+
+ testCount: 5
+indvChecks: 36
+
+-----------------
+
+--------------------------------
+    Memory Tracking: passed 
+--------------------------------
+    Memory Tracking: end()      
+--------------------------------
+
+
+
+
+****************************************
+**      Framework: 2.28               **
+**   C++ Compiler: 191627027          **
+**    Windows SDK: 10.0.17134.0       **
+**   Mem Tracking: enabled            **
+****************************************
+
+--------------------------------
+    Memory Tracking: start()    
+--------------------------------
+
+------------------- Testing DEBUG ------------------------
+
+Creation of original List: 14.851113 ms
+
+Original linked list---------------------------
+   Finding Key: 0.390430 ms
+ (Proof)   key: 0x7F9E1B10  x:657018931 y:1315507706 z:1847085303 flag:1
+
+       Insertion Time: 2028.624023 ms
+           Merge Time: 8.545528 ms
+
+Merge_Vs_Insert Ratio: 237.390137 faster
+
+           Combo Time: 6.856949 ms   Cutoff length: 14
+
+ Combo_Vs_Merge Ratio: 1.246258 faster
+
+
+--------- LOAD IN PLACE - Only using one new() ------------------
+
+    Time to create File: 7.440747 ms  
+  Time to recreate list: 0.862969 ms  
+
+  Verify Time: 0.622389 ms  Result: 1
+
+ (x86 Debug) testPass: 5
+ (x86 Debug) testFail: 0
+
+ testCount: 5
+indvChecks: 36
+
+-----------------
+
+--------------------------------
+    Memory Tracking: passed 
+--------------------------------
+    Memory Tracking: end()      
+--------------------------------

@@ -1,0 +1,80 @@
+
+****************************************
+**      Framework: 2.26               **
+**   C++ Compiler: 191627027          **
+**    Windows SDK: 10.0.17134.0       **
+**   Mem Tracking: enabled            **
+****************************************
+
+--------------------------------
+    Memory Tracking: start()    
+--------------------------------
+
+------------------- Testing DEBUG ------------------------
+
+data A:
+  0x00: 00 00 00 00 
+  0x04: 00 aa aa aa 
+------------------------
+size : 8  padding : 3 
+
+data B:
+  0x00: 00 00 00 00 
+  0x04: 00 00 00 00 
+  0x08: 00 aa aa aa 
+  0x0c: 00 00 00 00 
+------------------------
+size : 16  padding : 3 
+
+data C:
+  0x00: 00 aa aa aa 
+  0x04: aa aa aa aa 
+  0x08: 00 00 00 00 
+  0x0c: 00 00 00 00 
+  0x10: 00 aa aa aa 
+  0x14: aa aa aa aa 
+------------------------
+size : 24  padding : 14 
+
+data D:
+  0x00: 00 00 00 00 
+  0x04: 00 aa aa aa 
+  0x08: 00 00 00 00 
+  0x0c: 00 00 00 00 
+  0x10: 00 00 00 00 
+  0x14: 00 00 00 00 
+  0x18: 00 aa aa aa 
+  0x1c: 00 00 00 00 
+  0x20: 00 aa aa aa 
+  0x24: aa aa aa aa 
+  0x28: 00 aa aa aa 
+  0x2c: aa aa aa aa 
+  0x30: 00 00 00 00 
+  0x34: 00 00 00 00 
+  0x38: 00 aa aa aa 
+  0x3c: aa aa aa aa 
+------------------------
+size : 64  padding : 27 
+
+
+  Bloated List create: 4.991459 s
+      HotCold convert: 95.754135 ms
+
+         Bloated find: 11.212014 ms
+         HotCold find: 0.989006 ms
+
+                Ratio: 11.336655 
+
+ (x86 Debug) testPass: 6
+ (x86 Debug) testFail: 0
+
+ testCount: 6
+indvChecks: 2540
+
+-----------------
+
+--------------------------------
+    Memory Tracking: passed 
+--------------------------------
+    Memory Tracking: end()      
+--------------------------------

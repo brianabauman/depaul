@@ -1,0 +1,45 @@
+Program Assignment 
+Name: Student_Test_05
+Mode: DEBUG
+
+-------------------------------------------------
+
+Test5: 
+
+ 1) allocate block                    
+ 2) free block                        
+
+     Mem mem;                   
+     mem.initialize();          
+     void *p = mem.malloc( 0x200 );     
+     mem.dump();                      
+     mem.free( p );                   
+     mem.dump();                      
+
+------- dump -------------
+
+heapStart: 0x0047D050     
+  heapEnd: 0x00489850   
+
+pUsedHead: 0x0047D080     
+pFreeHead: 0x0047D290     
+ pNextFit: 0x0047D290   
+
+Heap Hdr   s: 0047D050  e: 0047D080 					  size: 0x30 
+USED HDR   s: 0047D080  e: 0047D090  p: 00000000  n: 00000000  size: 0x10    AF: 0 
+USED       s: 0047D090  e: 0047D290 					  size: 0x200 
+FREE HDR   s: 0047D290  e: 0047D2A0  p: 00000000  n: 00000000  size: 0x10    AF: 0 
+FREE       s: 0047D2A0  e: 00489850 					  size: 0xc5b0 
+
+------- dump -------------
+
+heapStart: 0x0047D050     
+  heapEnd: 0x00489850   
+
+pUsedHead: 0x00000000     
+pFreeHead: 0x0047D080     
+ pNextFit: 0x0047D080   
+
+Heap Hdr   s: 0047D050  e: 0047D080 					  size: 0x30 
+FREE HDR   s: 0047D080  e: 0047D090  p: 00000000  n: 00000000  size: 0x10    AF: 0 
+FREE       s: 0047D090  e: 00489850 					  size: 0xc7c0 
