@@ -1,0 +1,215 @@
+(1) Find a string to match
+answer: There are rumors on the internets.
+
+(2) 
+read_six_numbers
+checks that you’ve entered 6 numbers
+
+a b c d e f
+1 2 4 7 11 16
+
+a + 1 = b
+b + 2 = c
+c + 3 = d
+d + 4 = e
+e + 5 = f
+
+answer: 1 2 4 7 11 16
+
+(3)
+Checks that you’ve entered two numbers
+
+Checks that the first is less than or equal to 7 — jump table?
+
+Jumps to your index (first entered value)
+
+7: Puts 795 in %eax, compares to the second value
+
+answer: 7 795
+
+(4)
+Checks that you’ve entered two numbers
+
+Checks that the first is less than or equal to 14
+
+Move 14 to %edx, 0 to %esi, (your first number) to %edi
+
+(a) %edx = 14 
+(b) %esi = 0
+(c) %edi = x
+(d) %eax = 2
+(e) %ebx = 0
+
+a b c
+
+func4 {
+
+	push e???
+	d = a;
+	d = d - b;
+	e = d;
+	e >> 31;
+	d = d + e;
+	
+	e = d + b;
+
+	if (c > e) {
+		a = e - 1;
+		func4(a, b, c, d, e);
+		d = d + e; (???)
+	} else {
+		d = e;
+		if (c < e) {
+			b = e + 1;
+			func4(a, b, c, d, e);
+		} else {
+			return;
+		}
+	}
+}
+
+answer: 3 10
+
+(5)
+
+Needs two numbers input
+
+Places first value in %eax, bit ands with 0000 1111
+
+Replace the first value with this number in memory
+
+Check that it’s not equal to 00001111 
+
+Move 0 to %ecx
+Move 0 to %edx
+Add 1 to %edx
+
+%ecx = 0
+%edx = 1
+
+Sign extend %edx to %rax
+
+Move item at 0x402300+ 4*%rax to %eax
+
+at 0x402300 (incrementing by 4), we have 
+
+0. 1 2. 3 4 5. 6  7. 8 9 10 11 12 13 14 15
+10 2 14 7 8 12 15 11 0 4 1  13 3  9  6  5
+
+Add whatever you get to %ecx
+
+Check if %eax is equal to 15 (input1 needs to be 6) to exit the loop
+
+move %eax (15) to 12 bytes ahead of the stack pointer (where your input1 was)
+
+answer: 5 115
+
+(6)
+Six numbers stored in 0x30(%rsp) through 0x44(%rsp)
+
+Store the addess of the first number in %r13
+
+%r12d = 0
+
+.L1
+
+Move address of first number to %rbp
+
+Move first number to %eax
+
+Subtract 1 from %eax
+
+%eax must be <= 5 (number must be <= 6)
+
+Add 1 to %r12d
+
+If %r12d <> 6,
+
+	move %r12d to %ebx
+	move %ebx to %rax (could fill %rax upper half with 1s or 0s)
+	move inputarray[%rax] to %eax
+	if the result isn’t equal to the first number
+
+
+Loop through all numbers, none should be equal to the first number
+
+Loop to L1
+
+6 digits less than or equal to 6, all different
+
+Move first vlue to %ecx
+
+check that %ecx is <= 1
+
+Move 0x6032f0 to %edx (the fuck is this)
+
+move that value to %rsp + 2*%rsi (our values start at %rsp + 48)
+
+add 4 to %rsi
+
+if %rsi = 24, move on
+
+otherwise
+
+0 0x6033f0 0 0 0 0 0 0 0 0 0 0 1 2 3 4 5 6
+
+node 1
+nodes and pointers!!
+
+rbx first value
+rax second value’s address
+rsi input1’s address
+rcx first value
+rdx second value
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
