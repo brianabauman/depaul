@@ -1,0 +1,595 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		497B8BE32237683B00CCDF3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497B8BE22237683B00CCDF3E /* AppDelegate.swift */; };
+		497B8BE52237683B00CCDF3E /* ApostleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497B8BE42237683B00CCDF3E /* ApostleListViewController.swift */; };
+		497B8BE82237683B00CCDF3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497B8BE62237683B00CCDF3E /* Main.storyboard */; };
+		497B8BEA2237683C00CCDF3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497B8BE92237683C00CCDF3E /* Assets.xcassets */; };
+		497B8BED2237683C00CCDF3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497B8BEB2237683C00CCDF3E /* LaunchScreen.storyboard */; };
+		497B8BF82237683C00CCDF3E /* Bauman__Brian_Know_Your_ApostlesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497B8BF72237683C00CCDF3E /* Bauman__Brian_Know_Your_ApostlesTests.swift */; };
+		497B8C032237683C00CCDF3E /* Bauman__Brian_Know_Your_ApostlesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497B8C022237683C00CCDF3E /* Bauman__Brian_Know_Your_ApostlesUITests.swift */; };
+		497B8C11223769E800CCDF3E /* Apostle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497B8C10223769E800CCDF3E /* Apostle.swift */; };
+		497B8C132237DF7F00CCDF3E /* ApostleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497B8C122237DF7F00CCDF3E /* ApostleDetailViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		497B8BF42237683C00CCDF3E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 497B8BD72237683B00CCDF3E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 497B8BDE2237683B00CCDF3E;
+			remoteInfo = "Bauman, Brian Know Your Apostles";
+		};
+		497B8BFF2237683C00CCDF3E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 497B8BD72237683B00CCDF3E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 497B8BDE2237683B00CCDF3E;
+			remoteInfo = "Bauman, Brian Know Your Apostles";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		497B8BDF2237683B00CCDF3E /* Bauman, Brian Know Your Apostles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bauman, Brian Know Your Apostles.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		497B8BE22237683B00CCDF3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		497B8BE42237683B00CCDF3E /* ApostleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApostleListViewController.swift; sourceTree = "<group>"; };
+		497B8BE72237683B00CCDF3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		497B8BE92237683C00CCDF3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		497B8BEC2237683C00CCDF3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		497B8BEE2237683C00CCDF3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		497B8BF32237683C00CCDF3E /* Bauman, Brian Know Your ApostlesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bauman, Brian Know Your ApostlesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		497B8BF72237683C00CCDF3E /* Bauman__Brian_Know_Your_ApostlesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bauman__Brian_Know_Your_ApostlesTests.swift; sourceTree = "<group>"; };
+		497B8BF92237683C00CCDF3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		497B8BFE2237683C00CCDF3E /* Bauman, Brian Know Your ApostlesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bauman, Brian Know Your ApostlesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		497B8C022237683C00CCDF3E /* Bauman__Brian_Know_Your_ApostlesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bauman__Brian_Know_Your_ApostlesUITests.swift; sourceTree = "<group>"; };
+		497B8C042237683C00CCDF3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		497B8C10223769E800CCDF3E /* Apostle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apostle.swift; sourceTree = "<group>"; };
+		497B8C122237DF7F00CCDF3E /* ApostleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApostleDetailViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		497B8BDC2237683B00CCDF3E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		497B8BF02237683C00CCDF3E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		497B8BFB2237683C00CCDF3E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		497B8BD62237683B00CCDF3E = {
+			isa = PBXGroup;
+			children = (
+				497B8BE12237683B00CCDF3E /* Bauman, Brian Know Your Apostles */,
+				497B8BF62237683C00CCDF3E /* Bauman, Brian Know Your ApostlesTests */,
+				497B8C012237683C00CCDF3E /* Bauman, Brian Know Your ApostlesUITests */,
+				497B8BE02237683B00CCDF3E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		497B8BE02237683B00CCDF3E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				497B8BDF2237683B00CCDF3E /* Bauman, Brian Know Your Apostles.app */,
+				497B8BF32237683C00CCDF3E /* Bauman, Brian Know Your ApostlesTests.xctest */,
+				497B8BFE2237683C00CCDF3E /* Bauman, Brian Know Your ApostlesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		497B8BE12237683B00CCDF3E /* Bauman, Brian Know Your Apostles */ = {
+			isa = PBXGroup;
+			children = (
+				497B8BE22237683B00CCDF3E /* AppDelegate.swift */,
+				497B8BE42237683B00CCDF3E /* ApostleListViewController.swift */,
+				497B8C10223769E800CCDF3E /* Apostle.swift */,
+				497B8BE62237683B00CCDF3E /* Main.storyboard */,
+				497B8C122237DF7F00CCDF3E /* ApostleDetailViewController.swift */,
+				497B8BE92237683C00CCDF3E /* Assets.xcassets */,
+				497B8BEB2237683C00CCDF3E /* LaunchScreen.storyboard */,
+				497B8BEE2237683C00CCDF3E /* Info.plist */,
+			);
+			path = "Bauman, Brian Know Your Apostles";
+			sourceTree = "<group>";
+		};
+		497B8BF62237683C00CCDF3E /* Bauman, Brian Know Your ApostlesTests */ = {
+			isa = PBXGroup;
+			children = (
+				497B8BF72237683C00CCDF3E /* Bauman__Brian_Know_Your_ApostlesTests.swift */,
+				497B8BF92237683C00CCDF3E /* Info.plist */,
+			);
+			path = "Bauman, Brian Know Your ApostlesTests";
+			sourceTree = "<group>";
+		};
+		497B8C012237683C00CCDF3E /* Bauman, Brian Know Your ApostlesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				497B8C022237683C00CCDF3E /* Bauman__Brian_Know_Your_ApostlesUITests.swift */,
+				497B8C042237683C00CCDF3E /* Info.plist */,
+			);
+			path = "Bauman, Brian Know Your ApostlesUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		497B8BDE2237683B00CCDF3E /* Bauman, Brian Know Your Apostles */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 497B8C072237683C00CCDF3E /* Build configuration list for PBXNativeTarget "Bauman, Brian Know Your Apostles" */;
+			buildPhases = (
+				497B8BDB2237683B00CCDF3E /* Sources */,
+				497B8BDC2237683B00CCDF3E /* Frameworks */,
+				497B8BDD2237683B00CCDF3E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bauman, Brian Know Your Apostles";
+			productName = "Bauman, Brian Know Your Apostles";
+			productReference = 497B8BDF2237683B00CCDF3E /* Bauman, Brian Know Your Apostles.app */;
+			productType = "com.apple.product-type.application";
+		};
+		497B8BF22237683C00CCDF3E /* Bauman, Brian Know Your ApostlesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 497B8C0A2237683C00CCDF3E /* Build configuration list for PBXNativeTarget "Bauman, Brian Know Your ApostlesTests" */;
+			buildPhases = (
+				497B8BEF2237683C00CCDF3E /* Sources */,
+				497B8BF02237683C00CCDF3E /* Frameworks */,
+				497B8BF12237683C00CCDF3E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				497B8BF52237683C00CCDF3E /* PBXTargetDependency */,
+			);
+			name = "Bauman, Brian Know Your ApostlesTests";
+			productName = "Bauman, Brian Know Your ApostlesTests";
+			productReference = 497B8BF32237683C00CCDF3E /* Bauman, Brian Know Your ApostlesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		497B8BFD2237683C00CCDF3E /* Bauman, Brian Know Your ApostlesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 497B8C0D2237683C00CCDF3E /* Build configuration list for PBXNativeTarget "Bauman, Brian Know Your ApostlesUITests" */;
+			buildPhases = (
+				497B8BFA2237683C00CCDF3E /* Sources */,
+				497B8BFB2237683C00CCDF3E /* Frameworks */,
+				497B8BFC2237683C00CCDF3E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				497B8C002237683C00CCDF3E /* PBXTargetDependency */,
+			);
+			name = "Bauman, Brian Know Your ApostlesUITests";
+			productName = "Bauman, Brian Know Your ApostlesUITests";
+			productReference = 497B8BFE2237683C00CCDF3E /* Bauman, Brian Know Your ApostlesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		497B8BD72237683B00CCDF3E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Brian Bauman";
+				TargetAttributes = {
+					497B8BDE2237683B00CCDF3E = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					497B8BF22237683C00CCDF3E = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 497B8BDE2237683B00CCDF3E;
+					};
+					497B8BFD2237683C00CCDF3E = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 497B8BDE2237683B00CCDF3E;
+					};
+				};
+			};
+			buildConfigurationList = 497B8BDA2237683B00CCDF3E /* Build configuration list for PBXProject "Bauman, Brian Know Your Apostles" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 497B8BD62237683B00CCDF3E;
+			productRefGroup = 497B8BE02237683B00CCDF3E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				497B8BDE2237683B00CCDF3E /* Bauman, Brian Know Your Apostles */,
+				497B8BF22237683C00CCDF3E /* Bauman, Brian Know Your ApostlesTests */,
+				497B8BFD2237683C00CCDF3E /* Bauman, Brian Know Your ApostlesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		497B8BDD2237683B00CCDF3E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				497B8BED2237683C00CCDF3E /* LaunchScreen.storyboard in Resources */,
+				497B8BEA2237683C00CCDF3E /* Assets.xcassets in Resources */,
+				497B8BE82237683B00CCDF3E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		497B8BF12237683C00CCDF3E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		497B8BFC2237683C00CCDF3E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		497B8BDB2237683B00CCDF3E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				497B8BE52237683B00CCDF3E /* ApostleListViewController.swift in Sources */,
+				497B8C11223769E800CCDF3E /* Apostle.swift in Sources */,
+				497B8C132237DF7F00CCDF3E /* ApostleDetailViewController.swift in Sources */,
+				497B8BE32237683B00CCDF3E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		497B8BEF2237683C00CCDF3E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				497B8BF82237683C00CCDF3E /* Bauman__Brian_Know_Your_ApostlesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		497B8BFA2237683C00CCDF3E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				497B8C032237683C00CCDF3E /* Bauman__Brian_Know_Your_ApostlesUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		497B8BF52237683C00CCDF3E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 497B8BDE2237683B00CCDF3E /* Bauman, Brian Know Your Apostles */;
+			targetProxy = 497B8BF42237683C00CCDF3E /* PBXContainerItemProxy */;
+		};
+		497B8C002237683C00CCDF3E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 497B8BDE2237683B00CCDF3E /* Bauman, Brian Know Your Apostles */;
+			targetProxy = 497B8BFF2237683C00CCDF3E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		497B8BE62237683B00CCDF3E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				497B8BE72237683B00CCDF3E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		497B8BEB2237683C00CCDF3E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				497B8BEC2237683C00CCDF3E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		497B8C052237683C00CCDF3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		497B8C062237683C00CCDF3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		497B8C082237683C00CCDF3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 25F96T3VSG;
+				INFOPLIST_FILE = "Bauman, Brian Know Your Apostles/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "CSC-471.Bauman--Brian-Know-Your-Apostles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		497B8C092237683C00CCDF3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 25F96T3VSG;
+				INFOPLIST_FILE = "Bauman, Brian Know Your Apostles/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "CSC-471.Bauman--Brian-Know-Your-Apostles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		497B8C0B2237683C00CCDF3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Bauman, Brian Know Your ApostlesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "CSC-471.Bauman--Brian-Know-Your-ApostlesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bauman, Brian Know Your Apostles.app/Bauman, Brian Know Your Apostles";
+			};
+			name = Debug;
+		};
+		497B8C0C2237683C00CCDF3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Bauman, Brian Know Your ApostlesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "CSC-471.Bauman--Brian-Know-Your-ApostlesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bauman, Brian Know Your Apostles.app/Bauman, Brian Know Your Apostles";
+			};
+			name = Release;
+		};
+		497B8C0E2237683C00CCDF3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Bauman, Brian Know Your ApostlesUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "CSC-471.Bauman--Brian-Know-Your-ApostlesUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Bauman, Brian Know Your Apostles";
+			};
+			name = Debug;
+		};
+		497B8C0F2237683C00CCDF3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Bauman, Brian Know Your ApostlesUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "CSC-471.Bauman--Brian-Know-Your-ApostlesUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Bauman, Brian Know Your Apostles";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		497B8BDA2237683B00CCDF3E /* Build configuration list for PBXProject "Bauman, Brian Know Your Apostles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				497B8C052237683C00CCDF3E /* Debug */,
+				497B8C062237683C00CCDF3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		497B8C072237683C00CCDF3E /* Build configuration list for PBXNativeTarget "Bauman, Brian Know Your Apostles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				497B8C082237683C00CCDF3E /* Debug */,
+				497B8C092237683C00CCDF3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		497B8C0A2237683C00CCDF3E /* Build configuration list for PBXNativeTarget "Bauman, Brian Know Your ApostlesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				497B8C0B2237683C00CCDF3E /* Debug */,
+				497B8C0C2237683C00CCDF3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		497B8C0D2237683C00CCDF3E /* Build configuration list for PBXNativeTarget "Bauman, Brian Know Your ApostlesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				497B8C0E2237683C00CCDF3E /* Debug */,
+				497B8C0F2237683C00CCDF3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 497B8BD72237683B00CCDF3E /* Project object */;
+}

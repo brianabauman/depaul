@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4947584D2225BC2000E12C5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4947584C2225BC2000E12C5B /* AppDelegate.swift */; };
+		4947584F2225BC2000E12C5B /* TVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4947584E2225BC2000E12C5B /* TVViewController.swift */; };
+		494758522225BC2000E12C5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494758502225BC2000E12C5B /* Main.storyboard */; };
+		494758542225BC2100E12C5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 494758532225BC2100E12C5B /* Assets.xcassets */; };
+		494758572225BC2100E12C5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494758552225BC2100E12C5B /* LaunchScreen.storyboard */; };
+		494758622225BC2200E12C5B /* Bauman__Brian_Mock_Remote_Control_IITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494758612225BC2200E12C5B /* Bauman__Brian_Mock_Remote_Control_IITests.swift */; };
+		4947586D2225BC2200E12C5B /* Bauman__Brian_Mock_Remote_Control_IIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4947586C2225BC2200E12C5B /* Bauman__Brian_Mock_Remote_Control_IIUITests.swift */; };
+		4947587B2225C44600E12C5B /* DVRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4947587A2225C44600E12C5B /* DVRViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4947585E2225BC2200E12C5B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 494758412225BC1F00E12C5B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 494758482225BC1F00E12C5B;
+			remoteInfo = "Bauman, Brian Mock Remote Control II";
+		};
+		494758692225BC2200E12C5B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 494758412225BC1F00E12C5B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 494758482225BC1F00E12C5B;
+			remoteInfo = "Bauman, Brian Mock Remote Control II";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		494758492225BC1F00E12C5B /* Bauman, Brian Mock Remote Control II.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bauman, Brian Mock Remote Control II.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4947584C2225BC2000E12C5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4947584E2225BC2000E12C5B /* TVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVViewController.swift; sourceTree = "<group>"; };
+		494758512225BC2000E12C5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		494758532225BC2100E12C5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		494758562225BC2100E12C5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		494758582225BC2100E12C5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4947585D2225BC2200E12C5B /* Bauman, Brian Mock Remote Control IITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bauman, Brian Mock Remote Control IITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		494758612225BC2200E12C5B /* Bauman__Brian_Mock_Remote_Control_IITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bauman__Brian_Mock_Remote_Control_IITests.swift; sourceTree = "<group>"; };
+		494758632225BC2200E12C5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		494758682225BC2200E12C5B /* Bauman, Brian Mock Remote Control IIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bauman, Brian Mock Remote Control IIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4947586C2225BC2200E12C5B /* Bauman__Brian_Mock_Remote_Control_IIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bauman__Brian_Mock_Remote_Control_IIUITests.swift; sourceTree = "<group>"; };
+		4947586E2225BC2200E12C5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4947587A2225C44600E12C5B /* DVRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DVRViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		494758462225BC1F00E12C5B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4947585A2225BC2200E12C5B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		494758652225BC2200E12C5B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		494758402225BC1F00E12C5B = {
+			isa = PBXGroup;
+			children = (
+				4947584B2225BC2000E12C5B /* Bauman, Brian Mock Remote Control II */,
+				494758602225BC2200E12C5B /* Bauman, Brian Mock Remote Control IITests */,
+				4947586B2225BC2200E12C5B /* Bauman, Brian Mock Remote Control IIUITests */,
+				4947584A2225BC1F00E12C5B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4947584A2225BC1F00E12C5B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				494758492225BC1F00E12C5B /* Bauman, Brian Mock Remote Control II.app */,
+				4947585D2225BC2200E12C5B /* Bauman, Brian Mock Remote Control IITests.xctest */,
+				494758682225BC2200E12C5B /* Bauman, Brian Mock Remote Control IIUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4947584B2225BC2000E12C5B /* Bauman, Brian Mock Remote Control II */ = {
+			isa = PBXGroup;
+			children = (
+				4947584C2225BC2000E12C5B /* AppDelegate.swift */,
+				4947584E2225BC2000E12C5B /* TVViewController.swift */,
+				4947587A2225C44600E12C5B /* DVRViewController.swift */,
+				494758502225BC2000E12C5B /* Main.storyboard */,
+				494758532225BC2100E12C5B /* Assets.xcassets */,
+				494758552225BC2100E12C5B /* LaunchScreen.storyboard */,
+				494758582225BC2100E12C5B /* Info.plist */,
+			);
+			path = "Bauman, Brian Mock Remote Control II";
+			sourceTree = "<group>";
+		};
+		494758602225BC2200E12C5B /* Bauman, Brian Mock Remote Control IITests */ = {
+			isa = PBXGroup;
+			children = (
+				494758612225BC2200E12C5B /* Bauman__Brian_Mock_Remote_Control_IITests.swift */,
+				494758632225BC2200E12C5B /* Info.plist */,
+			);
+			path = "Bauman, Brian Mock Remote Control IITests";
+			sourceTree = "<group>";
+		};
+		4947586B2225BC2200E12C5B /* Bauman, Brian Mock Remote Control IIUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4947586C2225BC2200E12C5B /* Bauman__Brian_Mock_Remote_Control_IIUITests.swift */,
+				4947586E2225BC2200E12C5B /* Info.plist */,
+			);
+			path = "Bauman, Brian Mock Remote Control IIUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		494758482225BC1F00E12C5B /* Bauman, Brian Mock Remote Control II */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 494758712225BC2200E12C5B /* Build configuration list for PBXNativeTarget "Bauman, Brian Mock Remote Control II" */;
+			buildPhases = (
+				494758452225BC1F00E12C5B /* Sources */,
+				494758462225BC1F00E12C5B /* Frameworks */,
+				494758472225BC1F00E12C5B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bauman, Brian Mock Remote Control II";
+			productName = "Bauman, Brian Mock Remote Control II";
+			productReference = 494758492225BC1F00E12C5B /* Bauman, Brian Mock Remote Control II.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4947585C2225BC2200E12C5B /* Bauman, Brian Mock Remote Control IITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 494758742225BC2200E12C5B /* Build configuration list for PBXNativeTarget "Bauman, Brian Mock Remote Control IITests" */;
+			buildPhases = (
+				494758592225BC2200E12C5B /* Sources */,
+				4947585A2225BC2200E12C5B /* Frameworks */,
+				4947585B2225BC2200E12C5B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4947585F2225BC2200E12C5B /* PBXTargetDependency */,
+			);
+			name = "Bauman, Brian Mock Remote Control IITests";
+			productName = "Bauman, Brian Mock Remote Control IITests";
+			productReference = 4947585D2225BC2200E12C5B /* Bauman, Brian Mock Remote Control IITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		494758672225BC2200E12C5B /* Bauman, Brian Mock Remote Control IIUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 494758772225BC2200E12C5B /* Build configuration list for PBXNativeTarget "Bauman, Brian Mock Remote Control IIUITests" */;
+			buildPhases = (
+				494758642225BC2200E12C5B /* Sources */,
+				494758652225BC2200E12C5B /* Frameworks */,
+				494758662225BC2200E12C5B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4947586A2225BC2200E12C5B /* PBXTargetDependency */,
+			);
+			name = "Bauman, Brian Mock Remote Control IIUITests";
+			productName = "Bauman, Brian Mock Remote Control IIUITests";
+			productReference = 494758682225BC2200E12C5B /* Bauman, Brian Mock Remote Control IIUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		494758412225BC1F00E12C5B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Brian Bauman";
+				TargetAttributes = {
+					494758482225BC1F00E12C5B = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					4947585C2225BC2200E12C5B = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 494758482225BC1F00E12C5B;
+					};
+					494758672225BC2200E12C5B = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 494758482225BC1F00E12C5B;
+					};
+				};
+			};
+			buildConfigurationList = 494758442225BC1F00E12C5B /* Build configuration list for PBXProject "Bauman, Brian Mock Remote Control II" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 494758402225BC1F00E12C5B;
+			productRefGroup = 4947584A2225BC1F00E12C5B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				494758482225BC1F00E12C5B /* Bauman, Brian Mock Remote Control II */,
+				4947585C2225BC2200E12C5B /* Bauman, Brian Mock Remote Control IITests */,
+				494758672225BC2200E12C5B /* Bauman, Brian Mock Remote Control IIUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		494758472225BC1F00E12C5B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				494758572225BC2100E12C5B /* LaunchScreen.storyboard in Resources */,
+				494758542225BC2100E12C5B /* Assets.xcassets in Resources */,
+				494758522225BC2000E12C5B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4947585B2225BC2200E12C5B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		494758662225BC2200E12C5B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		494758452225BC1F00E12C5B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4947584F2225BC2000E12C5B /* TVViewController.swift in Sources */,
+				4947587B2225C44600E12C5B /* DVRViewController.swift in Sources */,
+				4947584D2225BC2000E12C5B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		494758592225BC2200E12C5B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				494758622225BC2200E12C5B /* Bauman__Brian_Mock_Remote_Control_IITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		494758642225BC2200E12C5B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4947586D2225BC2200E12C5B /* Bauman__Brian_Mock_Remote_Control_IIUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4947585F2225BC2200E12C5B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 494758482225BC1F00E12C5B /* Bauman, Brian Mock Remote Control II */;
+			targetProxy = 4947585E2225BC2200E12C5B /* PBXContainerItemProxy */;
+		};
+		4947586A2225BC2200E12C5B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 494758482225BC1F00E12C5B /* Bauman, Brian Mock Remote Control II */;
+			targetProxy = 494758692225BC2200E12C5B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		494758502225BC2000E12C5B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				494758512225BC2000E12C5B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		494758552225BC2100E12C5B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				494758562225BC2100E12C5B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4947586F2225BC2200E12C5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		494758702225BC2200E12C5B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		494758722225BC2200E12C5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Bauman, Brian Mock Remote Control II/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "CSC-471.Bauman--Brian-Mock-Remote-Control-II";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		494758732225BC2200E12C5B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Bauman, Brian Mock Remote Control II/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "CSC-471.Bauman--Brian-Mock-Remote-Control-II";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		494758752225BC2200E12C5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Bauman, Brian Mock Remote Control IITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "CSC-471.Bauman--Brian-Mock-Remote-Control-IITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bauman, Brian Mock Remote Control II.app/Bauman, Brian Mock Remote Control II";
+			};
+			name = Debug;
+		};
+		494758762225BC2200E12C5B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Bauman, Brian Mock Remote Control IITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "CSC-471.Bauman--Brian-Mock-Remote-Control-IITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bauman, Brian Mock Remote Control II.app/Bauman, Brian Mock Remote Control II";
+			};
+			name = Release;
+		};
+		494758782225BC2200E12C5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Bauman, Brian Mock Remote Control IIUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "CSC-471.Bauman--Brian-Mock-Remote-Control-IIUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Bauman, Brian Mock Remote Control II";
+			};
+			name = Debug;
+		};
+		494758792225BC2200E12C5B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Bauman, Brian Mock Remote Control IIUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "CSC-471.Bauman--Brian-Mock-Remote-Control-IIUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Bauman, Brian Mock Remote Control II";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		494758442225BC1F00E12C5B /* Build configuration list for PBXProject "Bauman, Brian Mock Remote Control II" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4947586F2225BC2200E12C5B /* Debug */,
+				494758702225BC2200E12C5B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		494758712225BC2200E12C5B /* Build configuration list for PBXNativeTarget "Bauman, Brian Mock Remote Control II" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				494758722225BC2200E12C5B /* Debug */,
+				494758732225BC2200E12C5B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		494758742225BC2200E12C5B /* Build configuration list for PBXNativeTarget "Bauman, Brian Mock Remote Control IITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				494758752225BC2200E12C5B /* Debug */,
+				494758762225BC2200E12C5B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		494758772225BC2200E12C5B /* Build configuration list for PBXNativeTarget "Bauman, Brian Mock Remote Control IIUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				494758782225BC2200E12C5B /* Debug */,
+				494758792225BC2200E12C5B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 494758412225BC1F00E12C5B /* Project object */;
+}

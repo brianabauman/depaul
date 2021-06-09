@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		497EBFB42212665900A812AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EBFB32212665900A812AE /* AppDelegate.swift */; };
+		497EBFB62212665900A812AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EBFB52212665900A812AE /* ViewController.swift */; };
+		497EBFB92212665900A812AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497EBFB72212665900A812AE /* Main.storyboard */; };
+		497EBFBB2212665C00A812AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497EBFBA2212665C00A812AE /* Assets.xcassets */; };
+		497EBFBE2212665C00A812AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497EBFBC2212665C00A812AE /* LaunchScreen.storyboard */; };
+		497EBFC92212665D00A812AE /* BaumanB_TV_RemoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EBFC82212665D00A812AE /* BaumanB_TV_RemoteTests.swift */; };
+		497EBFD42212665D00A812AE /* BaumanB_TV_RemoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EBFD32212665D00A812AE /* BaumanB_TV_RemoteUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		497EBFC52212665D00A812AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 497EBFA82212665900A812AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 497EBFAF2212665900A812AE;
+			remoteInfo = "BaumanB TV Remote";
+		};
+		497EBFD02212665D00A812AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 497EBFA82212665900A812AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 497EBFAF2212665900A812AE;
+			remoteInfo = "BaumanB TV Remote";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		497EBFB02212665900A812AE /* BaumanB TV Remote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BaumanB TV Remote.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		497EBFB32212665900A812AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		497EBFB52212665900A812AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		497EBFB82212665900A812AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		497EBFBA2212665C00A812AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		497EBFBD2212665C00A812AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		497EBFBF2212665C00A812AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		497EBFC42212665D00A812AE /* BaumanB TV RemoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BaumanB TV RemoteTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		497EBFC82212665D00A812AE /* BaumanB_TV_RemoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaumanB_TV_RemoteTests.swift; sourceTree = "<group>"; };
+		497EBFCA2212665D00A812AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		497EBFCF2212665D00A812AE /* BaumanB TV RemoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BaumanB TV RemoteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		497EBFD32212665D00A812AE /* BaumanB_TV_RemoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaumanB_TV_RemoteUITests.swift; sourceTree = "<group>"; };
+		497EBFD52212665D00A812AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		497EBFAD2212665900A812AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		497EBFC12212665D00A812AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		497EBFCC2212665D00A812AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		497EBFA72212665900A812AE = {
+			isa = PBXGroup;
+			children = (
+				497EBFB22212665900A812AE /* BaumanB TV Remote */,
+				497EBFC72212665D00A812AE /* BaumanB TV RemoteTests */,
+				497EBFD22212665D00A812AE /* BaumanB TV RemoteUITests */,
+				497EBFB12212665900A812AE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		497EBFB12212665900A812AE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				497EBFB02212665900A812AE /* BaumanB TV Remote.app */,
+				497EBFC42212665D00A812AE /* BaumanB TV RemoteTests.xctest */,
+				497EBFCF2212665D00A812AE /* BaumanB TV RemoteUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		497EBFB22212665900A812AE /* BaumanB TV Remote */ = {
+			isa = PBXGroup;
+			children = (
+				497EBFB32212665900A812AE /* AppDelegate.swift */,
+				497EBFB52212665900A812AE /* ViewController.swift */,
+				497EBFB72212665900A812AE /* Main.storyboard */,
+				497EBFBA2212665C00A812AE /* Assets.xcassets */,
+				497EBFBC2212665C00A812AE /* LaunchScreen.storyboard */,
+				497EBFBF2212665C00A812AE /* Info.plist */,
+			);
+			path = "BaumanB TV Remote";
+			sourceTree = "<group>";
+		};
+		497EBFC72212665D00A812AE /* BaumanB TV RemoteTests */ = {
+			isa = PBXGroup;
+			children = (
+				497EBFC82212665D00A812AE /* BaumanB_TV_RemoteTests.swift */,
+				497EBFCA2212665D00A812AE /* Info.plist */,
+			);
+			path = "BaumanB TV RemoteTests";
+			sourceTree = "<group>";
+		};
+		497EBFD22212665D00A812AE /* BaumanB TV RemoteUITests */ = {
+			isa = PBXGroup;
+			children = (
+				497EBFD32212665D00A812AE /* BaumanB_TV_RemoteUITests.swift */,
+				497EBFD52212665D00A812AE /* Info.plist */,
+			);
+			path = "BaumanB TV RemoteUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		497EBFAF2212665900A812AE /* BaumanB TV Remote */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 497EBFD82212665D00A812AE /* Build configuration list for PBXNativeTarget "BaumanB TV Remote" */;
+			buildPhases = (
+				497EBFAC2212665900A812AE /* Sources */,
+				497EBFAD2212665900A812AE /* Frameworks */,
+				497EBFAE2212665900A812AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BaumanB TV Remote";
+			productName = "BaumanB TV Remote";
+			productReference = 497EBFB02212665900A812AE /* BaumanB TV Remote.app */;
+			productType = "com.apple.product-type.application";
+		};
+		497EBFC32212665D00A812AE /* BaumanB TV RemoteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 497EBFDB2212665D00A812AE /* Build configuration list for PBXNativeTarget "BaumanB TV RemoteTests" */;
+			buildPhases = (
+				497EBFC02212665D00A812AE /* Sources */,
+				497EBFC12212665D00A812AE /* Frameworks */,
+				497EBFC22212665D00A812AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				497EBFC62212665D00A812AE /* PBXTargetDependency */,
+			);
+			name = "BaumanB TV RemoteTests";
+			productName = "BaumanB TV RemoteTests";
+			productReference = 497EBFC42212665D00A812AE /* BaumanB TV RemoteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		497EBFCE2212665D00A812AE /* BaumanB TV RemoteUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 497EBFDE2212665D00A812AE /* Build configuration list for PBXNativeTarget "BaumanB TV RemoteUITests" */;
+			buildPhases = (
+				497EBFCB2212665D00A812AE /* Sources */,
+				497EBFCC2212665D00A812AE /* Frameworks */,
+				497EBFCD2212665D00A812AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				497EBFD12212665D00A812AE /* PBXTargetDependency */,
+			);
+			name = "BaumanB TV RemoteUITests";
+			productName = "BaumanB TV RemoteUITests";
+			productReference = 497EBFCF2212665D00A812AE /* BaumanB TV RemoteUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		497EBFA82212665900A812AE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Brian Bauman";
+				TargetAttributes = {
+					497EBFAF2212665900A812AE = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					497EBFC32212665D00A812AE = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 497EBFAF2212665900A812AE;
+					};
+					497EBFCE2212665D00A812AE = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 497EBFAF2212665900A812AE;
+					};
+				};
+			};
+			buildConfigurationList = 497EBFAB2212665900A812AE /* Build configuration list for PBXProject "BaumanB TV Remote" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 497EBFA72212665900A812AE;
+			productRefGroup = 497EBFB12212665900A812AE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				497EBFAF2212665900A812AE /* BaumanB TV Remote */,
+				497EBFC32212665D00A812AE /* BaumanB TV RemoteTests */,
+				497EBFCE2212665D00A812AE /* BaumanB TV RemoteUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		497EBFAE2212665900A812AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				497EBFBE2212665C00A812AE /* LaunchScreen.storyboard in Resources */,
+				497EBFBB2212665C00A812AE /* Assets.xcassets in Resources */,
+				497EBFB92212665900A812AE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		497EBFC22212665D00A812AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		497EBFCD2212665D00A812AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		497EBFAC2212665900A812AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				497EBFB62212665900A812AE /* ViewController.swift in Sources */,
+				497EBFB42212665900A812AE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		497EBFC02212665D00A812AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				497EBFC92212665D00A812AE /* BaumanB_TV_RemoteTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		497EBFCB2212665D00A812AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				497EBFD42212665D00A812AE /* BaumanB_TV_RemoteUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		497EBFC62212665D00A812AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 497EBFAF2212665900A812AE /* BaumanB TV Remote */;
+			targetProxy = 497EBFC52212665D00A812AE /* PBXContainerItemProxy */;
+		};
+		497EBFD12212665D00A812AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 497EBFAF2212665900A812AE /* BaumanB TV Remote */;
+			targetProxy = 497EBFD02212665D00A812AE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		497EBFB72212665900A812AE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				497EBFB82212665900A812AE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		497EBFBC2212665C00A812AE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				497EBFBD2212665C00A812AE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		497EBFD62212665D00A812AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		497EBFD72212665D00A812AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		497EBFD92212665D00A812AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "BaumanB TV Remote/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "CSC-471.BaumanB-TV-Remote";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		497EBFDA2212665D00A812AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "BaumanB TV Remote/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "CSC-471.BaumanB-TV-Remote";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		497EBFDC2212665D00A812AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "BaumanB TV RemoteTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "CSC-471.BaumanB-TV-RemoteTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BaumanB TV Remote.app/BaumanB TV Remote";
+			};
+			name = Debug;
+		};
+		497EBFDD2212665D00A812AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "BaumanB TV RemoteTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "CSC-471.BaumanB-TV-RemoteTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BaumanB TV Remote.app/BaumanB TV Remote";
+			};
+			name = Release;
+		};
+		497EBFDF2212665D00A812AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "BaumanB TV RemoteUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "CSC-471.BaumanB-TV-RemoteUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "BaumanB TV Remote";
+			};
+			name = Debug;
+		};
+		497EBFE02212665D00A812AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "BaumanB TV RemoteUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "CSC-471.BaumanB-TV-RemoteUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "BaumanB TV Remote";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		497EBFAB2212665900A812AE /* Build configuration list for PBXProject "BaumanB TV Remote" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				497EBFD62212665D00A812AE /* Debug */,
+				497EBFD72212665D00A812AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		497EBFD82212665D00A812AE /* Build configuration list for PBXNativeTarget "BaumanB TV Remote" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				497EBFD92212665D00A812AE /* Debug */,
+				497EBFDA2212665D00A812AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		497EBFDB2212665D00A812AE /* Build configuration list for PBXNativeTarget "BaumanB TV RemoteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				497EBFDC2212665D00A812AE /* Debug */,
+				497EBFDD2212665D00A812AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		497EBFDE2212665D00A812AE /* Build configuration list for PBXNativeTarget "BaumanB TV RemoteUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				497EBFDF2212665D00A812AE /* Debug */,
+				497EBFE02212665D00A812AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 497EBFA82212665900A812AE /* Project object */;
+}
