@@ -1,0 +1,79 @@
+Brian Bauman
+CSC 453 HW 2 Part C
+
+C-1
+1. yes -- the closure of (NP) is (LMNOP)
+2. no -- the closure of (NQ) is (NOQ)
+
+C-2
+i. (ABE), (BCE), (BDE)
+ii. candidate keys: (ABEF), (ABCDE)
+    superkeys: (ABEF), (ABCEF), (ABDEF), (ABCDE), (ABCDEF)
+
+C-3
+A->BC
+AB->D
+C->AD
+D->B
+
+A->B
+A->C
+AB->D
+C->A
+C->D
+D->B
+
+A->C
+AB->D
+C->A
+C->D
+D->B
+
+A->C
+A->D
+C->A
+C->D
+D->B
+
+final:
+A->C
+C->A
+C->D
+D->B
+
+C-4
+FD1: 
+(BC)+ = (ABCDEG)
+(ACD)+ = (ABCDEG)
+(CG)+ = (ABCDEG)
+(AB)+ = (ABCDEG)
+(C)+ = (AC)
+(D)+ = (DEG)
+(BE)+ = (ABCDEG)
+(CE)+ = (ABCDEG)
+(CD)+ = (ABCDEG)
+
+FD2: 
+(BC)+ = (ABCDEG) 
+(ACD)+ = (ABCDEG)
+(CG)+ = (ABCDEG)
+(AB)+ = (ABCDEG)
+(C)+ = (AC)
+(D)+ = (DEG)
+(BE)+ = (ABCDEG)
+(CE)+ = (ACE) <-- doesn't match FD1
+
+FD3: 
+(BC)+ = (ABCDEG) 
+(ACD)+ = (ABCDEG)
+(CG)+ = (ABCDEG)
+(AB)+ = (ABCDEG)
+(C)+ = (AC)
+(D)+ = (DEG)
+(BE)+ = (ABCDEG)
+(CE)+ = (ABCDEG) 
+(CD)+ = (ABCDEG)
+
+FD1 != FD2
+FD1 == FD3
+

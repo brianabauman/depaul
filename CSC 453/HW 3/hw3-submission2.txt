@@ -1,0 +1,48 @@
+Brian Bauman
+
+CSC 453 HW 3
+
+Q3
+
+c) From previous assignment:
+
+ID -> First, Last, Salary
+First, Last -> ID
+Last -> Team
+Salary -> Dept
+
+R1(ID, First, Last, Salary)
+R2(Last, Team)
+R3(Salary, Dept)
+
+This relation is also in BCNF because each functional dependency consists of a superkey (for the given relations) on the left hand side.
+
+Q5
+
+a) R(ABCD), F = { BC->A, AD->C, CD->B, BD->C) }
+
+This relation is not in BCNF because BC is not a superkey for this relation.
+
+b) R(ABCD), F = { BD->C, AB->D, AC->B, BD->A }
+
+This relation is in BCNF because the left side of each functional dependency is a superkey for the relation.
+
+c) R(ABCD), F = { A->C, B->A, A->D, AD->C }
+
+This relation is not in BCNF because A is not a superkey for this relation.
+
+Q6
+
+R(ABCDE), F = { A->BC, BC->A, D->E, C->DE }, candidate keys: A, BC
+
+This relation is not even in 2NF, because a functional dependency (C->DE) relies on a proper subset (C) of a candidate key (BC). Therefore, it is not in 3NF or BCNF either.
+
+To decompose into BCNF, we'll use the strategy from class. The first violating functional dependency is D->E. We correct by splitting the relation into two:
+
+R1(DE), R2(ABCD)
+
+Next, we have the functional dependency C->D that needs to be taken care of:
+
+R1(DE), R2(CD), R3(ABC)
+
+This relationship is now in BCNF, but is not dependency preserving (the dependency C->DE is lost).

@@ -1,0 +1,128 @@
+Brian Bauman
+CSC 453 HW4
+
+Q1
+
+S: [X := X + 10; Y := Y - 10]
+T: [X := X * 2; Y := Y * 2]
+U: [Y := Y + 10; X := X - 10]
+
+Initial values: X = 15, Y = 25
+
+S         T         U
+READ(X)
+WRITE(X)
+
+READ(Y)
+WRITE(Y)
+
+          READ(X)
+          WRITE(X)
+
+          READ(Y)
+          WRITE(Y)
+
+                    READ(Y)
+                    WRITE(Y)
+         
+                    READ(X)
+                    WRITE(X)
+
+results in X = 40, Y = 40
+
+The same could be performed in the order 
+(S, U, T), resulting in X = 30, Y = 50
+(T, S, U), resulting in X = 30, Y = 50
+(T, U, S), resulting in X = 30, Y = 50
+(U, S, T), resulting in X = 30, Y = 50 
+(U, T, S), resulting in X = 20, Y = 60
+
+Because the transactions are performed with a serializable isolation level, they cannot be interleaved. Therefore, the following values are valid for (X, Y) after all three transactions have run:
+
+(20, 60), (30, 50), (40, 40)
+
+Q2
+
+R(AB), S(C)
+
+a)
+
+T1 (with READ UNCOMMITED): SELECT COUNT(*) FROM R; SELECT COUNT(*) FROM S;
+T2 (with SERIALIZABLE): INSERT INTO R VALUES (1, 2); INSERT INTO S VALUES (3);
+
+If these transactions were performed serially, T1 would return either the initial counts from R and S, or the counts with the additional rows inserted. If T1 runs while T2 is running, it may return a combination of these initial/updated counts for R and S. So, yes, it is possible for nonserialzable behavior to be exhibited when executing these transactions concurrently.
+
+b) 
+
+T1 (with READ COMMITTED): SELECT COUNT(*) FROM R; SELECT COUNT(*) FROM S; 
+T2 (with SERIALIZABLE): INSERT INTO R VALUES (1, 2); INSERT INTO R VALUES (3, 4);
+
+If these transactions were performed serially, T1 would return either the inital counts from table R or the updated counts after inserting the additional rows. Because T2 doesn't update the table S, T1 will always return the initial counts from the table S. Because T1 is READ COMMITTED, it will not be able to see the values inserted into table R by T2 until the transaction T2 commits. Therefore, this set of concurrent transactions will never exhbit non-serializable behavior.
+
+c) 
+
+T1 (with REPEATABLE READ): SELECT COUNT(*) FROM R; SELECT COUNT(*) FROM S; SELECT COUNT(*) FROM R;
+T2 (with SERIALIZABLE): INSERT INTO R VALUES (1, 2);
+
+If tese transactions were performed serially, T1 would return either the initial counts from the table R (both times) or the updated counts after inserting the additional rows (both times). Because T2 doesn't update the table S, T1 will always return the initial counts from the table S. Because T1 is REPEATABLE READ, it is at risk of seeing the new rows inserted by T2 (before T2 commits) if the transactions run concurrently. There exists a scenario where the first read of table R in T1 reads the original count of table R and the second read of table R in T1 reads the new count. Therefore, this set of concurrent transactions may exhibit non-serializable behavior.
+
+Q3
+
+Item(_name_, price)
+Initially contains:
+(EN, 20)
+(RG, 30)
+
+T1 (with SERIALIZABLE): 
+INSERT INTO Item VALUES ('FCDB', 40); 
+UPDATE Item SET price = price + 30 WHERE name = 'EN';
+
+T2:  
+SELECT AVG(price) AS a1 FROM Item;
+SELECT MAX(price) AS a2 FROM Item;
+
+a) 
+
+(T2 runs with READ UNCOMMITTED)
+If T2 completes before T1 begins, it will return a1 = 25, a2 = 30.
+If T2 begins after T1 has finished, it will return a1 = 40, a2 = 50.
+If T2 runs concurrently with T1, it may return a few different values. Depending on where in sequence the first SELECT statement from T2 occurs, a1 may also have the value 30. Depending on where in sequence the second SELECT statement from T2 occurs, a2 may also have the value 40.
+
+Therefore, the possible pairs of (a1, a2) are:
+(25, 30), (25, 40), (25, 50), (30, 40), (30, 50), (40, 50)
+
+b)
+
+(T2 runs with READ COMMITTED)
+If T2 completes before T1 begins, it will return a1 = 25, a2 = 30.
+If T2 begins after T1 has finished, it will return a1 = 40, a2 = 50.
+There are no other options, as T2 will not see the changes made by T1 until T1 has committed.
+
+Therefore, the possible pairs of (a1, a2) are:
+(25, 30), (40, 50)
+
+c)
+
+(T2 runs with REPEATABLE READ)
+If T2 completes before T1 begins, it will return a1 = 25, a2 = 30.
+If T2 begins after T1 has finished, it will return a1 = 40, a2 = 50.
+If T2 runs concurrently with T1, it may have visibiility into the INSERT statement performed by T1. As such, a1 could contain a value of 30 and a2 could contain a value of 40.
+
+Therefore, the possible pairs of (a1, a2) are:
+(25, 30), (25, 40), (30, 40) ,(40, 50)
+
+d) 
+
+(T2 runs with SERIALIZABLE)
+If T2 completes before T1 begins, it will return a1 = 25, a2 = 30.
+If T2 begins after T1 has finished, it will return a1 = 40, a2 = 50.
+There are no other options, as the transactions must be handled serially.
+
+Therefore, the possible pairs of (a1, a2) are:
+(25, 30), (40, 50)
+
+
+
+
+
+

@@ -1,0 +1,76 @@
+Brian Bauman
+
+CSC 453 HW 3
+
+Q1
+
+a) { y->z, yz->w }
+b) { y->x }
+c) The decomposition doesn't preserve the dependencies. For example, because the attributes x and w belong to separate relations, the dependency x->w can no longer be inferred.
+
+Q2
+
+F = { A1->A4, A4->A5, A3->A4 }
+
+a) Da = { R1(A1, A2), R2(A3, A4, A5) }
+
+This doesn't have the non-additive join property because there is no common attribute between the two decomposed relations.
+
+b) Db = { R1(A3, A4), R2(A4, A5) }
+
+This does have the non-additive join property because the intersection of the two table's attributes is A4, which is a key for the relation R2.
+
+c) Dc = { R1(A1, A5), R2(A4, A5) }
+
+This doesn't have the non-additive join property because the intersection of the two relation's attributes is A5, which is not a key for either relation.
+
+d) Dd = { R1(A1, A2, A3), R2(A1, A2, A5) }
+
+This doesn't have the non-additive join property because the intersection of the two relation's attributes is (A1, A2), which is not a key for either relation.
+
+Q3
+
+a) The candidate keys are (ID) and (First, Last) as no other attributes can determine these two values, but these attributes can determine all others.
+
+b) 
+
+step 1 -- eliminate redundant FDs and simplify, leaving:
+
+ID -> First, Last, Salary
+First, Last -> ID
+Last -> Team
+Salary -> Dept
+
+step 2 -- create a relation for each FD that remains:
+
+R1(ID, First, Last, Salary)
+R2(Last, Team)
+R3(Salary, Dept)
+
+step 3 -- ensure that the original candidate keys occur in one of these relations (they do)
+
+You can be sure that this decomposition is depenency-preserving because all of the original functional dependencies still exists through a projection onto one of these three tables.
+
+c) TODO in next assignment (BCNF)
+
+Q4
+
+a) R(ABCD), F = { ACD->B, AC->D, D->C, AC->B }, candidate keys: AC, AD
+
+The table does satisfy 2NF because all non-prime attributes are dependent on the entire candidate key. The table also satisfies 3NF, because no non-prime attributes are determined by other non-prime attributes.
+
+b) R(ABCD), F = { AB->C, BCD->A, D->A,  B->C }, candidate keys: BD
+
+This table does not satisfy 2NF because at least one non-prime attribute is dependent on a subset of the primary key. For example, the attribute A is dependent on D, which is a subset of the candidate key BD. Thus, it does not satisfy 3NF.
+
+c) R(ABCD), F = { AB->C, ABD->C, ABC->D, AC->D }, candidate keys: AB
+
+This table does not satisfy 2NF because at least one non-prime attribute is dependent on a subset of the primary key. For example, the attribute D is dependent on AC, which is a subset of the candidate key AB. Thus, it does not satisfy 3NF.
+
+d) R(ABCD), F = { C->B, A->B, CD->A, BCD->A }, candidate keys: CD
+
+This table does not satisfy 2NF because at least one non-prime attribute is dependent on a subset of the primary key. For example, the attribute B is dependent on C, which is a subset of the candidate key CD. Thus, it does not satisfy 3NF.
+
+
+
+
