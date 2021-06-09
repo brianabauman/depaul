@@ -1,0 +1,1 @@
+Simply navigate to the folder where this ZIP was unzipped and run sbt. The program will take two snapshots, one after five seconds of token passing, and one after eleven seconds.

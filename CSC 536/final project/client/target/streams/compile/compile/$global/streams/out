@@ -1,0 +1,10 @@
+[0m[[0m[33mwarn[0m] [0m[0m/Users/brianbauman/Documents/DePaul/CSC 536/final project/client/src/main/scala/master.scala:35:26: abstract type pattern K1 is unchecked since it is eliminated by erasure[0m
+[0m[[0m[33mwarn[0m] [0m[0m    case MapperInput(k1: K1, v1: V1) =>[0m
+[0m[[0m[33mwarn[0m] [0m[0m                         ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/Users/brianbauman/Documents/DePaul/CSC 536/final project/client/src/main/scala/master.scala:35:34: abstract type pattern V1 is unchecked since it is eliminated by erasure[0m
+[0m[[0m[33mwarn[0m] [0m[0m    case MapperInput(k1: K1, v1: V1) =>[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                 ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/Users/brianbauman/Documents/DePaul/CSC 536/final project/client/src/main/scala/master.scala:39:28: abstract type pattern V3 is unchecked since it is eliminated by erasure[0m
+[0m[[0m[33mwarn[0m] [0m[0m    case ReducerOutput(v3: V3) =>[0m
+[0m[[0m[33mwarn[0m] [0m[0m                           ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mthree warnings found[0m

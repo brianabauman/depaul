@@ -1,0 +1,105 @@
+[0m[[0m[0minfo[0m] [0m[0mPackaging /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/mapreduce-client_2.12-1.0.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/Start.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/Start.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/ProperNouns 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/ProperNouns 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/ProperNouns$$anonfun$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/ProperNouns$$anonfun$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/WordCount.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/WordCount.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/ReducerConfig.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/ReducerConfig.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/GenericReducerActor.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/GenericReducerActor.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/WordCount$$anonfun$1 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/WordCount$$anonfun$1 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/Finished.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/Finished.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/Client$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/Client$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/Hyperlinks$$anonfun$1 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/Hyperlinks$$anonfun$1 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/Finished$ 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/Finished$ 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/GenericMapperActor.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/GenericMapperActor.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/ReducerInput$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/ReducerInput$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/Start$ 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/Start$ 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/GenericReducerActor$$anonfun$receive$1 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/GenericReducerActor$$anonfun$receive$1 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/ReducerOutput$ 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/ReducerOutput$ 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/MasterActor$ReducerInput$ 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/MasterActor$ReducerInput$ 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/ReducerInput 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/ReducerInput 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/MapperInput$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/MapperInput$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/ReducerOutput.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/ReducerOutput.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/MasterActor.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/MasterActor.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/MapperConfig$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/MapperConfig$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/Client$ 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/Client$ 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/WordCount$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/WordCount$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/MasterActor$ReducerInput 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/MasterActor$ReducerInput 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/Hyperlinks.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/Hyperlinks.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/MapperInput 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/MapperInput 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/MapperConfig.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/MapperConfig.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/GenericMapperActor$$anonfun$receive$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/GenericMapperActor$$anonfun$receive$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/Hyperlinks$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/Hyperlinks$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	application.conf[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/application.conf[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/ProperNouns$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/ProperNouns$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/Finished$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/Finished$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/MapperInput.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/MapperInput.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/Client.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/Client.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/MasterActor$$anonfun$receive$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/MasterActor$$anonfun$receive$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/MasterActor$ReducerInput.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/MasterActor$ReducerInput.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/ReducerConfig$ 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/ReducerConfig$ 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/Hyperlinks$$anonfun$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/Hyperlinks$$anonfun$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/ReducerInput.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/ReducerInput.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/Client$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/Client$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/Start$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/Start$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/ProperNouns.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/ProperNouns.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/Client 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/Client 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/ReducerOutput$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/ReducerOutput$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/WordCount$$anonfun$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/WordCount$$anonfun$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/GenericReducerActor$$anonfun$receive$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/GenericReducerActor$$anonfun$receive$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/MasterActor$ReducerInput$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/MasterActor$ReducerInput$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/MasterActor$$anonfun$receive$1 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/MasterActor$$anonfun$receive$1 2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	mapreduce/ReducerConfig$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/brianbauman/Documents/DePaul/CSC 536/final project/client/target/scala-2.12/classes/mapreduce/ReducerConfig$.class[0m
+[0m[[0m[0minfo[0m] [0m[0mDone packaging.[0m

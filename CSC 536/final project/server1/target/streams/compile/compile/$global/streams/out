@@ -1,0 +1,4 @@
+[0m[[0m[33mwarn[0m] [0m[0m/Users/brianbauman/Documents/DePaul/CSC 536/final project/server1/src/main/scala/hyperlinks.scala:18:12: This catches all Throwables. If this is really intended, use `case _ : Throwable` to clear this warning.[0m
+[0m[[0m[33mwarn[0m] [0m[0m      case _ => //eat the exception[0m
+[0m[[0m[33mwarn[0m] [0m[0m           ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
