@@ -1,0 +1,9 @@
+program represents my work YES
+program compiles YES
+program is commented adequately YES
+program has been tested extensively YES
+program can connect to a server at an arbitrary port YES
+program can connect to a server that is not localhost YES
+program handles ranges of delay_times at server YES
+program tested against a port that server is not running YES
+program tested against an IP that server is not running YES

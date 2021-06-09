@@ -1,0 +1,11 @@
+x program represents my work
+x program compiles
+x program is commented adequately
+x program has been tested extensively
+x tested by connecting with an actual webclient 
+x tested by pointing to a file that doesn’t exist — returns a 404 and the Not Found page
+x tested by pointing to a file that exists
+x tested by attempting to bind to a port that I’m not authorized to bind to
+x tested mulitple legal ports
+x tested multiple file types (.txt, .html, etc.)
+

@@ -1,0 +1,16 @@
+x programs compile
+x it has been tested
+	- I added the object to the RMI registry and retrieved it from the client code
+	- The client code spat back the same search benchmark results as in task 1
+x the code is all my own
+x it ran on my localhost
+x it should run when the code is on two hosts but I was unable to test this
+x task 2 took almost 3 hours
+
+I ran the programs in this folder with the following commands:
+
+java -cp .:./searcher.jar -Djava.rmi.server.codebase=file:./searcher.jar -Djava.rmi.server.hostname=localhost -Djava.security.policy=server.policy server.Server
+
+java -cp .:./searcher.jar -Djava.rmi.server.codebase=file:./searcher.jar -Djava.rmi.server.hostname=localhost -Djava.security.policy=server.policy client.Client
+
+I chose to have the SearcherImpl class be the object type that was bound in the registry. This is similar to the implementations discussed in D2L, but in my case the server exclusively exists to register this class rather than registering its own class. Otherwise, the RMI call is identical from the client perspective.

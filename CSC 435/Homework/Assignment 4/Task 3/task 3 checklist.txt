@@ -1,0 +1,16 @@
+x programs compile
+x it has been tested
+	- I added the object to the RMI registry and retrieved it from the client code
+	- The client executed the searchBenchmark() method on it’s own machine with its own object
+x the code is all my own
+x it ran on my localhost
+x it should run when the code is on two hosts but I was unable to test this
+x task 3 took about 1 hour
+
+Here are the commands that I used to run the code in this directory:
+
+java -cp .:./searcher.jar -Djava.rmi.server.codebase=file:./searcher.jar -Djava.rmi.server.hostname=localhost -Djava.security.policy=server.policy server.Server
+
+java -cp .:./searcher.jar -Djava.rmi.server.codebase=file:./searcher.jar -Djava.rmi.server.hostname=localhost -Djava.security.policy=server.policy client.Client localhost 45
+
+I chose to create a SearcherGetter class be the object type that was bound in the registry. This is similar to the implementations discussed in D2L, but in my case the server exclusively exists to register this class rather than registering its own class. Otherwise, the RMI call is identical from the client perspective.
