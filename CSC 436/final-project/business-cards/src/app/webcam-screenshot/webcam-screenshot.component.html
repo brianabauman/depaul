@@ -1,0 +1,11 @@
+<div id="app">
+    <div><video #video id="video" width="640" height="480" autoplay></video></div>
+    <div class="webcam-snap-button"><button mat-stroked-button id="snap" (click)="capture()">Snap Photo</button></div>
+    <canvas #canvas id="canvas" width="640" height="480"></canvas>
+    <ul>
+        <li *ngFor="let c of captures">
+            <img src="{{ c }}" height="50" />
+        </li>
+    </ul>
+    <div *ngIf="text.length > 0">Text: {{text}}</div>
+</div>

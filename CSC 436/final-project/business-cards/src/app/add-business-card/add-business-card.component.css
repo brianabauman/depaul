@@ -1,0 +1,11 @@
+.webcam-button {
+  margin-bottom: 10px;
+}
+
+.form-container {
+  width: 400px;
+}
+
+mat-form-field {
+  width: 100%;
+}

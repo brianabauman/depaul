@@ -1,0 +1,17 @@
+<div class="header-wrapper">
+  <span *ngIf="(cards | async)?.length > 0">
+    <mat-form-field>
+      <input matInput [(ngModel)]="searchText" placeholder="Search"> 
+      <button mat-button *ngIf="searchText" matSuffix mat-icon-button (click)="searchText=''">
+          <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+  </span>
+  <span *ngIf="(cards | async)?.length > 0" class="fill-space"></span>
+  <span>
+    <button mat-stroked-button class="add-button" [routerLink]="['/add']">Add a business card</button>
+  </span>
+</div>
+<div class="card" *ngFor="let card of cards | async | filter : searchText">
+    <app-business-card [card]="card"></app-business-card>
+</div>

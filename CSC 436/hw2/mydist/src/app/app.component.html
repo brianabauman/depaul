@@ -1,0 +1,6 @@
+<app-my-image></app-my-image>
+<app-my-button></app-my-button>
+<div *ngFor="let m of messages.messages">
+    <div>{{m.timestamp}} : {{m.text}}</div>
+</div>
+<router-outlet></router-outlet>
